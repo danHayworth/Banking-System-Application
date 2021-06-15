@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace BankAccounts.Models
 {
-    class Account
+    public abstract class Account
     {
         [Key]
         private int _aId;
-        private double _aBalance;
+        protected double _aBalance;
 
         public Account(int aId, double aBalance)
         {
             _aId = aId;
             _aBalance = aBalance;
-
         }
 
         public int getId()
@@ -28,13 +22,11 @@ namespace BankAccounts.Models
         {
             return _aBalance;
         }
-        public void Deposit( double deposit)
+        public virtual void Deposit(double deposit)
         {
-            _aBalance += deposit;
+            _aBalance += deposit;     
         }
-        public void Withdraw(double withdrawal)
-        {
-            _aBalance -= withdrawal;
-        }
+
+        public abstract void Withdraw( double withdraw);
     }
 }

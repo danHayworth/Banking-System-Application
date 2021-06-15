@@ -8,21 +8,26 @@ namespace BankAccounts.Models
 {
     class InvestmentAccount : Account
     {
-        private decimal _interestRate;
-        private int _failedFee = 10;
-        public InvestmentAccount(int aId, double aBalance, decimal interestRate, int failedFee) : base(aId, aBalance)
+        private double _interestRate;
+        public double fee = 10;
+        public InvestmentAccount(int aId, double aBalance, double interestRate) : base(aId, aBalance)
         {
             _interestRate = interestRate;
-            _failedFee = failedFee;
         }
-        protected decimal getInvestInterest()
+
+        public override void Withdraw(double withdraw)
         {
-            return _interestRate;
+            if (_aBalance < withdraw)
+            {
+                _aBalance -= fee;
+                throw new InvalidOperationException("Not sufficient funds for this withdrawal, $10 fee has been applied");
+            }
+            else
+            {
+                _aBalance -= withdraw;
+            }
         }
-        protected int getInvestFee()
-        {
-            return _failedFee;
-        }
+
 
     }
 }

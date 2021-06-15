@@ -9,13 +9,17 @@ namespace BankAccounts.Models
     class OmniAccount : Account
     {
         private decimal _interestRate;
-        private int _failedFee = 10;
+        public double _failedFee = 10;
         private int _overdraft;
-        public OmniAccount(int aId, double aBalance, decimal interestRate, int failedFee, int overdraft) : base(aId, aBalance)
+        public OmniAccount(int aId, double aBalance, decimal interestRate, int overdraft) : base(aId, aBalance)
         {
             interestRate = _interestRate;
-            failedFee = _failedFee;
             overdraft = _overdraft;
+        }
+
+        public override void Withdraw(double withdraw)
+        {
+            throw new NotImplementedException();
         }
     }
 }

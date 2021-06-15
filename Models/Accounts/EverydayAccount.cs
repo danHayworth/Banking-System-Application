@@ -8,8 +8,21 @@ namespace BankAccounts.Models
 {
     class EverydayAccount : Account
     {
-        public EverydayAccount(int aId, double aBalance, decimal interestRate, int failFee) : base(aId, aBalance)
+        public EverydayAccount(int aId, double aBalance) : base(aId, aBalance)
         {
+        }
+
+        public override void Withdraw(double withdraw)
+        {
+            if(_aBalance < withdraw)
+            {
+                throw new InvalidOperationException("Not sufficient funds for this withdrawal.");
+            }
+            else
+            {
+                _aBalance -= withdraw;
+            }   
+            
         }
     }
 }
