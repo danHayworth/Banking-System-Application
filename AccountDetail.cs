@@ -71,19 +71,16 @@ namespace BankAccounts
                     if(a is EverydayAccount && accountName == "Everyday Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
-                        MessageBox.Show("Your new balance is " + a.getBalance());
                         txtDeposit.Text = "0";
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
-                        MessageBox.Show("Your new balance is " + a.getBalance());
                         txtDeposit.Text = "0";
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
-                        MessageBox.Show("Your new balance is " + a.getBalance());
                         txtDeposit.Text = "0";
                     }
                 }
@@ -99,19 +96,16 @@ namespace BankAccounts
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
-                        MessageBox.Show("Your new balance is " + a.getBalance());
                         txtWithdraw.Text = "0";
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
-                        MessageBox.Show("Your new balance is " + a.getBalance());
                         txtWithdraw.Text = "0";
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
-                        MessageBox.Show("Your new balance is " + a.getBalance());
                         txtWithdraw.Text = "0";
                     }
                 }

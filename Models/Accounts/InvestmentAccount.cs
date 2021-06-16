@@ -22,12 +22,12 @@ namespace BankAccounts.Models
             if (_aBalance < withdraw)
             {
                 _aBalance -= _fee;
-                MessageBox.Show("Not sufficient funds for this withdrawal, $10 fee has been applied");
+                MessageBox.Show("Not sufficient funds for this withdrawal, $10 fee has been applied. Your new balance is "+_aBalance);
             }
             else
             {
                 _aBalance -= withdraw;
-                MessageBox.Show("Transfer complete.");
+                MessageBox.Show("Transfer complete. Your new balance is "+_aBalance);
             }
         }
 

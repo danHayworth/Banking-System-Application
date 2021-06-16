@@ -21,15 +21,15 @@ namespace BankAccounts.Models
         public override double GetFee() => _failedFee;
         public override void Withdraw(double withdraw)
         {
-            if (_aBalance > (withdraw + _overdraft) || _aBalance <= (0 - _overdraft))
+            if ((_aBalance + _overdraft) < withdraw || _aBalance <= (0 - _overdraft))
             {
                 _aBalance -= _failedFee;
-                MessageBox.Show("Not sufficient funds for this withdrawal. A fee of $10 has been applied.");
+                MessageBox.Show("Not sufficient funds for this withdrawal. A fee of $10 has been applied. Your new balance is "+_aBalance);
             }
             else
             {
                 _aBalance -= withdraw;
-                MessageBox.Show("Transfer complete.");
+                MessageBox.Show("Transfer complete. Your new balance is "+_aBalance);
             }
         }
     }

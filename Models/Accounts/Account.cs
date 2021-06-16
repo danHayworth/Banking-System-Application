@@ -26,7 +26,7 @@ namespace BankAccounts.Models
         public virtual void Deposit(double deposit)
         {
             _aBalance += deposit;
-            MessageBox.Show("Transfer complete.");
+            MessageBox.Show("Transfer complete. Your new balance is "+ getBalance());
         }
         public abstract void Withdraw( double withdraw);
 

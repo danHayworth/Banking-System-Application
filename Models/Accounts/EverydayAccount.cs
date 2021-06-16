@@ -17,12 +17,12 @@ namespace BankAccounts.Models
         {
             if(_aBalance < withdraw)
             {
-                MessageBox.Show("Not sufficient funds for this withdrawal.");
+                MessageBox.Show("Not sufficient funds for this withdrawal. Your balance is "+ getBalance());
             }
             else
             {
                 _aBalance -= withdraw;
-                MessageBox.Show("Transfer complete.");
+                MessageBox.Show("Transfer complete. Your new balance is "+ getBalance());
             }   
             
         }
