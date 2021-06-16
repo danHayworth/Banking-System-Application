@@ -53,6 +53,7 @@ namespace BankAccounts
                 }
             }
             txtInterest.Text = interest;
+            addTransactions();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -71,16 +72,22 @@ namespace BankAccounts
                     if(a is EverydayAccount && accountName == "Everyday Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
+                        dataStatement.Rows.Clear();
+                        addTransactions();
                         txtDeposit.Text = "0";
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
+                        dataStatement.Rows.Clear();
+                        addTransactions();
                         txtDeposit.Text = "0";
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
+                        dataStatement.Rows.Clear();
+                        addTransactions();
                         txtDeposit.Text = "0";
                     }
                 }
@@ -96,16 +103,22 @@ namespace BankAccounts
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
+                        dataStatement.Rows.Clear();
+                        addTransactions();
                         txtWithdraw.Text = "0";
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
+                        dataStatement.Rows.Clear();
+                        addTransactions();
                         txtWithdraw.Text = "0";
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
+                        dataStatement.Rows.Clear();
+                        addTransactions();
                         txtWithdraw.Text = "0";
                     }
                 }
@@ -127,6 +140,8 @@ namespace BankAccounts
                     {
                         a.CalculateInterest(Double.Parse(txtInterest.Text));
                         MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.getBalance());
+                        dataStatement.Rows.Clear();
+                        addTransactions();
 
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
@@ -135,6 +150,8 @@ namespace BankAccounts
                         {
                             a.CalculateInterest(Double.Parse(txtInterest.Text));
                             MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.getBalance());
+                            dataStatement.Rows.Clear();
+                            addTransactions();
                         }
                         else
                         {
@@ -143,6 +160,18 @@ namespace BankAccounts
 
                     }
                 }
+            }
+        }
+
+        private void addTransactions()
+        {
+            //setting a loop for every transactions in list of transactions
+            foreach (Transactions b in frmLogin.statement)
+            {
+                
+                dataStatement.Rows.Add(b.Id().ToString(), b.Date().ToString(), b.Type(), b.Amount().ToString(), b.Balance().ToString());
+                
+
             }
         }
     }

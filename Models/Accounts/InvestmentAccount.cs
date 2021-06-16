@@ -23,11 +23,19 @@ namespace BankAccounts.Models
             {
                 _aBalance -= _fee;
                 MessageBox.Show("Not sufficient funds for this withdrawal, $10 fee has been applied. Your new balance is "+_aBalance);
+                var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), getBalance());
+                frmLogin.statement.Add(fees);
             }
             else
             {
                 _aBalance -= withdraw;
                 MessageBox.Show("Transfer complete. Your new balance is "+_aBalance);
+                if (withdraw > 0)
+                {
+                    var withd = new Transactions(DateTime.Now, "Withdrawal", withdraw, getBalance());
+                    frmLogin.statement.Add(withd);
+                }
+
             }
         }
 

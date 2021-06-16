@@ -14,6 +14,7 @@ namespace BankAccounts
     public partial class frmLogin : Form
     {
         public static List<Account> accounts = new List<Account>();
+        public static List<Transactions> statement = new List<Transactions>();
         public frmLogin()
         {
             InitializeComponent();

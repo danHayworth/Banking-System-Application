@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Windows.Forms;
 
 namespace BankAccounts.Models
@@ -27,6 +28,12 @@ namespace BankAccounts.Models
         {
             _aBalance += deposit;
             MessageBox.Show("Transfer complete. Your new balance is "+ getBalance());
+            if(deposit > 0)
+            {
+                var dep = new Transactions(DateTime.Now, "Deposit", deposit, getBalance());
+                frmLogin.statement.Add(dep);
+            }
+                   
         }
         public abstract void Withdraw( double withdraw);
 
@@ -42,6 +49,8 @@ namespace BankAccounts.Models
         {
            double a = interest * getBalance() / 100;
             _aBalance += a;
+            var inter = new Transactions(DateTime.Now, "Interest", a, getBalance());
+            frmLogin.statement.Add(inter);
         }
     }
 }

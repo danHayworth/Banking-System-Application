@@ -66,10 +66,11 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Accounts\Account.cs" />
-    <Compile Include="Models\Customers\Customer.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Accounts\EverydayAccount.cs" />
     <Compile Include="Models\Accounts\InvestmentAccount.cs" />
     <Compile Include="Models\Accounts\OmniAccount.cs" />
+    <Compile Include="Models\Transactions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccountDetail.resx">
