@@ -36,15 +36,15 @@ namespace BankAccounts
             {
                 if(a is EverydayAccount)
                 {
-                    lblEvery.Text = "$" + a.getBalance().ToString();
+                    lblEvery.Text = "B " + a.getBalance().ToString();
                 }
                 else if(a is InvestmentAccount)
                 {
-                    lblInvestment.Text = "$" + a.getBalance().ToString();
+                    lblInvestment.Text = "B " + a.getBalance().ToString();
                 }
                 else if (a is OmniAccount)
                 {
-                    lblOmni.Text = "$" + a.getBalance().ToString();
+                    lblOmni.Text = "B " + a.getBalance().ToString();
                 }
             }
         }

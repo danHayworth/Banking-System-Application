@@ -35,5 +35,11 @@ namespace BankAccounts
             lblDetail.Text += accountName;
         }
 
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmDashboard x = new frmDashboard();
+            x.Show();
+        }
     }
 }
