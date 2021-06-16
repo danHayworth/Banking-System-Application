@@ -261,7 +261,7 @@ namespace BankAccounts
             this.txtDeposit.Name = "txtDeposit";
             this.txtDeposit.Size = new System.Drawing.Size(156, 37);
             this.txtDeposit.TabIndex = 26;
-            this.txtDeposit.Text = "0.00";
+            this.txtDeposit.Text = "0";
             this.txtDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtInterest
@@ -282,7 +282,7 @@ namespace BankAccounts
             this.txtWithdraw.Name = "txtWithdraw";
             this.txtWithdraw.Size = new System.Drawing.Size(156, 37);
             this.txtWithdraw.TabIndex = 28;
-            this.txtWithdraw.Text = "0.00";
+            this.txtWithdraw.Text = "0";
             this.txtWithdraw.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // pictureBox3
@@ -321,7 +321,7 @@ namespace BankAccounts
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(1013, 8);
+            this.pictureBox4.Location = new System.Drawing.Point(1017, 8);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(45, 46);
             this.pictureBox4.TabIndex = 19;

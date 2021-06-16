@@ -48,9 +48,15 @@ namespace BankAccounts
             this.lblClock = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -154,7 +160,7 @@ namespace BankAccounts
             this.lblBalEvery.AutoSize = true;
             this.lblBalEvery.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalEvery.ForeColor = System.Drawing.Color.White;
-            this.lblBalEvery.Location = new System.Drawing.Point(176, 550);
+            this.lblBalEvery.Location = new System.Drawing.Point(161, 555);
             this.lblBalEvery.Name = "lblBalEvery";
             this.lblBalEvery.Size = new System.Drawing.Size(94, 31);
             this.lblBalEvery.TabIndex = 12;
@@ -165,27 +171,31 @@ namespace BankAccounts
             this.lblEvery.AutoSize = true;
             this.lblEvery.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEvery.ForeColor = System.Drawing.Color.White;
-            this.lblEvery.Location = new System.Drawing.Point(269, 550);
+            this.lblEvery.Location = new System.Drawing.Point(283, 555);
             this.lblEvery.Name = "lblEvery";
-            this.lblEvery.Size = new System.Drawing.Size(0, 31);
+            this.lblEvery.Size = new System.Drawing.Size(26, 31);
             this.lblEvery.TabIndex = 13;
+            this.lblEvery.Text = "0";
+            this.lblEvery.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblInvestment
             // 
             this.lblInvestment.AutoSize = true;
             this.lblInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInvestment.ForeColor = System.Drawing.Color.White;
-            this.lblInvestment.Location = new System.Drawing.Point(585, 550);
+            this.lblInvestment.Location = new System.Drawing.Point(577, 555);
             this.lblInvestment.Name = "lblInvestment";
-            this.lblInvestment.Size = new System.Drawing.Size(0, 31);
+            this.lblInvestment.Size = new System.Drawing.Size(26, 31);
             this.lblInvestment.TabIndex = 15;
+            this.lblInvestment.Text = "0";
+            this.lblInvestment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblBalInv
             // 
             this.lblBalInv.AutoSize = true;
             this.lblBalInv.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalInv.ForeColor = System.Drawing.Color.White;
-            this.lblBalInv.Location = new System.Drawing.Point(469, 550);
+            this.lblBalInv.Location = new System.Drawing.Point(454, 555);
             this.lblBalInv.Name = "lblBalInv";
             this.lblBalInv.Size = new System.Drawing.Size(94, 31);
             this.lblBalInv.TabIndex = 14;
@@ -196,17 +206,19 @@ namespace BankAccounts
             this.lblOmni.AutoSize = true;
             this.lblOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOmni.ForeColor = System.Drawing.Color.White;
-            this.lblOmni.Location = new System.Drawing.Point(847, 550);
+            this.lblOmni.Location = new System.Drawing.Point(859, 555);
             this.lblOmni.Name = "lblOmni";
-            this.lblOmni.Size = new System.Drawing.Size(0, 31);
+            this.lblOmni.Size = new System.Drawing.Size(26, 31);
             this.lblOmni.TabIndex = 17;
+            this.lblOmni.Text = "0";
+            this.lblOmni.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblBalOmni
             // 
             this.lblBalOmni.AutoSize = true;
             this.lblBalOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalOmni.ForeColor = System.Drawing.Color.White;
-            this.lblBalOmni.Location = new System.Drawing.Point(754, 550);
+            this.lblBalOmni.Location = new System.Drawing.Point(739, 555);
             this.lblBalOmni.Name = "lblBalOmni";
             this.lblBalOmni.Size = new System.Drawing.Size(94, 31);
             this.lblBalOmni.TabIndex = 16;
@@ -242,12 +254,45 @@ namespace BankAccounts
             this.pnlTop.Size = new System.Drawing.Size(1128, 223);
             this.pnlTop.TabIndex = 19;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Location = new System.Drawing.Point(244, 545);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(45, 43);
+            this.pictureBox3.TabIndex = 30;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(820, 544);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(45, 44);
+            this.pictureBox4.TabIndex = 31;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Location = new System.Drawing.Point(538, 544);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(45, 44);
+            this.pictureBox5.TabIndex = 32;
+            this.pictureBox5.TabStop = false;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1120, 759);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pnlTop);
             this.Controls.Add(this.lblOmni);
             this.Controls.Add(this.lblBalOmni);
@@ -273,6 +318,9 @@ namespace BankAccounts
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,5 +345,8 @@ namespace BankAccounts
         private System.Windows.Forms.Label lblClock;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

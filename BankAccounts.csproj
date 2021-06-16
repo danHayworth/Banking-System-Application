@@ -90,11 +90,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\BankAccounts.Models.Account.datasource" />
-    <None Include="Properties\DataSources\BankAccounts.Models.Customer.datasource" />
-    <None Include="Properties\DataSources\BankAccounts.Models.EverydayAccount.datasource" />
-    <None Include="Properties\DataSources\BankAccounts.Models.InvestmentAccount.datasource" />
-    <None Include="Properties\DataSources\BankAccounts.Models.OmniAccount.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

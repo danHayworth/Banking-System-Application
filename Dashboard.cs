@@ -18,7 +18,7 @@ namespace BankAccounts
         private void Dashboard_Load(object sender, EventArgs e)
         {
             Account everyday = new EverydayAccount(1, 200.00);
-            Account investment = new InvestmentAccount(2, 300.00, 3.5);
+            Account investment = new InvestmentAccount(2, 1000.00, 3.5);
             Account omni = new OmniAccount(3, 150, 2.50, 500);
 
             if (accounts.Count.Equals(0))
@@ -36,15 +36,15 @@ namespace BankAccounts
             {
                 if(a is EverydayAccount)
                 {
-                    lblEvery.Text = "B " + a.getBalance().ToString();
+                    lblEvery.Text = a.getBalance().ToString();
                 }
                 else if(a is InvestmentAccount)
                 {
-                    lblInvestment.Text = "B " + a.getBalance().ToString();
+                    lblInvestment.Text = a.getBalance().ToString();
                 }
                 else if (a is OmniAccount)
                 {
-                    lblOmni.Text = "B " + a.getBalance().ToString();
+                    lblOmni.Text = a.getBalance().ToString();
                 }
             }
         }
