@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Models
 {
-    class InvestmentAccount : Account
+    public class InvestmentAccount : Account
     {
         private double _interestRate;
         public double fee = 10;

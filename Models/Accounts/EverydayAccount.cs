@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Models
 {
-    class EverydayAccount : Account
+    public class EverydayAccount : Account
     {
         public EverydayAccount(int aId, double aBalance) : base(aId, aBalance)
         {

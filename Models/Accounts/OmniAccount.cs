@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Models
 {
-    class OmniAccount : Account
+    public class OmniAccount : Account
     {
-        private decimal _interestRate;
+        private double _interestRate;
         public double _failedFee = 10;
         private int _overdraft;
-        public OmniAccount(int aId, double aBalance, decimal interestRate, int overdraft) : base(aId, aBalance)
+        public OmniAccount(int aId, double aBalance, double interestRate, int overdraft) : base(aId, aBalance)
         {
             interestRate = _interestRate;
             overdraft = _overdraft;

@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace BankAccounts
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDashboard x = new frmDashboard();
+            x.Show();
+            txtUsername.Clear();
+            txtPassword.Clear();
+        }
+
+        private void imgClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
