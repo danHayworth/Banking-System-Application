@@ -7,14 +7,15 @@ namespace BankAccounts.Models
     {
         protected double _interestRate;
         protected double _failedFee = 10;
-        private int _overdraft;
-        public OmniAccount(double aBalance, double interestRate, int overdraft) : base(aBalance)
+        protected double _overdraft;
+        public OmniAccount(double aBalance, double interestRate, double overdraft) : base(aBalance)
         {
             _interestRate = interestRate;
             _overdraft = overdraft;
         }
         public override double GetInterest() => _interestRate;
         public override double GetFee() => _failedFee;
+        public override double GetOverdraft() => _overdraft;
         public override void Withdraw(double withdraw)
         {
             if ((_aBalance + _overdraft) < withdraw || _aBalance <= (0 - _overdraft))

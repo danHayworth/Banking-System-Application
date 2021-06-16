@@ -15,6 +15,9 @@ namespace BankAccounts
     {
         public static string accountName;
         public static string interest;
+        public string overdraft;
+        public string balance;
+        public string accNumber;
         public AccountDetail()
         {
             InitializeComponent();
@@ -41,21 +44,33 @@ namespace BankAccounts
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
                         interest = a.GetInterest().ToString();
+                        overdraft = a.GetOverdraft().ToString();
+                        accNumber = a.getId().ToString();
+                        balance = a.getBalance().ToString();
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         interest = a.GetInterest().ToString();
+                        overdraft = a.GetOverdraft().ToString();
+                        accNumber = a.getId().ToString();
+                        balance = a.getBalance().ToString();
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         interest = a.GetInterest().ToString();
+                        overdraft = a.GetOverdraft().ToString();
+                        accNumber = a.getId().ToString();
+                        balance = a.getBalance().ToString();
                     }
                 }
             }
+            txtAccBal.Text = "B "+balance;
+            txtAccNum.Text = "06-0998-00"+accNumber;
+            txtAccInter.Text = interest+ " %";
             txtInterest.Text = interest;
+            txtAccOver.Text = "B "+overdraft;
             addTransactions();
         }
-
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();

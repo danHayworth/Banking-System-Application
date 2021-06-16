@@ -10,7 +10,6 @@ namespace BankAccounts.Models
         static int nextIdA;
         private int _aId;
         protected double _aBalance;
-
         public Account(double aBalance)
         {
             _aId = Interlocked.Increment(ref nextIdA);
@@ -43,6 +42,10 @@ namespace BankAccounts.Models
             return 0;
         }
         public virtual double GetFee()
+        {
+            return 0;
+        }
+        public virtual double GetOverdraft()
         {
             return 0;
         }
