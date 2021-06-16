@@ -135,7 +135,6 @@ namespace BankAccounts
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
                         MessageBox.Show("This account does not have interest.");
-                        a.CalculateInterest(Double.Parse(txtInterest.Text));
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
@@ -171,6 +170,14 @@ namespace BankAccounts
             {             
                 dataStatement.Rows.Add(b.Id().ToString(), b.Date().ToString(), b.Type(), b.Amount().ToString(), b.Balance().ToString());
                 
+            }
+        }
+
+        private void txtDeposit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && (e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
             }
         }
     }

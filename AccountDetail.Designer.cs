@@ -44,6 +44,11 @@ namespace BankAccounts
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataStatement = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDeposit = new System.Windows.Forms.Button();
             this.btnWithdraw = new System.Windows.Forms.Button();
             this.btnAddinterest = new System.Windows.Forms.Button();
@@ -53,11 +58,6 @@ namespace BankAccounts
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -204,6 +204,41 @@ namespace BankAccounts
             this.dataStatement.Size = new System.Drawing.Size(818, 248);
             this.dataStatement.TabIndex = 1;
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Number";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date";
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.MinimumWidth = 6;
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "Amount";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Balance
+            // 
+            this.Balance.HeaderText = "Balance";
+            this.Balance.MinimumWidth = 6;
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            // 
             // btnDeposit
             // 
             this.btnDeposit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -252,6 +287,7 @@ namespace BankAccounts
             this.txtDeposit.TabIndex = 26;
             this.txtDeposit.Text = "0";
             this.txtDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDeposit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeposit_KeyPress);
             // 
             // txtInterest
             // 
@@ -273,6 +309,7 @@ namespace BankAccounts
             this.txtWithdraw.TabIndex = 28;
             this.txtWithdraw.Text = "0";
             this.txtWithdraw.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtWithdraw.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDeposit_KeyPress);
             // 
             // pictureBox3
             // 
@@ -304,41 +341,6 @@ namespace BankAccounts
             this.label1.Size = new System.Drawing.Size(42, 38);
             this.label1.TabIndex = 32;
             this.label1.Text = "%";
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Number";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 6;
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Type";
-            this.Type.MinimumWidth = 6;
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Balance
-            // 
-            this.Balance.HeaderText = "Balance";
-            this.Balance.MinimumWidth = 6;
-            this.Balance.Name = "Balance";
-            this.Balance.ReadOnly = true;
             // 
             // AccountDetail
             // 
