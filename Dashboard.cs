@@ -7,7 +7,7 @@ namespace BankAccounts
 {
     public partial class frmDashboard : Form
     {
-        public static List<Account> accounts = new List<Account>();
+        
         public frmDashboard()
         {
             InitializeComponent();
@@ -17,28 +17,17 @@ namespace BankAccounts
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            Account everyday = new EverydayAccount(1, 200.00);
-            Account investment = new InvestmentAccount(2, 1000.00, 3.5);
-            Account omni = new OmniAccount(3, 150, 2.50, 500);
-
-            if (accounts.Count.Equals(0))
-            {
-                accounts.Add(everyday);
-                accounts.Add(investment);
-                accounts.Add(omni);
-            }
             addAccountsBalances();
         }
-
         private void addAccountsBalances()
         {
-            foreach (Account a in accounts)
+            foreach (Account a in frmLogin.accounts)
             {
-                if(a is EverydayAccount)
+                if (a is EverydayAccount)
                 {
                     lblEvery.Text = a.getBalance().ToString();
                 }
-                else if(a is InvestmentAccount)
+                else if (a is InvestmentAccount)
                 {
                     lblInvestment.Text = a.getBalance().ToString();
                 }
@@ -48,6 +37,8 @@ namespace BankAccounts
                 }
             }
         }
+
+
 
         // creating an event for clock 
         private void timer_tick(object sender, EventArgs e)

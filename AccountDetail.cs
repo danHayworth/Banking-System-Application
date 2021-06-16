@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccounts.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,11 @@ namespace BankAccounts
     public partial class AccountDetail : Form
     {
         public static string accountName;
+        public static string interest;
         public AccountDetail()
         {
             InitializeComponent();
-            timer2.Start();
-    
+            timer2.Start();  
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -33,6 +34,25 @@ namespace BankAccounts
         private void AccountDetail_Load(object sender, EventArgs e)
         {
             lblDetail.Text += accountName;
+            if (accountName != "")
+            {
+                foreach (Account a in frmLogin.accounts)
+                {
+                    if (a is EverydayAccount && accountName == "Everyday Account:")
+                    {
+                        interest = a.GetInterest().ToString();
+                    }
+                    else if (a is InvestmentAccount && accountName == "Investment Account:")
+                    {
+                        interest = a.GetInterest().ToString();
+                    }
+                    else if (a is OmniAccount && accountName == "Omni Account:")
+                    {
+                        interest = a.GetInterest().ToString();
+                    }
+                }
+            }
+            txtInterest.Text = interest;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -40,6 +60,96 @@ namespace BankAccounts
             this.Close();
             frmDashboard x = new frmDashboard();
             x.Show();
+        }
+
+        private void btnDeposit_Click(object sender, EventArgs e)
+        {
+            if(accountName != "")
+            {
+                foreach (Account a in frmLogin.accounts)
+                {
+                    if(a is EverydayAccount && accountName == "Everyday Account:")
+                    {
+                        a.Deposit(Double.Parse(txtDeposit.Text));
+                        MessageBox.Show("Your new balance is " + a.getBalance());
+                        txtDeposit.Text = "0";
+                    }
+                    else if (a is InvestmentAccount && accountName == "Investment Account:")
+                    {
+                        a.Deposit(Double.Parse(txtDeposit.Text));
+                        MessageBox.Show("Your new balance is " + a.getBalance());
+                        txtDeposit.Text = "0";
+                    }
+                    else if (a is OmniAccount && accountName == "Omni Account:")
+                    {
+                        a.Deposit(Double.Parse(txtDeposit.Text));
+                        MessageBox.Show("Your new balance is " + a.getBalance());
+                        txtDeposit.Text = "0";
+                    }
+                }
+            }
+        }
+
+        private void btnWithdraw_Click(object sender, EventArgs e)
+        {
+            if (accountName != "")
+            {
+                foreach (Account a in frmLogin.accounts)
+                {
+                    if (a is EverydayAccount && accountName == "Everyday Account:")
+                    {
+                        a.Withdraw(Double.Parse(txtWithdraw.Text));
+                        MessageBox.Show("Your new balance is " + a.getBalance());
+                        txtWithdraw.Text = "0";
+                    }
+                    else if (a is InvestmentAccount && accountName == "Investment Account:")
+                    {
+                        a.Withdraw(Double.Parse(txtWithdraw.Text));
+                        MessageBox.Show("Your new balance is " + a.getBalance());
+                        txtWithdraw.Text = "0";
+                    }
+                    else if (a is OmniAccount && accountName == "Omni Account:")
+                    {
+                        a.Withdraw(Double.Parse(txtWithdraw.Text));
+                        MessageBox.Show("Your new balance is " + a.getBalance());
+                        txtWithdraw.Text = "0";
+                    }
+                }
+            }
+        }
+
+        private void btnAddinterest_Click(object sender, EventArgs e)
+        {
+            if (accountName != "")
+            {
+                foreach (Account a in frmLogin.accounts)
+                {
+                    if (a is EverydayAccount && accountName == "Everyday Account:")
+                    {
+                        MessageBox.Show("This account does not have interest.");
+                        a.CalculateInterest(Double.Parse(txtInterest.Text));
+                    }
+                    else if (a is InvestmentAccount && accountName == "Investment Account:")
+                    {
+                        a.CalculateInterest(Double.Parse(txtInterest.Text));
+                        MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.getBalance());
+
+                    }
+                    else if (a is OmniAccount && accountName == "Omni Account:")
+                    {
+                        if(a.getBalance() >= 1000) 
+                        {
+                            a.CalculateInterest(Double.Parse(txtInterest.Text));
+                            MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.getBalance());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Interest can be added only if minimum balance of 'B 1000'");
+                        }
+
+                    }
+                }
+            }
         }
     }
 }
