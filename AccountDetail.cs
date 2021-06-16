@@ -75,21 +75,21 @@ namespace BankAccounts
                         a.Deposit(Double.Parse(txtDeposit.Text));
                         dataStatement.Rows.Clear();
                         addTransactions();
-                        txtDeposit.Text = "0";
+                        txtDeposit.Text = "0.00";
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
                         dataStatement.Rows.Clear();
                         addTransactions();
-                        txtDeposit.Text = "0";
+                        txtDeposit.Text = "0.00";
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         a.Deposit(Double.Parse(txtDeposit.Text));
                         dataStatement.Rows.Clear();
                         addTransactions();
-                        txtDeposit.Text = "0";
+                        txtDeposit.Text = "0.00";
                     }
                 }
             }
@@ -106,21 +106,21 @@ namespace BankAccounts
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
                         dataStatement.Rows.Clear();
                         addTransactions();
-                        txtWithdraw.Text = "0";
+                        txtWithdraw.Text = "0.00";
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
                         dataStatement.Rows.Clear();
                         addTransactions();
-                        txtWithdraw.Text = "0";
+                        txtWithdraw.Text = "0.00";
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         a.Withdraw(Double.Parse(txtWithdraw.Text));
                         dataStatement.Rows.Clear();
                         addTransactions();
-                        txtWithdraw.Text = "0";
+                        txtWithdraw.Text = "0.00";
                     }
                 }
             }
@@ -179,6 +179,23 @@ namespace BankAccounts
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtDeposit_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtDeposit.Text = "";
+        }
+
+        private void txtWithdraw_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtWithdraw.Text = "";
+        }
+
+        private void lblLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmLogin x = new frmLogin();
+            x.Show();
         }
     }
 }

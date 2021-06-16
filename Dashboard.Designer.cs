@@ -98,7 +98,7 @@ namespace BankAccounts
             this.lblLogOut.AutoSize = true;
             this.lblLogOut.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogOut.ForeColor = System.Drawing.Color.White;
-            this.lblLogOut.Location = new System.Drawing.Point(521, 691);
+            this.lblLogOut.Location = new System.Drawing.Point(1026, 96);
             this.lblLogOut.Name = "lblLogOut";
             this.lblLogOut.Size = new System.Drawing.Size(86, 31);
             this.lblLogOut.TabIndex = 7;
@@ -149,11 +149,11 @@ namespace BankAccounts
             this.lblCheckAcc.AutoSize = true;
             this.lblCheckAcc.Font = new System.Drawing.Font("Adobe Garamond Pro", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckAcc.ForeColor = System.Drawing.Color.White;
-            this.lblCheckAcc.Location = new System.Drawing.Point(414, 301);
+            this.lblCheckAcc.Location = new System.Drawing.Point(159, 351);
             this.lblCheckAcc.Name = "lblCheckAcc";
-            this.lblCheckAcc.Size = new System.Drawing.Size(335, 48);
+            this.lblCheckAcc.Size = new System.Drawing.Size(369, 48);
             this.lblCheckAcc.TabIndex = 11;
-            this.lblCheckAcc.Text = "Check your accounts!";
+            this.lblCheckAcc.Text = "Here are your accounts:";
             // 
             // lblBalEvery
             // 
@@ -249,6 +249,7 @@ namespace BankAccounts
             this.pnlTop.Controls.Add(this.pictureBox2);
             this.pnlTop.Controls.Add(this.lblWelcome);
             this.pnlTop.Controls.Add(this.pictureBox1);
+            this.pnlTop.Controls.Add(this.lblLogOut);
             this.pnlTop.Location = new System.Drawing.Point(-6, -4);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1128, 223);
@@ -304,7 +305,6 @@ namespace BankAccounts
             this.Controls.Add(this.btnInvestment);
             this.Controls.Add(this.btnOmni);
             this.Controls.Add(this.btnEveryday);
-            this.Controls.Add(this.lblLogOut);
             this.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
