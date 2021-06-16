@@ -12,10 +12,12 @@ namespace BankAccounts
 {
     public partial class AccountDetail : Form
     {
+        public static string accountName;
         public AccountDetail()
         {
             InitializeComponent();
             timer2.Start();
+    
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -27,5 +29,11 @@ namespace BankAccounts
         {
             lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
+
+        private void AccountDetail_Load(object sender, EventArgs e)
+        {
+            lblDetail.Text += accountName;
+        }
+
     }
 }

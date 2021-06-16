@@ -69,17 +69,23 @@ namespace BankAccounts
 
         private void btnEveryday_Click(object sender, EventArgs e)
         {
+            
+            AccountDetail.accountName = "Everyday Account:";
             newDetailForm();
         }
 
 
         private void btnInvestment_Click(object sender, EventArgs e)
         {
+          
+            AccountDetail.accountName = "Investment Account:";
             newDetailForm();
         }
 
         private void btnOmni_Click(object sender, EventArgs e)
         {
+         
+            AccountDetail.accountName = "Omni Account:";
             newDetailForm();
         }
 
