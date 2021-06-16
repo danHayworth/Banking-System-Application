@@ -11,7 +11,7 @@ namespace BankAccounts.Models
     {
         protected double _interestRate;
         protected double _fee = 10;
-        public InvestmentAccount(int aId, double aBalance, double interestRate) : base(aId, aBalance)
+        public InvestmentAccount(double aBalance, double interestRate) : base(aBalance)
         {
             _interestRate = interestRate;
         }

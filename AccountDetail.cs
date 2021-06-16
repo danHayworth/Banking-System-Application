@@ -59,6 +59,7 @@ namespace BankAccounts
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
+            frmLogin.statement.Clear();
             frmDashboard x = new frmDashboard();
             x.Show();
         }
@@ -167,11 +168,9 @@ namespace BankAccounts
         {
             //setting a loop for every transactions in list of transactions
             foreach (Transactions b in frmLogin.statement)
-            {
-                
+            {             
                 dataStatement.Rows.Add(b.Id().ToString(), b.Date().ToString(), b.Type(), b.Amount().ToString(), b.Balance().ToString());
                 
-
             }
         }
     }

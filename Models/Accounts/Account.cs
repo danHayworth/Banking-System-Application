@@ -1,18 +1,19 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace BankAccounts.Models
 {
     public abstract class Account
     {
-        [Key]
+        static int nextIdA;
         private int _aId;
         protected double _aBalance;
 
-        public Account(int aId, double aBalance)
+        public Account(double aBalance)
         {
-            _aId = aId;
+            _aId = Interlocked.Increment(ref nextIdA);
             _aBalance = aBalance;
         }
 

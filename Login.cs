@@ -36,9 +36,9 @@ namespace BankAccounts
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            Account everyday = new EverydayAccount(1, 200.00);
-            Account investment = new InvestmentAccount(2, 1000.00, 10);
-            Account omni = new OmniAccount(3, 1500, 10, 500);
+            Account everyday = new EverydayAccount(200.00);
+            Account investment = new InvestmentAccount(1000.00, 10);
+            Account omni = new OmniAccount(1500, 10, 500);
 
             if (accounts.Count.Equals(0))
             {

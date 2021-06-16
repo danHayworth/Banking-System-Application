@@ -8,7 +8,7 @@ namespace BankAccounts.Models
         protected double _interestRate;
         protected double _failedFee = 10;
         private int _overdraft;
-        public OmniAccount(int aId, double aBalance, double interestRate, int overdraft) : base(aId, aBalance)
+        public OmniAccount(double aBalance, double interestRate, int overdraft) : base(aBalance)
         {
             _interestRate = interestRate;
             _overdraft = overdraft;

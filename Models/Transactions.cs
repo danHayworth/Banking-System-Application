@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BankAccounts.Models
 {
     public class Transactions
     {
-        [Key]
+        static int nextIdT;
         private int _id { get; set; }
         private DateTime _date { get; set; }
         private string _type { get; set; }
@@ -18,6 +19,7 @@ namespace BankAccounts.Models
 
         public Transactions(DateTime date, string type, double amount, double balance)
         {
+            _id = Interlocked.Increment(ref nextIdT);
             _date = date;
             _type = type;
             _amount = amount;

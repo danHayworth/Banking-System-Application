@@ -9,7 +9,7 @@ namespace BankAccounts.Models
 {
     public class EverydayAccount : Account
     {
-        public EverydayAccount(int aId, double aBalance) : base(aId, aBalance)
+        public EverydayAccount(double aBalance) : base(aBalance)
         {
         }
 
