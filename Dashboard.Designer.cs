@@ -51,6 +51,7 @@ namespace BankAccounts
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.aFooter = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -147,11 +148,11 @@ namespace BankAccounts
             // lblCheckAcc
             // 
             this.lblCheckAcc.AutoSize = true;
-            this.lblCheckAcc.Font = new System.Drawing.Font("Adobe Garamond Pro", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCheckAcc.Font = new System.Drawing.Font("Adobe Garamond Pro", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckAcc.ForeColor = System.Drawing.Color.White;
             this.lblCheckAcc.Location = new System.Drawing.Point(159, 351);
             this.lblCheckAcc.Name = "lblCheckAcc";
-            this.lblCheckAcc.Size = new System.Drawing.Size(369, 48);
+            this.lblCheckAcc.Size = new System.Drawing.Size(398, 53);
             this.lblCheckAcc.TabIndex = 11;
             this.lblCheckAcc.Text = "Here are your accounts:";
             // 
@@ -285,12 +286,30 @@ namespace BankAccounts
             this.pictureBox5.TabIndex = 32;
             this.pictureBox5.TabStop = false;
             // 
+            // aFooter
+            // 
+            this.aFooter.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.aFooter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.aFooter.AutoSize = true;
+            this.aFooter.Font = new System.Drawing.Font("Adobe Garamond Pro", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aFooter.LinkColor = System.Drawing.Color.Snow;
+            this.aFooter.Location = new System.Drawing.Point(390, 712);
+            this.aFooter.Name = "aFooter";
+            this.aFooter.Size = new System.Drawing.Size(366, 22);
+            this.aFooter.TabIndex = 33;
+            this.aFooter.TabStop = true;
+            this.aFooter.Text = "© 2021 Banking System developed by Dan Hayworth";
+            this.aFooter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.aFooter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aFooter_LinkClicked);
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1120, 759);
+            this.Controls.Add(this.aFooter);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -348,5 +367,6 @@ namespace BankAccounts
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.LinkLabel aFooter;
     }
 }

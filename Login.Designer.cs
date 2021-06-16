@@ -39,6 +39,7 @@ namespace BankAccounts
             this.linkLblForgot = new System.Windows.Forms.LinkLabel();
             this.linkLblUser = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.aFooter = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.panel1.SuspendLayout();
@@ -121,6 +122,7 @@ namespace BankAccounts
             this.linkLblForgot.TabIndex = 11;
             this.linkLblForgot.TabStop = true;
             this.linkLblForgot.Text = "Forgot Password";
+            this.linkLblForgot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblForgot_LinkClicked);
             // 
             // linkLblUser
             // 
@@ -134,6 +136,7 @@ namespace BankAccounts
             this.linkLblUser.TabIndex = 12;
             this.linkLblUser.TabStop = true;
             this.linkLblUser.Text = "Forgot Username";
+            this.linkLblUser.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLblUser_LinkClicked);
             // 
             // panel1
             // 
@@ -147,12 +150,30 @@ namespace BankAccounts
             this.panel1.Size = new System.Drawing.Size(617, 349);
             this.panel1.TabIndex = 13;
             // 
+            // aFooter
+            // 
+            this.aFooter.ActiveLinkColor = System.Drawing.Color.Maroon;
+            this.aFooter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.aFooter.AutoSize = true;
+            this.aFooter.Font = new System.Drawing.Font("Adobe Garamond Pro", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aFooter.LinkColor = System.Drawing.Color.Snow;
+            this.aFooter.Location = new System.Drawing.Point(119, 743);
+            this.aFooter.Name = "aFooter";
+            this.aFooter.Size = new System.Drawing.Size(366, 22);
+            this.aFooter.TabIndex = 34;
+            this.aFooter.TabStop = true;
+            this.aFooter.Text = "© 2021 Banking System developed by Dan Hayworth";
+            this.aFooter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.aFooter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aFooter_LinkClicked);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(613, 784);
+            this.Controls.Add(this.aFooter);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.linkLblUser);
             this.Controls.Add(this.linkLblForgot);
@@ -185,6 +206,7 @@ namespace BankAccounts
         private System.Windows.Forms.LinkLabel linkLblForgot;
         private System.Windows.Forms.LinkLabel linkLblUser;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.LinkLabel aFooter;
     }
 }
 

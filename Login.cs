@@ -1,4 +1,5 @@
 ﻿using BankAccounts.Models;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,5 +49,21 @@ namespace BankAccounts
             }
         }
 
+        private void linkLblForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string email = Interaction.InputBox("Enter your email address", "Account email", " ");
+            MessageBox.Show("An email with a link to reset your password has been sent to " + email, "Confirmation");
+        }
+
+        private void linkLblUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string email = Interaction.InputBox("Enter your email address", "Account email", " ");
+            MessageBox.Show("An email with your username has been sent to " + email, "Confirmation");
+        }
+
+        private void aFooter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://developit.co.nz");
+        }
     }
 }

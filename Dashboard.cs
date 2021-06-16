@@ -86,5 +86,10 @@ namespace BankAccounts
             AccountDetail y = new AccountDetail();
             y.Show();
         }
+
+        private void aFooter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://developit.co.nz");
+        }
     }
 }
