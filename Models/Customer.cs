@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace BankAccounts.Models
 {
+    /* Student Id: 92060016
+    * Name: Dan Hayworth
+    * Date: 17-06-2021
+    */
     class Customer
     {
         [Key]

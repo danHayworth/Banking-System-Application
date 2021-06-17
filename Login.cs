@@ -14,6 +14,7 @@ namespace BankAccounts
 {
     public partial class frmLogin : Form
     {
+        // set up 2 list one for accounts and one for transactions since we will keep this form as the main one
         public static List<Account> accounts = new List<Account>();
         public static List<Transactions> statement = new List<Transactions>();
         public frmLogin()
@@ -23,18 +24,22 @@ namespace BankAccounts
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //on login hide this form and open a new dashboard form
             this.Hide();
             frmDashboard x = new frmDashboard();
             x.Show();
+            //clear the fields
             txtUsername.Clear();
             txtPassword.Clear();
         }
 
+        // close application on click x
         private void imgClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // on load add the new accounts to the list
         private void frmLogin_Load(object sender, EventArgs e)
         {
             Account everyday = new EverydayAccount(200.00);
@@ -49,6 +54,7 @@ namespace BankAccounts
             }
         }
 
+        // display a pop up asking for email on both forgot password and forgot username
         private void linkLblForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string email = Interaction.InputBox("Enter your email address", "Account email", " ");
@@ -61,6 +67,7 @@ namespace BankAccounts
             MessageBox.Show("An email with your username has been sent to " + email, "Confirmation");
         }
 
+        //copyright
         private void aFooter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://developit.co.nz");

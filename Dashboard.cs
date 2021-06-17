@@ -11,12 +11,13 @@ namespace BankAccounts
         public frmDashboard()
         {
             InitializeComponent();
-            //start timer
+            //start a timer that will display actual time
             timer1.Start();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            // on load add label with accounts balance
             addAccountsBalances();
         }
         private void addAccountsBalances()
@@ -46,11 +47,13 @@ namespace BankAccounts
             lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
+        //add event for closing the application on x
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // add a logout event and display login form
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -58,6 +61,7 @@ namespace BankAccounts
             x.Show();
         }
 
+        // add event to open the detailed form with everyday account details
         private void btnEveryday_Click(object sender, EventArgs e)
         {
             
@@ -65,6 +69,7 @@ namespace BankAccounts
             newDetailForm();
         }
 
+        // add event that will open the investment account detail
 
         private void btnInvestment_Click(object sender, EventArgs e)
         {
@@ -73,6 +78,7 @@ namespace BankAccounts
             newDetailForm();
         }
 
+        // omni detailed form
         private void btnOmni_Click(object sender, EventArgs e)
         {
          

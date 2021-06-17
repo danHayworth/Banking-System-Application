@@ -13,6 +13,7 @@ namespace BankAccounts
 {
     public partial class AccountDetail : Form
     {
+        // set up variables for account details
         public static string accountName;
         public static string interest;
         public string overdraft;
@@ -24,6 +25,7 @@ namespace BankAccounts
             timer2.Start();  
         }
 
+        // event for closing 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -36,9 +38,11 @@ namespace BankAccounts
 
         private void AccountDetail_Load(object sender, EventArgs e)
         {
+            // add the account name
             lblDetail.Text += accountName;
             if (accountName != "")
             {
+                // fetch all details about each type of account and add the values to the variables
                 foreach (Account a in frmLogin.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
@@ -64,6 +68,7 @@ namespace BankAccounts
                     }
                 }
             }
+            // add the details of the account 
             txtAccBal.Text = "B "+balance;
             txtAccNum.Text = "06-0998-00"+accNumber;
             txtAccInter.Text = interest+ " %";
@@ -71,6 +76,7 @@ namespace BankAccounts
             txtAccOver.Text = "B "+overdraft;
             addTransactions();
         }
+        // go back method 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -79,10 +85,12 @@ namespace BankAccounts
             x.Show();
         }
 
+
         private void btnDeposit_Click(object sender, EventArgs e)
         {
             if(accountName != "")
             {
+                //  deposit button event for making deposits 
                 foreach (Account a in frmLogin.accounts)
                 {
                     if(a is EverydayAccount && accountName == "Everyday Account:")
@@ -114,6 +122,7 @@ namespace BankAccounts
         {
             if (accountName != "")
             {
+                // withdraw button event
                 foreach (Account a in frmLogin.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
@@ -145,6 +154,7 @@ namespace BankAccounts
         {
             if (accountName != "")
             {
+                // add interest button event
                 foreach (Account a in frmLogin.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
