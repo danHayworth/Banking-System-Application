@@ -67,6 +67,7 @@ namespace BankAccounts
             this.txtAccBal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAccOver = new System.Windows.Forms.TextBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -170,6 +171,7 @@ namespace BankAccounts
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.monthCalendar1);
             this.panel1.Controls.Add(this.txtAccBal);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtAccOver);
@@ -386,29 +388,29 @@ namespace BankAccounts
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(17, 41);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 25);
+            this.label2.Size = new System.Drawing.Size(191, 31);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Account Number";
+            this.label2.Text = "Account Number:";
             // 
             // txtAccNum
             // 
             this.txtAccNum.Enabled = false;
-            this.txtAccNum.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccNum.Location = new System.Drawing.Point(169, 35);
+            this.txtAccNum.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccNum.Location = new System.Drawing.Point(174, 37);
             this.txtAccNum.Name = "txtAccNum";
             this.txtAccNum.ReadOnly = true;
-            this.txtAccNum.Size = new System.Drawing.Size(125, 35);
+            this.txtAccNum.Size = new System.Drawing.Size(122, 31);
             this.txtAccNum.TabIndex = 1;
             this.txtAccNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtAccInter
             // 
             this.txtAccInter.Enabled = false;
-            this.txtAccInter.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccInter.Location = new System.Drawing.Point(168, 151);
+            this.txtAccInter.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccInter.Location = new System.Drawing.Point(173, 153);
             this.txtAccInter.Name = "txtAccInter";
             this.txtAccInter.ReadOnly = true;
-            this.txtAccInter.Size = new System.Drawing.Size(125, 35);
+            this.txtAccInter.Size = new System.Drawing.Size(122, 31);
             this.txtAccInter.TabIndex = 3;
             this.txtAccInter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -418,9 +420,9 @@ namespace BankAccounts
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(16, 157);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 25);
+            this.label3.Size = new System.Drawing.Size(183, 31);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Account Interest";
+            this.label3.Text = "Account Interest:";
             // 
             // label4
             // 
@@ -428,18 +430,18 @@ namespace BankAccounts
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(16, 215);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 25);
+            this.label4.Size = new System.Drawing.Size(205, 31);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Account Overdraft";
+            this.label4.Text = "Account Overdraft:";
             // 
             // txtAccBal
             // 
             this.txtAccBal.Enabled = false;
-            this.txtAccBal.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccBal.Location = new System.Drawing.Point(168, 93);
+            this.txtAccBal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccBal.Location = new System.Drawing.Point(173, 95);
             this.txtAccBal.Name = "txtAccBal";
             this.txtAccBal.ReadOnly = true;
-            this.txtAccBal.Size = new System.Drawing.Size(125, 35);
+            this.txtAccBal.Size = new System.Drawing.Size(122, 31);
             this.txtAccBal.TabIndex = 9;
             this.txtAccBal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -449,20 +451,32 @@ namespace BankAccounts
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(16, 99);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 25);
+            this.label6.Size = new System.Drawing.Size(184, 31);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Account Balance";
+            this.label6.Text = "Account Balance:";
             // 
             // txtAccOver
             // 
             this.txtAccOver.Enabled = false;
-            this.txtAccOver.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccOver.Location = new System.Drawing.Point(168, 209);
+            this.txtAccOver.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccOver.Location = new System.Drawing.Point(173, 211);
             this.txtAccOver.Name = "txtAccOver";
             this.txtAccOver.ReadOnly = true;
-            this.txtAccOver.Size = new System.Drawing.Size(125, 35);
+            this.txtAccOver.Size = new System.Drawing.Size(122, 31);
             this.txtAccOver.TabIndex = 5;
             this.txtAccOver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.monthCalendar1.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthCalendar1.Location = new System.Drawing.Point(40, 313);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.RightToLeftLayout = true;
+            this.monthCalendar1.TabIndex = 10;
+            this.monthCalendar1.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.monthCalendar1.TitleForeColor = System.Drawing.Color.White;
+            this.monthCalendar1.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             // 
             // AccountDetail
             // 
@@ -540,5 +554,6 @@ namespace BankAccounts
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtAccNum;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
