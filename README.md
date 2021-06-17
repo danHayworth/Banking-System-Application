@@ -45,7 +45,7 @@ start
 
 ## Development
 In the UML diagram I have decided to use aggregation between the customer and bank account for the reason that any of these 2 classes can exist without the other one.
-I have decided to create an abstract class ```Account``` and ```Everyday```, ```Investment``` and ```Omni``` will inherit the abstarct class. I have decided to do this for the reason that 
+I have decided to create an abstract class ```Account``` and ```Everyday```, ```Investment``` and ```Omni``` will inherit the abstract class. I have decided to do this for the reason that 
 account types and their attributes may change in time or even be removed.
 
 Since we are using lists and not database in this project, I have added all the the methods for calculations in the abstract class, as abstract and virtual methods. For each 
