@@ -22,9 +22,10 @@ namespace BankAccounts.Models
             else
             {
                 _aBalance -= withdraw;
-                MessageBox.Show("Transfer complete. Your new balance is "+ getBalance());
+                
                 if(withdraw > 0)
                 {
+                    MessageBox.Show("Transfer complete. Your new balance is " + getBalance());
                     var withd = new Transactions(DateTime.Now, "Withdrawal", withdraw, getBalance());
                     frmLogin.statement.Add(withd);
                 }

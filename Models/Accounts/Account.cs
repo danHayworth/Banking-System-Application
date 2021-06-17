@@ -27,9 +27,10 @@ namespace BankAccounts.Models
         public virtual void Deposit(double deposit)
         {
             _aBalance += deposit;
-            MessageBox.Show("Transfer complete. Your new balance is "+ getBalance());
+            
             if(deposit > 0)
             {
+                MessageBox.Show("Transfer complete. Your new balance is " + getBalance());
                 var dep = new Transactions(DateTime.Now, "Deposit", deposit, getBalance());
                 frmLogin.statement.Add(dep);
             }
