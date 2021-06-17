@@ -170,7 +170,7 @@ namespace BankAccounts
                         }
                         else
                         {
-                            MessageBox.Show("Interest can be added only if minimum balance of 'B 1000'");
+                            MessageBox.Show("Interest can be added only if minimum balance is 'B 1000'");
                         }
 
                     }
@@ -184,7 +184,7 @@ namespace BankAccounts
             foreach (Transactions b in frmLogin.statement)
             {             
                 dataStatement.Rows.Add(b.Id().ToString(), b.Date().ToString(), b.Type(), b.Amount().ToString(), b.Balance().ToString());
-                
+                txtAccBal.Text ="B "+ b.Balance().ToString();
             }
         }
 
