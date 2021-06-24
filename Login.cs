@@ -1,4 +1,5 @@
-﻿using BankAccounts.Models;
+﻿using BankAccounts.Data;
+using BankAccounts.Models;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace BankAccounts
         // set up 2 list one for accounts and one for transactions since we will keep this form as the main one
         public static List<Account> accounts = new List<Account>();
         public static List<Transactions> statement = new List<Transactions>();
+        protected static List<Customer> people = new List<Customer>();
+        protected static List<Customer> isClient = new List<Customer>();
         public frmLogin()
         {
             InitializeComponent();
@@ -24,13 +27,33 @@ namespace BankAccounts
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //on login hide this form and open a new dashboard form
-            this.Hide();
-            frmDashboard x = new frmDashboard();
-            x.Show();
-            //clear the fields
-            txtUsername.Clear();
-            txtPassword.Clear();
+            var user = txtUsername.Text;
+            var pass = txtPassword.Text;
+            
+            foreach(Customer c in people)
+            {
+                if (c.getUsername() == user && c.getPassword() == pass)
+                {
+                    isClient.Add(c);
+                }
+            }
+            if(isClient.Exists(x => x.getUsername().Contains(user)))
+            {
+                //on login hide this form and open a new dashboard form
+                this.Hide();
+                frmDashboard x = new frmDashboard();
+                x.Show();
+                //clear the fields
+                txtUsername.Clear();
+                txtPassword.Clear();
+            } else
+            {
+                MessageBox.Show("Wrong credentials, please check your details");
+                txtUsername.Clear();
+                txtPassword.Clear();
+            }
+            
+
         }
 
         // close application on click x
@@ -42,6 +65,7 @@ namespace BankAccounts
         // on load add the new accounts to the list
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            people = SqliteConnection.GetCustomers();
             Account everyday = new EverydayAccount(200.00);
             Account investment = new InvestmentAccount(1000.00, 10);
             Account omni = new OmniAccount(1500, 10, 500);

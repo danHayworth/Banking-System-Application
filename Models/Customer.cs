@@ -11,37 +11,31 @@ namespace BankAccounts.Models
     * Name: Dan Hayworth
     * Date: 17-06-2021
     */
-    class Customer
+    public class Customer
     {
-        [Key]
-        private int _cId;
-        private string _cName;
-        private string _cContact;
-        private bool _isStaff;
+        private int Id;
+        private string Name;
+        private string Username;
+        private string Password;
+        private string Contact;
+        private int Staff;
 
-        public Customer(int cId, string cName, string cContact, bool isStaff )
+        public Customer(System.Int64 Id, string Name, string Contact, string Username, string Password, System.Int64 Staff )
         {
-            _cId = cId;
-            _cName = cName;
-            _cContact = cContact;
-            _isStaff = isStaff;
+            this.Id = (int)Id;
+            this.Name = Name;
+            this.Contact = Contact;
+            this.Username = Username;
+            this.Password = Password;
+            this.Staff = (int)Staff;
         }
 
-        public int getId()
-        {
-            return _cId;
-        }
-        public string getName()
-        {
-            return _cName;
-        }
-        public string getContact()
-        {
-            return _cContact;
-        }
-        public bool getStaff()
-        {
-            return _isStaff;
-        }
+        public int getId() => Id;
+        public string getName() => Name;
+        public string getContact() => Contact;
+        public string getUsername() => Username;
+        public string getPassword() => Password;
+        public int getStaff() => Staff;
+
     }
 }

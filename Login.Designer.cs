@@ -50,7 +50,6 @@ namespace BankAccounts
             this.txtUsername.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(201, 396);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.PasswordChar = '*';
             this.txtUsername.Size = new System.Drawing.Size(234, 31);
             this.txtUsername.TabIndex = 0;
             // 
