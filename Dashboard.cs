@@ -7,7 +7,7 @@ namespace BankAccounts
 {
     public partial class frmDashboard : Form
     {
-        
+        public static string user;
         public frmDashboard()
         {
             InitializeComponent();
@@ -19,6 +19,7 @@ namespace BankAccounts
         {
             // on load add label with accounts balance
             addAccountsBalances();
+            lblCustomerLogged.Text += user;
         }
         private void addAccountsBalances()
         {
@@ -97,5 +98,6 @@ namespace BankAccounts
         {
             System.Diagnostics.Process.Start("https://developit.co.nz");
         }
+
     }
 }

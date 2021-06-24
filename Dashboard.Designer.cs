@@ -48,6 +48,7 @@ namespace BankAccounts
             this.lblClock = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.lblCustomerLogged = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -152,7 +153,7 @@ namespace BankAccounts
             this.lblCheckAcc.ForeColor = System.Drawing.Color.White;
             this.lblCheckAcc.Location = new System.Drawing.Point(159, 351);
             this.lblCheckAcc.Name = "lblCheckAcc";
-            this.lblCheckAcc.Size = new System.Drawing.Size(398, 53);
+            this.lblCheckAcc.Size = new System.Drawing.Size(318, 42);
             this.lblCheckAcc.TabIndex = 11;
             this.lblCheckAcc.Text = "Here are your accounts:";
             // 
@@ -246,6 +247,7 @@ namespace BankAccounts
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlTop.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTop.Controls.Add(this.lblCustomerLogged);
             this.pnlTop.Controls.Add(this.lblClock);
             this.pnlTop.Controls.Add(this.pictureBox2);
             this.pnlTop.Controls.Add(this.lblWelcome);
@@ -255,6 +257,18 @@ namespace BankAccounts
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1128, 223);
             this.pnlTop.TabIndex = 19;
+            // 
+            // lblCustomerLogged
+            // 
+            this.lblCustomerLogged.AutoSize = true;
+            this.lblCustomerLogged.Font = new System.Drawing.Font("Algerian", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerLogged.ForeColor = System.Drawing.Color.White;
+            this.lblCustomerLogged.Location = new System.Drawing.Point(179, 76);
+            this.lblCustomerLogged.Name = "lblCustomerLogged";
+            this.lblCustomerLogged.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblCustomerLogged.Size = new System.Drawing.Size(152, 42);
+            this.lblCustomerLogged.TabIndex = 19;
+            this.lblCustomerLogged.Text = "Hello  ";
             // 
             // pictureBox3
             // 
@@ -368,5 +382,6 @@ namespace BankAccounts
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.LinkLabel aFooter;
+        private System.Windows.Forms.Label lblCustomerLogged;
     }
 }

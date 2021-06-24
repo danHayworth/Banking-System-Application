@@ -29,23 +29,26 @@ namespace BankAccounts
         {
             var user = txtUsername.Text;
             var pass = txtPassword.Text;
-            
+            var isLogged = "";
             foreach(Customer c in people)
             {
                 if (c.getUsername() == user && c.getPassword() == pass)
                 {
                     isClient.Add(c);
+                    isLogged = c.getName();
                 }
             }
             if(isClient.Exists(x => x.getUsername().Contains(user)))
             {
                 //on login hide this form and open a new dashboard form
                 this.Hide();
-                frmDashboard x = new frmDashboard();
-                x.Show();
+                frmDashboard.user = isLogged;
+                frmDashboard y = new frmDashboard();
+                y.Show();
                 //clear the fields
                 txtUsername.Clear();
                 txtPassword.Clear();
+                
             } else
             {
                 MessageBox.Show("Wrong credentials, please check your details");
