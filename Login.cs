@@ -38,8 +38,9 @@ namespace BankAccounts
                     isLogged = c.getName();
                 }
             }
-            if(isClient.Exists(x => x.getUsername().Contains(user)))
+            if (isClient.Exists(x => x.getUsername().Contains(user)) && ValidateForm())
             {
+
                 //on login hide this form and open a new dashboard form
                 this.Hide();
                 frmDashboard.user = isLogged;
@@ -55,7 +56,6 @@ namespace BankAccounts
                 txtUsername.Clear();
                 txtPassword.Clear();
             }
-            
 
         }
 
@@ -98,6 +98,64 @@ namespace BankAccounts
         private void aFooter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://developit.co.nz");
+        }
+
+        /////// ****    Validation    ****    \\\\\\\\
+
+        private bool ValidateUsername()
+        {
+            bool iStats = true;
+            //if null provide error
+            if (txtUsername.Text == "")
+            {
+                errorLogin.SetError(txtUsername, "Username cannot be blank");
+                iStats = false;
+            }
+            else
+            {
+                errorLogin.SetError(txtUsername, "");
+            }
+            return iStats;
+        }
+
+        private bool ValidatePassword()
+        {
+            bool iStats = true;
+            //if null provide error
+            if (txtPassword.Text == "")
+            {
+                errorLogin.SetError(txtPassword, "Password cannot be blank");
+                iStats = false;
+            }
+            else
+            {
+                errorLogin.SetError(txtPassword, " ");
+            }
+            return iStats;
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateUsername();
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            ValidatePassword();
+        }
+
+        private bool ValidateForm()
+        {
+            bool valid = false;
+            if (ValidateUsername() &&  ValidatePassword())
+            {
+                valid = true;
+            }
+            else
+            {
+                valid = false;
+            }
+            return valid;
         }
     }
 }

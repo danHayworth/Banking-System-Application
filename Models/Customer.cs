@@ -20,14 +20,17 @@ namespace BankAccounts.Models
         private string Contact;
         private int Staff;
 
-        public Customer(System.Int64 Id, string Name, string Contact, string Username, string Password, System.Int64 Staff )
+        public Customer()
         {
-            this.Id = (int)Id;
+        }
+
+        public Customer(string Name, string Contact, string Username, string Password, int Staff)
+        {
             this.Name = Name;
             this.Contact = Contact;
             this.Username = Username;
             this.Password = Password;
-            this.Staff = (int)Staff;
+            this.Staff = Staff;
         }
 
         public int getId() => Id;

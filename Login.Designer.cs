@@ -29,6 +29,7 @@ namespace BankAccounts
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -42,9 +43,11 @@ namespace BankAccounts
             this.aFooter = new System.Windows.Forms.LinkLabel();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.errorLogin = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -54,6 +57,7 @@ namespace BankAccounts
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(234, 31);
             this.txtUsername.TabIndex = 0;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // txtPassword
             // 
@@ -63,6 +67,7 @@ namespace BankAccounts
             this.txtPassword.Size = new System.Drawing.Size(234, 31);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // pictureBox1
             // 
@@ -190,6 +195,10 @@ namespace BankAccounts
             this.lblPassword.TabIndex = 36;
             this.lblPassword.Text = "Password:";
             // 
+            // errorLogin
+            // 
+            this.errorLogin.ContainerControl = this;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -215,6 +224,7 @@ namespace BankAccounts
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,6 +244,7 @@ namespace BankAccounts
         private System.Windows.Forms.LinkLabel aFooter;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.ErrorProvider errorLogin;
     }
 }
 
