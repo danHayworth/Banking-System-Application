@@ -49,22 +49,22 @@ namespace BankAccounts
                     {
                         interest = a.GetInterest().ToString();
                         overdraft = a.GetOverdraft().ToString();
-                        accNumber = a.getId().ToString();
-                        balance = a.getBalance().ToString();
+                        accNumber = a.GetId().ToString();
+                        balance = a.GetBalance().ToString();
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         interest = a.GetInterest().ToString();
                         overdraft = a.GetOverdraft().ToString();
-                        accNumber = a.getId().ToString();
-                        balance = a.getBalance().ToString();
+                        accNumber = a.GetId().ToString();
+                        balance = a.GetBalance().ToString();
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         interest = a.GetInterest().ToString();
                         overdraft = a.GetOverdraft().ToString();
-                        accNumber = a.getId().ToString();
-                        balance = a.getBalance().ToString();
+                        accNumber = a.GetId().ToString();
+                        balance = a.GetBalance().ToString();
                     }
                 }
             }
@@ -164,17 +164,17 @@ namespace BankAccounts
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
                         a.CalculateInterest(Double.Parse(txtInterest.Text));
-                        MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.getBalance());
+                        MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.GetBalance());
                         dataStatement.Rows.Clear();
                         addTransactions();
 
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
-                        if(a.getBalance() >= 1000) 
+                        if(a.GetBalance() >= 1000) 
                         {
                             a.CalculateInterest(Double.Parse(txtInterest.Text));
-                            MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.getBalance());
+                            MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.GetBalance());
                             dataStatement.Rows.Clear();
                             addTransactions();
                         }

@@ -63,6 +63,7 @@
     <Compile Include="AccountDetail.Designer.cs">
       <DependentUpon>AccountDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>

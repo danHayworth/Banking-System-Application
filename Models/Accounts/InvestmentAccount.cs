@@ -34,7 +34,7 @@ namespace BankAccounts.Models
                 _aBalance -= _fee;
                 MessageBox.Show("Not sufficient funds for this withdrawal, $10 fee has been applied. Your new balance is "+_aBalance);
                 //record transaction for fee
-                var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), getBalance());
+                var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), GetBalance());
                 frmLogin.statement.Add(fees);
             }
             else
@@ -46,7 +46,7 @@ namespace BankAccounts.Models
                     //if there are funds, withdraw without fee and send notification
                     MessageBox.Show("Transfer complete. Your new balance is " + _aBalance);
                     //record transaction
-                    var withd = new Transactions(DateTime.Now, "Withdrawal", withdraw, getBalance());
+                    var withd = new Transactions(DateTime.Now, "Withdrawal", withdraw, GetBalance());
                     frmLogin.statement.Add(withd);
                 }
 

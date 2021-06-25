@@ -13,12 +13,12 @@ namespace BankAccounts.Models
     */
     public class Customer
     {
-        private int Id;
-        private string Name;
-        private string Username;
-        private string Password;
-        private string Contact;
-        private int Staff;
+        private int Id { get; set; }
+        private string Name { get; set; }
+        private string Username { get; set; }
+        private string Password { get; set; }
+        private string Contact { get; set; }
+        private int Staff { get; set; }
 
         public Customer()
         {
@@ -33,12 +33,12 @@ namespace BankAccounts.Models
             this.Staff = Staff;
         }
 
-        public int getId() => Id;
-        public string getName() => Name;
-        public string getContact() => Contact;
-        public string getUsername() => Username;
-        public string getPassword() => Password;
-        public int getStaff() => Staff;
+        public int GetId() => Id;
+        public string GetName() => Name;
+        public string GetContact() => Contact;
+        public string GetUsername() => Username;
+        public string GetPassword() => Password;
+        public int GetStaff() => Staff;
 
     }
 }

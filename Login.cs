@@ -4,11 +4,6 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankAccounts
@@ -32,13 +27,13 @@ namespace BankAccounts
             var isLogged = "";
             foreach(Customer c in people)
             {
-                if (c.getUsername() == user && c.getPassword() == pass)
+                if (c.GetUsername() == user && c.GetPassword() == pass)
                 {
                     isClient.Add(c);
-                    isLogged = c.getName();
+                    isLogged = c.GetName();
                 }
             }
-            if (isClient.Exists(x => x.getUsername().Contains(user)) && ValidateForm())
+            if (isClient.Exists(x => x.GetUsername().Contains(user)) && ValidateForm())
             {
 
                 //on login hide this form and open a new dashboard form

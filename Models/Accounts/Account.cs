@@ -13,6 +13,7 @@ namespace BankAccounts.Models
          */
         static int nextIdA;
         private int _aId;
+        private Customer _customer;
         protected double _aBalance;
         public Account(double aBalance)
         {
@@ -21,11 +22,12 @@ namespace BankAccounts.Models
             _aBalance = aBalance;
         }
 
-        public int getId()
+        public int GetId()
         {
             return _aId;
         }
-        public double getBalance()
+        public Customer GetCustomer() => _customer;
+        public double GetBalance()
         {
             return _aBalance;
         }
@@ -36,8 +38,8 @@ namespace BankAccounts.Models
             //if the deposit is greater than 0 then perform calculations and show  notification
             if(deposit > 0)
             {
-                MessageBox.Show("Transfer complete. Your new balance is " + getBalance());
-                var dep = new Transactions(DateTime.Now, "Deposit", deposit, getBalance());
+                MessageBox.Show("Transfer complete. Your new balance is " + GetBalance());
+                var dep = new Transactions(DateTime.Now, "Deposit", deposit, GetBalance());
                 frmLogin.statement.Add(dep);
             }
                    
@@ -61,9 +63,9 @@ namespace BankAccounts.Models
         //perform calculation for interest based on a percentage interest
         public virtual void CalculateInterest( double interest)
         {
-           double a = interest * getBalance() / 100;
+           double a = interest * GetBalance() / 100;
             _aBalance += a;
-            var inter = new Transactions(DateTime.Now, "Interest", a, getBalance());
+            var inter = new Transactions(DateTime.Now, "Interest", a, GetBalance());
             frmLogin.statement.Add(inter);
         }
     }
