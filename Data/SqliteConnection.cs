@@ -16,11 +16,11 @@ namespace BankAccounts.Data
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
-        public void SaveCustomer(Customer customer)
+        public void SaveCustomer(string name, string contact, string username, string password, int staff)
         {
             using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
             {
-                con.Execute("Insert into Customer (Name, Contact, Username, Password, Staff) values (@_cName, @_cContact, @_cUsername, @_cPassword, @_isStaff) ", customer);
+               con.Execute("Insert into Customer (Name, Contact, Username, Password, Staff) values (@Name, @Contact, @Username, @Password, @Staff)", new { Name = name, Contact = contact, Username = username, Password = password, Staff = staff });  
             }
         }
 
@@ -41,15 +41,14 @@ namespace BankAccounts.Data
                 return client;
             }
         }
-
-        public void UpdateCustomer(int id, string a)
+        public void UpdateCustomer(int id, string name, string contact, int staff)
         {
             using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
             {
-               var x =  con.Execute("Update Customer SET Name = @Name WHERE Id = @Id", new { Id = id, Name = a});
-                return;
+                var x = con.Execute("Update Customer SET Name = @Name, Contact = @Contact, Staff = @Staff WHERE Id = @Id", new { Id = id, Name = name, Contact = contact, Staff = staff });
+               
             }
         }
     }
 
-    }
+}

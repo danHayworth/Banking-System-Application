@@ -19,8 +19,8 @@ namespace BankAccounts
         // on load add the new accounts to the list
         private void frmLogin_Load(object sender, EventArgs e)
         {
+
             CustomerController.people = conn.GetCustomers();
-            conn.UpdateCustomer(1, "Daniel");
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
