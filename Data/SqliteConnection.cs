@@ -32,11 +32,11 @@ namespace BankAccounts.Data
             }
         }
 
-        public Customer GetCustomerById(int Id)
+        public Customer GetCustomerById(int id)
         {
             using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
             {
-                var client = con.QuerySingleOrDefault<Customer>("Select * from Customer", Id);
+                var client = con.QuerySingleOrDefault<Customer>("Select * from Customer Where Id = @id", new { Id = id });
                 return client;
             }
         }

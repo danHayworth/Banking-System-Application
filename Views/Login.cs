@@ -19,8 +19,7 @@ namespace BankAccounts
         // on load add the new accounts to the list
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            CustomerController.people = conn.GetCustomers();
-            
+            CustomerController.people = conn.GetCustomers();         
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -32,7 +31,7 @@ namespace BankAccounts
                 if (a.GetUsername() == user && a.GetPassword() == pass)
                 {
                     CustomerController.isClient.Add(a);
-                    isLogged = a.GetName();
+                    isLogged = a.GetName();    
                 }
             }
             if (CustomerController.isClient.Exists(x => x.GetUsername().Contains(user)) && ValidateForm())

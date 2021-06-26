@@ -164,7 +164,7 @@ namespace BankAccounts
                         }
                         else
                         {
-                            MessageBox.Show("Interest can be added only if minimum balance is 'B 1000'");
+                            MessageBox.Show("Interest can be added only if balance is over 'B 1000'");
                         }
                     }
                 }
