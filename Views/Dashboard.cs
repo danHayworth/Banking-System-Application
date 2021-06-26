@@ -1,4 +1,5 @@
-﻿using BankAccounts.Models;
+﻿using BankAccounts.Controllers;
+using BankAccounts.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,11 +9,13 @@ namespace BankAccounts
     public partial class frmDashboard : Form
     {
         public static string user;
+        AccountController AccController = new AccountController();
         public frmDashboard()
         {
             InitializeComponent();
             //start a timer that will display actual time
             timer1.Start();
+            AccController.AddAccounts();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -23,7 +26,7 @@ namespace BankAccounts
         }
         private void addAccountsBalances()
         {
-            foreach (Account a in frmLogin.accounts)
+            foreach (Account a in AccController.accounts)
             {
                 if (a is EverydayAccount)
                 {
@@ -58,7 +61,7 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogin x = new frmLogin();
+            TransactionControler x = new TransactionControler();
             x.Show();
         }
 

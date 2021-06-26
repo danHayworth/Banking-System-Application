@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BankAccounts.Models
 {
@@ -11,6 +6,7 @@ namespace BankAccounts.Models
     * Name: Dan Hayworth
     * Date: 17-06-2021
     */
+
     public class Customer
     {
         private int Id { get; set; }
@@ -39,6 +35,8 @@ namespace BankAccounts.Models
         public string GetUsername() => Username;
         public string GetPassword() => Password;
         public int GetStaff() => Staff;
+
+        
 
     }
 }

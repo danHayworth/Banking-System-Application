@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BankAccounts.Controllers;
+using System;
 using System.Windows.Forms;
 
 namespace BankAccounts.Models
@@ -34,7 +31,7 @@ namespace BankAccounts.Models
                     //if there are funds, withdraw, send notification and record transaction
                     MessageBox.Show("Transfer complete. Your new balance is " + GetBalance());
                     var withd = new Transactions(DateTime.Now, "Withdrawal", withdraw, GetBalance());
-                    frmLogin.statement.Add(withd);
+                    TransactionController.statement.Add(withd);
                 }
                 
             }   

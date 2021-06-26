@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccounts.Controllers;
+using System;
 using System.Windows.Forms;
 
 namespace BankAccounts.Models
@@ -30,7 +31,7 @@ namespace BankAccounts.Models
                 _aBalance -= _failedFee;
                 MessageBox.Show("Not sufficient funds for this withdrawal. A fee of $10 has been applied. Your new balance is "+_aBalance);
                 var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), GetBalance());
-                frmLogin.statement.Add(fees);
+                TransactionController.statement.Add(fees);
             }
             else
             {
@@ -40,7 +41,7 @@ namespace BankAccounts.Models
                 {
                     MessageBox.Show("Transfer complete. Your new balance is " + _aBalance);
                     var withd = new Transactions(DateTime.Now, "Withdrawal", withdraw, GetBalance());
-                    frmLogin.statement.Add(withd);
+                    TransactionController.statement.Add(withd);
                 }
 
             }

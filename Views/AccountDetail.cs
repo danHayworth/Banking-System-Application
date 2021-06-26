@@ -1,12 +1,6 @@
-﻿using BankAccounts.Models;
+﻿using BankAccounts.Controllers;
+using BankAccounts.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankAccounts
@@ -19,10 +13,13 @@ namespace BankAccounts
         public string overdraft;
         public string balance;
         public string accNumber;
+        AccountController AccController = new AccountController();
         public AccountDetail()
         {
             InitializeComponent();
-            timer2.Start();  
+            timer2.Start();
+            AccController.AddAccounts();
+            
         }
 
         // event for closing 
@@ -43,28 +40,19 @@ namespace BankAccounts
             if (accountName != "")
             {
                 // fetch all details about each type of account and add the values to the variables
-                foreach (Account a in frmLogin.accounts)
+                foreach (Account a in AccController.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
-                        interest = a.GetInterest().ToString();
-                        overdraft = a.GetOverdraft().ToString();
-                        accNumber = a.GetId().ToString();
-                        balance = a.GetBalance().ToString();
+                        SetAccDetails(a);
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
-                        interest = a.GetInterest().ToString();
-                        overdraft = a.GetOverdraft().ToString();
-                        accNumber = a.GetId().ToString();
-                        balance = a.GetBalance().ToString();
+                        SetAccDetails(a);
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
-                        interest = a.GetInterest().ToString();
-                        overdraft = a.GetOverdraft().ToString();
-                        accNumber = a.GetId().ToString();
-                        balance = a.GetBalance().ToString();
+                        SetAccDetails(a);
                     }
                 }
             }
@@ -76,11 +64,18 @@ namespace BankAccounts
             txtAccOver.Text = "B "+overdraft;
             addTransactions();
         }
+        void SetAccDetails(Account x)
+        {
+            interest = x.GetInterest().ToString();
+            overdraft = x.GetOverdraft().ToString();
+            accNumber = x.GetId().ToString();
+            balance = x.GetBalance().ToString();
+        }
         // go back method 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogin.statement.Clear();
+            TransactionController.statement.Clear();
             frmDashboard x = new frmDashboard();
             x.Show();
         }
@@ -91,31 +86,29 @@ namespace BankAccounts
             if(accountName != "")
             {
                 //  deposit button event for making deposits 
-                foreach (Account a in frmLogin.accounts)
+                foreach (Account a in AccController.accounts)
                 {
                     if(a is EverydayAccount && accountName == "Everyday Account:")
                     {
-                        a.Deposit(Double.Parse(txtDeposit.Text));
-                        dataStatement.Rows.Clear();
-                        addTransactions();
-                        txtDeposit.Text = "0.00";
+                        SetDeposit(a);
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
-                        a.Deposit(Double.Parse(txtDeposit.Text));
-                        dataStatement.Rows.Clear();
-                        addTransactions();
-                        txtDeposit.Text = "0.00";
+                        SetDeposit(a);
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
-                        a.Deposit(Double.Parse(txtDeposit.Text));
-                        dataStatement.Rows.Clear();
-                        addTransactions();
-                        txtDeposit.Text = "0.00";
+                        SetDeposit(a);
                     }
                 }
             }
+        }
+        private void SetDeposit(Account x)
+        {
+            x.Deposit(Double.Parse(txtDeposit.Text));
+            dataStatement.Rows.Clear();
+            addTransactions();
+            txtDeposit.Text = "0.00";
         }
 
         private void btnWithdraw_Click(object sender, EventArgs e)
@@ -123,31 +116,29 @@ namespace BankAccounts
             if (accountName != "")
             {
                 // withdraw button event
-                foreach (Account a in frmLogin.accounts)
+                foreach (Account a in AccController.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
-                        a.Withdraw(Double.Parse(txtWithdraw.Text));
-                        dataStatement.Rows.Clear();
-                        addTransactions();
-                        txtWithdraw.Text = "0.00";
+                        SetWithdraw(a);
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
-                        a.Withdraw(Double.Parse(txtWithdraw.Text));
-                        dataStatement.Rows.Clear();
-                        addTransactions();
-                        txtWithdraw.Text = "0.00";
+                        SetWithdraw(a);
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
-                        a.Withdraw(Double.Parse(txtWithdraw.Text));
-                        dataStatement.Rows.Clear();
-                        addTransactions();
-                        txtWithdraw.Text = "0.00";
+                        SetWithdraw(a);
                     }
                 }
             }
+        }
+        private void SetWithdraw(Account x)
+        {
+            x.Withdraw(Double.Parse(txtWithdraw.Text));
+            dataStatement.Rows.Clear();
+            addTransactions();
+            txtWithdraw.Text = "0.00";
         }
 
         private void btnAddinterest_Click(object sender, EventArgs e)
@@ -155,7 +146,7 @@ namespace BankAccounts
             if (accountName != "")
             {
                 // add interest button event
-                foreach (Account a in frmLogin.accounts)
+                foreach (Account a in AccController.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
@@ -163,35 +154,34 @@ namespace BankAccounts
                     }
                     else if (a is InvestmentAccount && accountName == "Investment Account:")
                     {
-                        a.CalculateInterest(Double.Parse(txtInterest.Text));
-                        MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.GetBalance());
-                        dataStatement.Rows.Clear();
-                        addTransactions();
-
+                        SetInterest(a);
                     }
                     else if (a is OmniAccount && accountName == "Omni Account:")
                     {
                         if(a.GetBalance() >= 1000) 
                         {
-                            a.CalculateInterest(Double.Parse(txtInterest.Text));
-                            MessageBox.Show("Acrued interest has been added. \nYour new balance is " + a.GetBalance());
-                            dataStatement.Rows.Clear();
-                            addTransactions();
+                            SetInterest(a);
                         }
                         else
                         {
                             MessageBox.Show("Interest can be added only if minimum balance is 'B 1000'");
                         }
-
                     }
                 }
             }
+        }
+        private void SetInterest(Account x)
+        {
+            x.CalculateInterest(Double.Parse(txtInterest.Text));
+            MessageBox.Show("Acrued interest has been added. \nYour new balance is " + x.GetBalance());
+            dataStatement.Rows.Clear();
+            addTransactions();
         }
 
         private void addTransactions()
         {
             //setting a loop for every transactions in list of transactions
-            foreach (Transactions b in frmLogin.statement)
+            foreach (Transactions b in TransactionController.statement)
             {             
                 dataStatement.Rows.Add(b.Id().ToString(), b.Date().ToString(), b.Type(), b.Amount().ToString(), b.Balance().ToString());
                 txtAccBal.Text ="B "+ b.Balance().ToString();
@@ -219,7 +209,7 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogin x = new frmLogin();
+            TransactionControler x = new TransactionControler();
             x.Show();
         }
     }

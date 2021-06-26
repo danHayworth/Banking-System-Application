@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankAccounts.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace BankAccounts.Models
     public class InvestmentAccount : Account
     {
         //add extra field and set up a fee 
-        protected double _interestRate;
+        protected double _interestRate { get; set; }
         protected double _fee = 10;
         public InvestmentAccount(double aBalance, double interestRate) : base(aBalance)
         {
@@ -35,7 +36,7 @@ namespace BankAccounts.Models
                 MessageBox.Show("Not sufficient funds for this withdrawal, $10 fee has been applied. Your new balance is "+_aBalance);
                 //record transaction for fee
                 var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), GetBalance());
-                frmLogin.statement.Add(fees);
+                TransactionController.statement.Add(fees);
             }
             else
             {
@@ -47,7 +48,7 @@ namespace BankAccounts.Models
                     MessageBox.Show("Transfer complete. Your new balance is " + _aBalance);
                     //record transaction
                     var withd = new Transactions(DateTime.Now, "Withdrawal", withdraw, GetBalance());
-                    frmLogin.statement.Add(withd);
+                    TransactionController.statement.Add(withd);
                 }
 
             }

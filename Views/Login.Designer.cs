@@ -1,7 +1,7 @@
 ﻿
 namespace BankAccounts
 {
-    partial class frmLogin
+    partial class TransactionControler
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace BankAccounts
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionControler));
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();

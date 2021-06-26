@@ -1,5 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using BankAccounts.Controllers;
+using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -12,9 +13,9 @@ namespace BankAccounts.Models
          * Date: 17-06-2021
          */
         static int nextIdA;
-        private int _aId;
-        private Customer _customer;
-        protected double _aBalance;
+        private int _aId { get; set; }
+        private Customer _customer { get; set; }
+        protected double _aBalance { get; set; }
         public Account(double aBalance)
         {
             // auto incrementing the id
@@ -40,7 +41,7 @@ namespace BankAccounts.Models
             {
                 MessageBox.Show("Transfer complete. Your new balance is " + GetBalance());
                 var dep = new Transactions(DateTime.Now, "Deposit", deposit, GetBalance());
-                frmLogin.statement.Add(dep);
+                TransactionController.statement.Add(dep);
             }
                    
         }
@@ -66,7 +67,9 @@ namespace BankAccounts.Models
            double a = interest * GetBalance() / 100;
             _aBalance += a;
             var inter = new Transactions(DateTime.Now, "Interest", a, GetBalance());
-            frmLogin.statement.Add(inter);
+            TransactionController.statement.Add(inter);
         }
+
+        
     }
 }

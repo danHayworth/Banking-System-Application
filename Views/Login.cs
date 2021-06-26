@@ -1,39 +1,41 @@
-﻿using BankAccounts.Data;
+﻿using BankAccounts.Controllers;
+using BankAccounts.Data;
 using BankAccounts.Models;
 using Microsoft.VisualBasic;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace BankAccounts
 {
-    public partial class frmLogin : Form
+    public partial class TransactionControler : Form
     {
-        // set up 2 list one for accounts and one for transactions since we will keep this form as the main one
-        public static List<Account> accounts = new List<Account>();
-        public static List<Transactions> statement = new List<Transactions>();
-        protected static List<Customer> people = new List<Customer>();
-        protected static List<Customer> isClient = new List<Customer>();
-        public frmLogin()
+        SqliteConnection conn = new SqliteConnection();
+        public TransactionControler()
         {
             InitializeComponent();
         }
 
+        // on load add the new accounts to the list
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            CustomerController.people = conn.GetCustomers();
+            
+        }
         private void btnLogin_Click(object sender, EventArgs e)
         {
             var user = txtUsername.Text;
             var pass = txtPassword.Text;
             var isLogged = "";
-            foreach(Customer c in people)
+            foreach(Customer a in CustomerController.people)
             {
-                if (c.GetUsername() == user && c.GetPassword() == pass)
+                if (a.GetUsername() == user && a.GetPassword() == pass)
                 {
-                    isClient.Add(c);
-                    isLogged = c.GetName();
+                    CustomerController.isClient.Add(a);
+                    isLogged = a.GetName();
                 }
             }
-            if (isClient.Exists(x => x.GetUsername().Contains(user)) && ValidateForm())
+            if (CustomerController.isClient.Exists(x => x.GetUsername().Contains(user)) && ValidateForm())
             {
 
                 //on login hide this form and open a new dashboard form
@@ -60,21 +62,6 @@ namespace BankAccounts
             Application.Exit();
         }
 
-        // on load add the new accounts to the list
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            people = SqliteConnection.GetCustomers();
-            Account everyday = new EverydayAccount(200.00);
-            Account investment = new InvestmentAccount(1000.00, 10);
-            Account omni = new OmniAccount(1500, 10, 500);
-
-            if (accounts.Count.Equals(0))
-            {
-                accounts.Add(everyday);
-                accounts.Add(investment);
-                accounts.Add(omni);
-            }
-        }
 
         // display a pop up asking for email on both forgot password and forgot username
         private void linkLblForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -124,7 +111,7 @@ namespace BankAccounts
             }
             else
             {
-                errorLogin.SetError(txtPassword, " ");
+                errorLogin.SetError(txtPassword, "");
             }
             return iStats;
         }

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace BankAccounts.Models
 {
@@ -34,6 +30,8 @@ namespace BankAccounts.Models
         public string Type() => _type;
         public double Amount() => _amount;
         public double Balance() => _balance;
+
+        
 
     }
 }

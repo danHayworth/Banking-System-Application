@@ -8,27 +8,36 @@ using System.Linq;
 
 namespace BankAccounts.Data
 {
-    public class SqliteConnection
+    class SqliteConnection
     {
-        private static string ConnectionSqlite( string id = "BitBank")
+        public string ConnSqlite( string id = "BitBank")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
-        public static void SaveCustomer(Customer customer)
+        public void SaveCustomer(Customer customer)
         {
-            using (IDbConnection con = new SQLiteConnection(ConnectionSqlite()))
+            using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
             {
                 con.Execute("Insert into Customer (Name, Contact, Username, Password, Staff) values (@_cName, @_cContact, @_cUsername, @_cPassword, @_isStaff) ", customer);
             }
         }
 
-        public static List<Customer> GetCustomers()
+        public List<Customer> GetCustomers()
         {
-            using (IDbConnection con = new SQLiteConnection(ConnectionSqlite()))
+            using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
             {
-                var people = con.Query<Customer>("Select * from Customer");
-                return people.ToList();
+                var pep = con.Query<Customer>("Select * from Customer");
+                return pep.ToList();
+            }
+        }
+
+        public Customer GetCustomerById(int Id)
+        {
+            using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
+            {
+                var client = con.QuerySingleOrDefault<Customer>("Select * from Customer", Id);
+                return client;
             }
         }
     }
