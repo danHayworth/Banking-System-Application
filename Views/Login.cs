@@ -20,11 +20,11 @@ namespace BankAccounts
         private void frmLogin_Load(object sender, EventArgs e)
         {
             CustomerController.people = conn.GetCustomers();
-            
+            conn.UpdateCustomer(1, "Daniel");
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            conn.UpdateCustomer(1, "Daniel");
+           
             var user = txtUsername.Text;
             var pass = txtPassword.Text;
             var isLogged = "";
