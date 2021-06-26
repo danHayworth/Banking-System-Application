@@ -19,10 +19,12 @@ namespace BankAccounts
         // on load add the new accounts to the list
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            CustomerController.people = conn.GetCustomers();         
+            CustomerController.people = conn.GetCustomers();
+            
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            conn.UpdateCustomer(1, "Daniel");
             var user = txtUsername.Text;
             var pass = txtPassword.Text;
             var isLogged = "";

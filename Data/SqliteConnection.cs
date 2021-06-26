@@ -1,5 +1,6 @@
 ﻿using BankAccounts.Models;
 using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -10,7 +11,7 @@ namespace BankAccounts.Data
 {
     class SqliteConnection
     {
-        public string ConnSqlite( string id = "BitBank")
+        public string ConnSqlite(string id = "BitBank")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
@@ -40,5 +41,15 @@ namespace BankAccounts.Data
                 return client;
             }
         }
+
+        public void UpdateCustomer(int id, string a)
+        {
+            using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
+            {
+               var x =  con.Execute("Update Customer SET Name = @Name WHERE Id = @Id", new { Id = id, Name = a});
+                return;
+            }
+        }
     }
-}
+
+    }
