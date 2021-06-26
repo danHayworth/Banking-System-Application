@@ -49,6 +49,13 @@ namespace BankAccounts.Data
                
             }
         }
+        public void DeleteCustomer(int id)
+        {
+            using (IDbConnection con = new SQLiteConnection(ConnSqlite()))
+            {
+                con.Execute("Delete from Customer Where Id = @id", new { Id = id });
+            }
+        }
     }
 
 }

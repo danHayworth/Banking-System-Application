@@ -23,8 +23,7 @@ namespace BankAccounts
             CustomerController.people = conn.GetCustomers();
         }
         private void btnLogin_Click(object sender, EventArgs e)
-        {
-           
+        {          
             var user = txtUsername.Text;
             var pass = txtPassword.Text;
             var isLogged = "";
@@ -38,7 +37,6 @@ namespace BankAccounts
             }
             if (CustomerController.isClient.Exists(x => x.GetUsername().Contains(user)) && ValidateForm())
             {
-
                 //on login hide this form and open a new dashboard form
                 this.Hide();
                 frmDashboard.user = isLogged;
@@ -46,15 +44,13 @@ namespace BankAccounts
                 y.Show();
                 //clear the fields
                 txtUsername.Clear();
-                txtPassword.Clear();
-                
+                txtPassword.Clear();              
             } else
             {
                 MessageBox.Show("Wrong credentials, please check your details");
                 txtUsername.Clear();
                 txtPassword.Clear();
             }
-
         }
 
         // close application on click x
@@ -62,7 +58,6 @@ namespace BankAccounts
         {
             Application.Exit();
         }
-
 
         // display a pop up asking for email on both forgot password and forgot username
         private void linkLblForgot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
