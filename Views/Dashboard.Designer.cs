@@ -321,7 +321,7 @@ namespace BankAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1120, 759);
             this.Controls.Add(this.aFooter);
             this.Controls.Add(this.pictureBox5);

@@ -61,7 +61,7 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            TransactionControler x = new TransactionControler();
+            frmLogin x = new frmLogin();
             x.Show();
         }
 

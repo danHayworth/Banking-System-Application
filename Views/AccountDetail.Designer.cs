@@ -31,10 +31,10 @@ namespace BankAccounts
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountDetail));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblLogOut = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -44,6 +44,15 @@ namespace BankAccounts
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.txtAccBal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtAccOver = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtAccInter = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAccNum = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataStatement = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,15 +68,6 @@ namespace BankAccounts
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtAccNum = new System.Windows.Forms.TextBox();
-            this.txtAccInter = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtAccBal = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtAccOver = new System.Windows.Forms.TextBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -169,7 +169,7 @@ namespace BankAccounts
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.monthCalendar1);
             this.panel1.Controls.Add(this.txtAccBal);
@@ -185,27 +185,123 @@ namespace BankAccounts
             this.panel1.Size = new System.Drawing.Size(306, 544);
             this.panel1.TabIndex = 22;
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.monthCalendar1.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthCalendar1.Location = new System.Drawing.Point(40, 313);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.RightToLeftLayout = true;
+            this.monthCalendar1.TabIndex = 10;
+            this.monthCalendar1.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.monthCalendar1.TitleForeColor = System.Drawing.Color.White;
+            this.monthCalendar1.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            // 
+            // txtAccBal
+            // 
+            this.txtAccBal.Enabled = false;
+            this.txtAccBal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccBal.Location = new System.Drawing.Point(173, 95);
+            this.txtAccBal.Name = "txtAccBal";
+            this.txtAccBal.ReadOnly = true;
+            this.txtAccBal.Size = new System.Drawing.Size(122, 31);
+            this.txtAccBal.TabIndex = 9;
+            this.txtAccBal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(16, 99);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(147, 25);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Account Balance:";
+            // 
+            // txtAccOver
+            // 
+            this.txtAccOver.Enabled = false;
+            this.txtAccOver.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccOver.Location = new System.Drawing.Point(173, 211);
+            this.txtAccOver.Name = "txtAccOver";
+            this.txtAccOver.ReadOnly = true;
+            this.txtAccOver.Size = new System.Drawing.Size(122, 31);
+            this.txtAccOver.TabIndex = 5;
+            this.txtAccOver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(16, 215);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(164, 25);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Account Overdraft:";
+            // 
+            // txtAccInter
+            // 
+            this.txtAccInter.Enabled = false;
+            this.txtAccInter.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccInter.Location = new System.Drawing.Point(173, 153);
+            this.txtAccInter.Name = "txtAccInter";
+            this.txtAccInter.ReadOnly = true;
+            this.txtAccInter.Size = new System.Drawing.Size(122, 31);
+            this.txtAccInter.TabIndex = 3;
+            this.txtAccInter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(16, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(146, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Account Interest:";
+            // 
+            // txtAccNum
+            // 
+            this.txtAccNum.Enabled = false;
+            this.txtAccNum.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAccNum.Location = new System.Drawing.Point(174, 37);
+            this.txtAccNum.Name = "txtAccNum";
+            this.txtAccNum.ReadOnly = true;
+            this.txtAccNum.Size = new System.Drawing.Size(122, 31);
+            this.txtAccNum.TabIndex = 1;
+            this.txtAccNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(17, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Account Number:";
+            // 
             // dataStatement
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Adobe Garamond Pro", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
-            this.dataStatement.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Adobe Garamond Pro", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dataStatement.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataStatement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataStatement.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataStatement.BackgroundColor = System.Drawing.Color.White;
             this.dataStatement.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataStatement.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataStatement.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataStatement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataStatement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -213,25 +309,25 @@ namespace BankAccounts
             this.Type,
             this.Amount,
             this.Balance});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataStatement.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataStatement.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataStatement.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataStatement.Location = new System.Drawing.Point(304, 515);
             this.dataStatement.Name = "dataStatement";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataStatement.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataStatement.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataStatement.RowHeadersWidth = 51;
             this.dataStatement.RowTemplate.Height = 24;
             this.dataStatement.Size = new System.Drawing.Size(818, 248);
@@ -382,107 +478,11 @@ namespace BankAccounts
             this.label1.TabIndex = 32;
             this.label1.Text = "%";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(17, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 31);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Account Number:";
-            // 
-            // txtAccNum
-            // 
-            this.txtAccNum.Enabled = false;
-            this.txtAccNum.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccNum.Location = new System.Drawing.Point(174, 37);
-            this.txtAccNum.Name = "txtAccNum";
-            this.txtAccNum.ReadOnly = true;
-            this.txtAccNum.Size = new System.Drawing.Size(122, 31);
-            this.txtAccNum.TabIndex = 1;
-            this.txtAccNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtAccInter
-            // 
-            this.txtAccInter.Enabled = false;
-            this.txtAccInter.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccInter.Location = new System.Drawing.Point(173, 153);
-            this.txtAccInter.Name = "txtAccInter";
-            this.txtAccInter.ReadOnly = true;
-            this.txtAccInter.Size = new System.Drawing.Size(122, 31);
-            this.txtAccInter.TabIndex = 3;
-            this.txtAccInter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(16, 157);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 31);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Account Interest:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(16, 215);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(205, 31);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Account Overdraft:";
-            // 
-            // txtAccBal
-            // 
-            this.txtAccBal.Enabled = false;
-            this.txtAccBal.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccBal.Location = new System.Drawing.Point(173, 95);
-            this.txtAccBal.Name = "txtAccBal";
-            this.txtAccBal.ReadOnly = true;
-            this.txtAccBal.Size = new System.Drawing.Size(122, 31);
-            this.txtAccBal.TabIndex = 9;
-            this.txtAccBal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(16, 99);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(184, 31);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Account Balance:";
-            // 
-            // txtAccOver
-            // 
-            this.txtAccOver.Enabled = false;
-            this.txtAccOver.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccOver.Location = new System.Drawing.Point(173, 211);
-            this.txtAccOver.Name = "txtAccOver";
-            this.txtAccOver.ReadOnly = true;
-            this.txtAccOver.Size = new System.Drawing.Size(122, 31);
-            this.txtAccOver.TabIndex = 5;
-            this.txtAccOver.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.monthCalendar1.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar1.Location = new System.Drawing.Point(40, 313);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.RightToLeftLayout = true;
-            this.monthCalendar1.TabIndex = 10;
-            this.monthCalendar1.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.monthCalendar1.TitleForeColor = System.Drawing.Color.White;
-            this.monthCalendar1.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            // 
             // AccountDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1120, 759);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox5);

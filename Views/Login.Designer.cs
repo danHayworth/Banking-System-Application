@@ -1,7 +1,7 @@
 ﻿
 namespace BankAccounts
 {
-    partial class TransactionControler
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace BankAccounts
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionControler));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -120,11 +120,11 @@ namespace BankAccounts
             // 
             this.linkLblForgot.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.linkLblForgot.AutoSize = true;
-            this.linkLblForgot.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLblForgot.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkLblForgot.Location = new System.Drawing.Point(252, 635);
+            this.linkLblForgot.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblForgot.LinkColor = System.Drawing.Color.White;
+            this.linkLblForgot.Location = new System.Drawing.Point(262, 635);
             this.linkLblForgot.Name = "linkLblForgot";
-            this.linkLblForgot.Size = new System.Drawing.Size(134, 24);
+            this.linkLblForgot.Size = new System.Drawing.Size(116, 22);
             this.linkLblForgot.TabIndex = 11;
             this.linkLblForgot.TabStop = true;
             this.linkLblForgot.Text = "Forgot Password";
@@ -134,11 +134,11 @@ namespace BankAccounts
             // 
             this.linkLblUser.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.linkLblUser.AutoSize = true;
-            this.linkLblUser.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLblUser.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.linkLblUser.Location = new System.Drawing.Point(250, 672);
+            this.linkLblUser.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLblUser.LinkColor = System.Drawing.Color.White;
+            this.linkLblUser.Location = new System.Drawing.Point(260, 672);
             this.linkLblUser.Name = "linkLblUser";
-            this.linkLblUser.Size = new System.Drawing.Size(138, 24);
+            this.linkLblUser.Size = new System.Drawing.Size(122, 22);
             this.linkLblUser.TabIndex = 12;
             this.linkLblUser.TabStop = true;
             this.linkLblUser.Text = "Forgot Username";
@@ -203,7 +203,7 @@ namespace BankAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(613, 784);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -219,7 +219,6 @@ namespace BankAccounts
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgClose)).EndInit();
             this.panel1.ResumeLayout(false);

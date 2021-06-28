@@ -1,6 +1,4 @@
-﻿using BankAccounts.Controllers;
-using BankAccounts.Data;
-using BankAccounts.Models;
+﻿using BankAccounts.Models;
 using Microsoft.VisualBasic;
 using System;
 using System.ComponentModel;
@@ -8,19 +6,11 @@ using System.Windows.Forms;
 
 namespace BankAccounts
 {
-    public partial class TransactionControler : Form
+    public partial class frmLogin : Form
     {
-        SqliteConnection conn = new SqliteConnection();
-        public TransactionControler()
+        public frmLogin()
         {
             InitializeComponent();
-        }
-
-        // on load add the new accounts to the list
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-            CustomerController.people = conn.GetCustomers();
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {          
@@ -56,7 +46,7 @@ namespace BankAccounts
         // close application on click x
         private void imgClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         // display a pop up asking for email on both forgot password and forgot username
