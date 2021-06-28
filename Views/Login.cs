@@ -1,4 +1,5 @@
 ﻿using BankAccounts.Models;
+using BankAccounts.Views;
 using Microsoft.VisualBasic;
 using System;
 using System.ComponentModel;
@@ -17,19 +18,21 @@ namespace BankAccounts
             var user = txtUsername.Text;
             var pass = txtPassword.Text;
             var isLogged = "";
+            int loggedId = 0;
             foreach(Customer a in CustomerController.people)
             {
                 if (a.GetUsername() == user && a.GetPassword() == pass)
                 {
                     CustomerController.isClient.Add(a);
-                    isLogged = a.GetName();    
+                    isLogged = a.GetName();
+                    loggedId = a.GetId();
                 }
             }
-            if (CustomerController.isClient.Exists(x => x.GetUsername().Contains(user)) && ValidateForm())
+            if (CustomerController.isClient.Exists(x => x.GetId() == loggedId) && ValidateForm())
             {
                 //on login hide this form and open a new dashboard form
                 this.Hide();
-                frmDashboard.user = isLogged;
+                CustomerController.userLoggedIn = isLogged;
                 frmDashboard y = new frmDashboard();
                 y.Show();
                 //clear the fields
@@ -47,6 +50,8 @@ namespace BankAccounts
         private void imgClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            frmMain x = new frmMain();
+            x.Show();
         }
 
         // display a pop up asking for email on both forgot password and forgot username

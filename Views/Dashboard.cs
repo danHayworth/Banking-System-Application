@@ -8,7 +8,6 @@ namespace BankAccounts
 {
     public partial class frmDashboard : Form
     {
-        public static string user;
         AccountController AccController = new AccountController();
         public frmDashboard()
         {
@@ -22,13 +21,13 @@ namespace BankAccounts
         {
             // on load add label with accounts balance
             addAccountsBalances();
-            lblCustomerLogged.Text += user;
+            lblCustomerLogged.Text += CustomerController.userLoggedIn;
         }
         private void addAccountsBalances()
         {
             foreach (Account a in AccController.accounts)
             {
-                if (a is EverydayAccount)
+                if (a is InterestAccount)
                 {
                     lblEvery.Text = a.GetBalance().ToString();
                 }

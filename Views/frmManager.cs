@@ -15,6 +15,7 @@ namespace BankAccounts.Views
             InitializeComponent();
             timer5.Start();
             AddClients();
+            lblManagerLogged.Text += CustomerController.userLoggedIn;
         }
 
         // creating an event for clock 

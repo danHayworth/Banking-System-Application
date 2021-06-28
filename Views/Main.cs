@@ -1,15 +1,16 @@
-﻿using BankAccounts.Data;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace BankAccounts.Views
 {
     public partial class frmMain : Form
     {
- 
+        frmLogin x = new frmLogin();
+        CustomerController cust = new CustomerController();
         public frmMain()
         {
             InitializeComponent();
+            CustomerController.people = cust.GetCustomers();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -20,14 +21,12 @@ namespace BankAccounts.Views
         private void btnEveryday_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmManager x = new frmManager();
             x.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmLogin x = new frmLogin();
             x.Show();
         }
 

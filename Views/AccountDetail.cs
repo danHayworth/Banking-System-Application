@@ -42,7 +42,7 @@ namespace BankAccounts
                 // fetch all details about each type of account and add the values to the variables
                 foreach (Account a in AccController.accounts)
                 {
-                    if (a is EverydayAccount && accountName == "Everyday Account:")
+                    if (a is InterestAccount && accountName == "Everyday Account:")
                     {
                         SetAccDetails(a);
                     }
@@ -88,7 +88,7 @@ namespace BankAccounts
                 //  deposit button event for making deposits 
                 foreach (Account a in AccController.accounts)
                 {
-                    if(a is EverydayAccount && accountName == "Everyday Account:")
+                    if(a is InterestAccount && accountName == "Everyday Account:")
                     {
                         SetDeposit(a);
                     }
@@ -118,7 +118,7 @@ namespace BankAccounts
                 // withdraw button event
                 foreach (Account a in AccController.accounts)
                 {
-                    if (a is EverydayAccount && accountName == "Everyday Account:")
+                    if (a is InterestAccount && accountName == "Everyday Account:")
                     {
                         SetWithdraw(a);
                     }
@@ -148,7 +148,7 @@ namespace BankAccounts
                 // add interest button event
                 foreach (Account a in AccController.accounts)
                 {
-                    if (a is EverydayAccount && accountName == "Everyday Account:")
+                    if (a is InterestAccount && accountName == "Everyday Account:")
                     {
                         MessageBox.Show("This account does not have interest.");
                     }

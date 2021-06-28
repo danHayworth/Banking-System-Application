@@ -15,6 +15,7 @@ namespace BankAccounts
         public static List<Customer> people = new List<Customer>();
         public static List<Customer> isClient = new List<Customer>();
         public static List<Customer> isStaff = new List<Customer>();
+        public static string userLoggedIn;
         public void SaveCustomer(string name, string contact, string username, string password, int staff)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))

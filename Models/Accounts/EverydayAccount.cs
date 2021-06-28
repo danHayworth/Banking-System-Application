@@ -9,9 +9,9 @@ namespace BankAccounts.Models
     * Date: 17-06-2021
     */
     //inherit account for everyday
-    public class EverydayAccount : Account
+    public class InterestAccount : Account
     {
-        public EverydayAccount(double aBalance) : base(aBalance)
+        public InterestAccount(double aBalance) : base(aBalance)
         {
         }
         //overriding withdrawal
