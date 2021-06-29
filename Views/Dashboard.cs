@@ -27,7 +27,7 @@ namespace BankAccounts
         {
             foreach (Account a in AccController.accounts)
             {
-                if (a is InterestAccount)
+                if (a is EverydayAccount)
                 {
                     lblEvery.Text = a.GetBalance().ToString();
                 }
