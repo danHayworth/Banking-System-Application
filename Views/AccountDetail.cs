@@ -13,7 +13,7 @@ namespace BankAccounts
         public string overdraft;
         public string balance;
         public string accNumber;
-        AccountController AccController = new AccountController();
+        readonly AccountController AccController = new AccountController();
         public AccountDetail()
         {
             InitializeComponent();
