@@ -25,7 +25,7 @@ namespace BankAccounts
         }
         private void addAccountsBalances()
         {
-            foreach (Account a in AccController.accounts)
+            foreach (Account a in AccountController.accounts)
             {
                 if (a is EverydayAccount)
                 {

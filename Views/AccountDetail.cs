@@ -18,8 +18,7 @@ namespace BankAccounts
         {
             InitializeComponent();
             timer2.Start();
-            AccController.AddAccounts();
-            
+            AccController.AddAccounts();            
         }
 
         // event for closing 
@@ -40,7 +39,7 @@ namespace BankAccounts
             if (accountName != "")
             {
                 // fetch all details about each type of account and add the values to the variables
-                foreach (Account a in AccController.accounts)
+                foreach (Account a in AccountController.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
@@ -86,7 +85,7 @@ namespace BankAccounts
             if(accountName != "")
             {
                 //  deposit button event for making deposits 
-                foreach (Account a in AccController.accounts)
+                foreach (Account a in AccountController.accounts)
                 {
                     if(a is EverydayAccount && accountName == "Everyday Account:")
                     {
@@ -116,7 +115,7 @@ namespace BankAccounts
             if (accountName != "")
             {
                 // withdraw button event
-                foreach (Account a in AccController.accounts)
+                foreach (Account a in AccountController.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
@@ -146,7 +145,7 @@ namespace BankAccounts
             if (accountName != "")
             {
                 // add interest button event
-                foreach (Account a in AccController.accounts)
+                foreach (Account a in AccountController.accounts)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {

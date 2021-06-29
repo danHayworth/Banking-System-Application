@@ -102,6 +102,13 @@ namespace BankAccounts.Views
                 }               
             }
         }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            frmDashboard x = new frmDashboard();
+            this.Close();
+            x.Show();
+        }
     }
 }
 

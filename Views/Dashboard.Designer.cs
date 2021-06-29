@@ -173,7 +173,7 @@ namespace BankAccounts
             this.lblEvery.AutoSize = true;
             this.lblEvery.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEvery.ForeColor = System.Drawing.Color.White;
-            this.lblEvery.Location = new System.Drawing.Point(283, 555);
+            this.lblEvery.Location = new System.Drawing.Point(295, 555);
             this.lblEvery.Name = "lblEvery";
             this.lblEvery.Size = new System.Drawing.Size(26, 31);
             this.lblEvery.TabIndex = 13;
@@ -185,7 +185,7 @@ namespace BankAccounts
             this.lblInvestment.AutoSize = true;
             this.lblInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInvestment.ForeColor = System.Drawing.Color.White;
-            this.lblInvestment.Location = new System.Drawing.Point(577, 555);
+            this.lblInvestment.Location = new System.Drawing.Point(589, 555);
             this.lblInvestment.Name = "lblInvestment";
             this.lblInvestment.Size = new System.Drawing.Size(26, 31);
             this.lblInvestment.TabIndex = 15;
@@ -208,7 +208,7 @@ namespace BankAccounts
             this.lblOmni.AutoSize = true;
             this.lblOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOmni.ForeColor = System.Drawing.Color.White;
-            this.lblOmni.Location = new System.Drawing.Point(859, 555);
+            this.lblOmni.Location = new System.Drawing.Point(871, 555);
             this.lblOmni.Name = "lblOmni";
             this.lblOmni.Size = new System.Drawing.Size(26, 31);
             this.lblOmni.TabIndex = 17;
