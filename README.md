@@ -7,11 +7,11 @@ Windows Forms - Banking system application in C#
 The application needs to meet the needs of customers managing their bank accounts to deposit
 and withdraw money – i.e. it will be dealing with customers and accounts. There are different
 types of bank account, described below:
-## Customers
+### Customers
 - Customers who have a customer number, name and contact details.
 - Bank staff can also be customers of the bank. The accounts operate the same for staff, but
 they are only charged 50% of any fees incurred.
-## Accounts
+### Accounts
 All accounts maintain a balance and have a simple deposit method that simply adds the
 deposited amount to the balance. A person can have multiple accounts, but each is owned by a
 single person.
