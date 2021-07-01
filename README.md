@@ -16,9 +16,9 @@ types of bank account, described below:
 > deposited amount to the balance. A person can have multiple accounts, but each is owned by a
 > single person.
 
-Some accounts have a fixed fee for a failed transaction. If a request is made to withdraw money
-over and above the allowed overdraft limit, then no money is withdrawn, and a fixed flat fee is
-deducted from the balance.
+> Some accounts have a fixed fee for a failed transaction. If a request is made to withdraw money
+> over and above the allowed overdraft limit, then no money is withdrawn, and a fixed flat fee is
+> deducted from the balance.
 
 The types of accounts are:
 - Everyday: no interest, no overdraft, no fees
