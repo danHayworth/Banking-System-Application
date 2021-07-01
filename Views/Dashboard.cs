@@ -60,6 +60,11 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+            //clear the transactions and prepare the funds for next customer
+            AccountController.accounts.Clear();
+            AccountController.accounts.Clear();
+            AccountController a = new AccountController();
+            a.AddAccounts();
             frmLogin x = new frmLogin();
             x.Show();
         }

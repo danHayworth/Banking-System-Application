@@ -5,8 +5,11 @@ namespace BankAccounts.Controllers
 {
     class AccountController
     {
+        //create a static list for accounts
         public static  List<Account> accounts = new List<Account>();
 
+
+        //create a method to add manually some accounts for each type 
         public void AddAccounts()
         {
             if (accounts.Count.Equals(0))
@@ -19,5 +22,25 @@ namespace BankAccounts.Controllers
                 accounts.Add(omni);
             }
         }
+        // add a method to check whether the client that is logged in is staff
+        //so we can apply the discount
+        public static bool IsStaff(string name)
+        {
+            bool correct = false;
+            foreach(Customer c in CustomerController.isClient)
+            {
+                if(name == c.GetName() && c.GetStaff() == 1)
+                {
+                    correct = true;
+                    break;
+                }
+                else
+                {
+                    correct = false;
+                }
+            }
+            return correct;
+        }
+
     }
 }

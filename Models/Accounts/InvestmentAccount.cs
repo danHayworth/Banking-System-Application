@@ -1,9 +1,5 @@
 ﻿using BankAccounts.Controllers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankAccounts.Models
@@ -19,6 +15,7 @@ namespace BankAccounts.Models
         protected double _interestRate { get; set; }
         protected double _fee = 10;
         public InvestmentAccount(double aBalance, double interestRate) : base(aBalance)
+        
         {
             _interestRate = interestRate;
         }
@@ -31,12 +28,26 @@ namespace BankAccounts.Models
         {
             if (_aBalance < withdraw)
             {
-                //if balance is smaller than the actual withdrawal charge the fee
-                _aBalance -= _fee;
-                MessageBox.Show("Not sufficient funds for this withdrawal, $10 fee has been applied. Your new balance is "+_aBalance);
-                //record transaction for fee
-                var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), GetBalance());
-                TransactionController.statement.Add(fees);
+                if (AccountController.IsStaff(CustomerController.userLoggedIn))
+                {
+                    //if balance is smaller than the actual withdrawal charge the fee
+                    _aBalance = _aBalance - (_fee / 2);
+                    _fee = _fee / 2;
+                    MessageBox.Show("Not sufficient funds for this withdrawal, $5 fee has been applied. Your new balance is " + _aBalance);
+                    //record transaction for fee
+                    var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), GetBalance());
+                    TransactionController.statement.Add(fees);
+                }
+                else
+                {
+                    //if balance is smaller than the actual withdrawal charge the fee
+                    _aBalance -= _fee;
+                    MessageBox.Show("Not sufficient funds for this withdrawal, $10 fee has been applied. Your new balance is " + _aBalance);
+                    //record transaction for fee
+                    var fees = new Transactions(DateTime.Now, "Failed Fee", GetFee(), GetBalance());
+                    TransactionController.statement.Add(fees);
+                }
+                
             }
             else
             {

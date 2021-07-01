@@ -208,6 +208,9 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+            AccountController.accounts.Clear();
+            AccountController a = new AccountController();
+            a.AddAccounts();
             frmLogin x = new frmLogin();
             x.Show();
         }

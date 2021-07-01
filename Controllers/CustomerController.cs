@@ -10,12 +10,19 @@ namespace BankAccounts
 {
     class CustomerController
     {
+        //create a new connection to database
         SqliteConnection conn = new SqliteConnection();
         
+        //add some lists that will hold data from database 
         public static List<Customer> people = new List<Customer>();
         public static List<Customer> isClient = new List<Customer>();
         public static List<Customer> isStaff = new List<Customer>();
+        //save the loggedd client in astatic variable to parse it on other forms 
         public static string userLoggedIn;
+
+        /////////***** CRUD OPERATIONS *****\\\\\\\\
+        
+        //add customer
         public void SaveCustomer(string name, string contact, string username, string password, int staff)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -24,16 +31,17 @@ namespace BankAccounts
             }
         }
 
+        //pull customers and transform the IEnumerable into  a list to be able to save it in the abopve lists
         public List<Customer> GetCustomers()
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
                 var pep = con.Query<Customer>("Select * from Customer");
-                return pep.ToList();
-                
+                return pep.ToList();               
             }
         }
 
+        // get customer by id
         public Customer GetCustomerById(int id)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -42,6 +50,8 @@ namespace BankAccounts
                 return client;
             }
         }
+
+        // edit/ update customer
         public void UpdateCustomer(int id, string name, string contact, string user, string pass, int staff)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -49,6 +59,8 @@ namespace BankAccounts
                 var x = con.Execute("Update Customer SET Name = @Name, Contact = @Contact, Username = @Username, Password = @Password, Staff = @Staff WHERE Id = @Id", new { Id = id, Name = name, Contact = contact, Username = user, Password = pass, Staff = staff });
             }
         }
+
+        //delete customer
         public void DeleteCustomer(int id)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
