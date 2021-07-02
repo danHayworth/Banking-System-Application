@@ -53,7 +53,9 @@ Since we are using lists and not database in this project, I have added all the 
 requirement of each account where needed, these have been overridden. 
 
 #### Assessment 2 Description
-
+I have created a Customer Controller Class that will take care of all the logic and processes of adding, finding, editing and deleting. I have built a database and in the Customer Controller Class I have created all the methods that will perform the CRUD operations for the cuwstomer.
+The controller also makes use of some static lists for holding the data from the database for the session that the client is logged in and to be able to update the interfaces.
+It shall have 3 different views, one to make the difference between regular customer and a manager staff, second one will be the login page where if the logged user will be admin then it will open the third view where the manager will be able to see a list of the customers and perform CRUD operations.
 
 
 ## License
