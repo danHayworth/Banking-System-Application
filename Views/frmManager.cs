@@ -1,5 +1,4 @@
-﻿using BankAccounts.Data;
-using BankAccounts.Models;
+﻿using BankAccounts.Models;
 using System;
 using System.Windows.Forms;
 
@@ -7,7 +6,9 @@ namespace BankAccounts.Views
 {
     public partial class frmManager : Form
     {
+        //add a variable that will hold the customer id
         public int customer;
+        //call the customer controller class 
         CustomerController cust = new CustomerController();
         frmMain f = new frmMain();
         public frmManager()
@@ -15,23 +16,29 @@ namespace BankAccounts.Views
             InitializeComponent();
             timer5.Start();
             AddClients();
+            //add the logged customer name to the form 
             lblManagerLogged.Text += CustomerController.userLoggedIn;
         }
 
         // creating an event for clock 
         private void timer_tick(object sender, EventArgs e)
         {
+            // display real time
             lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
+        //create a method to add clients
         public void AddClients()
         {
+            //add clients to the static list people from customer controller class
             CustomerController.people = cust.GetCustomers();
+            //clear the data grid view
             dataClients.Rows.Clear();
             string returnBool;
             //setting a loop for every transactions in list of transactions
             foreach (Customer b in CustomerController.people)
             {
+                //iterate through the list and change from numeric to string
                 if(b.GetStaff() == 1) { returnBool = "Yes"; } else { returnBool = "No"; }
                 dataClients.Rows.Add(b.GetId().ToString(), b.GetName().ToString(), b.GetContact().ToString(), b.GetUsername(), returnBool);
             }
@@ -77,6 +84,7 @@ namespace BankAccounts.Views
             }           
         }
 
+        //add an event for the data table when clicking on a row to be selected and parse the data that is selected.
         private void dataClients_SelectionChanged(object sender, EventArgs e)
         {
             if (dataClients.SelectedCells.Count > 0)
