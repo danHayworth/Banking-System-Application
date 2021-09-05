@@ -1,6 +1,6 @@
 ﻿using BankAccounts.Controllers;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -14,13 +14,16 @@ namespace BankAccounts.Models
          */
         static int nextIdA;
         private int _aId { get; set; }
+
+        [ForeignKey("Id")]
         private Customer _customer { get; set; }
         protected double _aBalance { get; set; }
-        public Account(double aBalance)
+        public Account(double aBalance, Customer customer)
         {
             // auto incrementing the id
             _aId = Interlocked.Increment(ref nextIdA);
             _aBalance = aBalance;
+            _customer = customer;
         }
 
         public int GetId()

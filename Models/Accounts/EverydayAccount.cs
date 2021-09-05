@@ -11,7 +11,7 @@ namespace BankAccounts.Models
     //inherit account for everyday
     public class EverydayAccount : Account
     {
-        public EverydayAccount(double aBalance) : base(aBalance)
+        public EverydayAccount(double aBalance, Customer customer) : base(aBalance, customer)
         {
         }
         //overriding withdrawal
