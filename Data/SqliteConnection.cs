@@ -1,11 +1,4 @@
-﻿using BankAccounts.Models;
-using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SQLite;
-using System.Linq;
+﻿using System.Configuration;
 
 namespace BankAccounts.Data
 {

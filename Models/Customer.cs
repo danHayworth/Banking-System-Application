@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankAccounts.Models
 {
@@ -15,6 +16,8 @@ namespace BankAccounts.Models
         private string Password { get; set; }
         private string Contact { get; set; }
         private int Staff { get; set; }
+
+
 
         public Customer()
         {
@@ -35,8 +38,6 @@ namespace BankAccounts.Models
         public string GetUsername() => Username;
         public string GetPassword() => Password;
         public int GetStaff() => Staff;
-
-        
 
     }
 }

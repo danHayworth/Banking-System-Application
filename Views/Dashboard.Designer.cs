@@ -37,12 +37,9 @@ namespace BankAccounts
             this.lblLogOut = new System.Windows.Forms.Label();
             this.btnEveryday = new System.Windows.Forms.Button();
             this.btnOmni = new System.Windows.Forms.Button();
-            this.btnInvestment = new System.Windows.Forms.Button();
             this.lblCheckAcc = new System.Windows.Forms.Label();
             this.lblBalEvery = new System.Windows.Forms.Label();
             this.lblEvery = new System.Windows.Forms.Label();
-            this.lblInvestment = new System.Windows.Forms.Label();
-            this.lblBalInv = new System.Windows.Forms.Label();
             this.lblOmni = new System.Windows.Forms.Label();
             this.lblBalOmni = new System.Windows.Forms.Label();
             this.lblClock = new System.Windows.Forms.Label();
@@ -51,14 +48,24 @@ namespace BankAccounts
             this.lblCustomerLogged = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.aFooter = new System.Windows.Forms.LinkLabel();
+            this.btnAddAccounts = new System.Windows.Forms.Button();
+            this.btnInvestment = new System.Windows.Forms.Button();
+            this.lblBalInv = new System.Windows.Forms.Label();
+            this.lblInvestment = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pnlInvestment = new System.Windows.Forms.Panel();
+            this.pnlEveryday = new System.Windows.Forms.Panel();
+            this.pnlOmni = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.pnlInvestment.SuspendLayout();
+            this.pnlEveryday.SuspendLayout();
+            this.pnlOmni.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -109,10 +116,11 @@ namespace BankAccounts
             // 
             // btnEveryday
             // 
+            this.btnEveryday.AccessibleName = "";
             this.btnEveryday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnEveryday.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEveryday.ForeColor = System.Drawing.Color.White;
-            this.btnEveryday.Location = new System.Drawing.Point(162, 445);
+            this.btnEveryday.Location = new System.Drawing.Point(48, 40);
             this.btnEveryday.Name = "btnEveryday";
             this.btnEveryday.Size = new System.Drawing.Size(190, 98);
             this.btnEveryday.TabIndex = 8;
@@ -122,29 +130,17 @@ namespace BankAccounts
             // 
             // btnOmni
             // 
+            this.btnOmni.AccessibleName = "";
             this.btnOmni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOmni.ForeColor = System.Drawing.Color.White;
-            this.btnOmni.Location = new System.Drawing.Point(740, 445);
+            this.btnOmni.Location = new System.Drawing.Point(40, 39);
             this.btnOmni.Name = "btnOmni";
             this.btnOmni.Size = new System.Drawing.Size(190, 98);
             this.btnOmni.TabIndex = 9;
             this.btnOmni.Text = "Omni";
             this.btnOmni.UseVisualStyleBackColor = false;
             this.btnOmni.Click += new System.EventHandler(this.btnOmni_Click);
-            // 
-            // btnInvestment
-            // 
-            this.btnInvestment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInvestment.ForeColor = System.Drawing.Color.White;
-            this.btnInvestment.Location = new System.Drawing.Point(455, 445);
-            this.btnInvestment.Name = "btnInvestment";
-            this.btnInvestment.Size = new System.Drawing.Size(190, 98);
-            this.btnInvestment.TabIndex = 10;
-            this.btnInvestment.Text = "Investment";
-            this.btnInvestment.UseVisualStyleBackColor = false;
-            this.btnInvestment.Click += new System.EventHandler(this.btnInvestment_Click);
             // 
             // lblCheckAcc
             // 
@@ -159,10 +155,11 @@ namespace BankAccounts
             // 
             // lblBalEvery
             // 
+            this.lblBalEvery.AccessibleName = "";
             this.lblBalEvery.AutoSize = true;
             this.lblBalEvery.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalEvery.ForeColor = System.Drawing.Color.White;
-            this.lblBalEvery.Location = new System.Drawing.Point(161, 555);
+            this.lblBalEvery.Location = new System.Drawing.Point(42, 160);
             this.lblBalEvery.Name = "lblBalEvery";
             this.lblBalEvery.Size = new System.Drawing.Size(94, 31);
             this.lblBalEvery.TabIndex = 12;
@@ -170,45 +167,24 @@ namespace BankAccounts
             // 
             // lblEvery
             // 
+            this.lblEvery.AccessibleName = "";
             this.lblEvery.AutoSize = true;
             this.lblEvery.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEvery.ForeColor = System.Drawing.Color.White;
-            this.lblEvery.Location = new System.Drawing.Point(295, 555);
+            this.lblEvery.Location = new System.Drawing.Point(176, 160);
             this.lblEvery.Name = "lblEvery";
             this.lblEvery.Size = new System.Drawing.Size(26, 31);
             this.lblEvery.TabIndex = 13;
             this.lblEvery.Text = "0";
             this.lblEvery.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblInvestment
-            // 
-            this.lblInvestment.AutoSize = true;
-            this.lblInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInvestment.ForeColor = System.Drawing.Color.White;
-            this.lblInvestment.Location = new System.Drawing.Point(589, 555);
-            this.lblInvestment.Name = "lblInvestment";
-            this.lblInvestment.Size = new System.Drawing.Size(26, 31);
-            this.lblInvestment.TabIndex = 15;
-            this.lblInvestment.Text = "0";
-            this.lblInvestment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblBalInv
-            // 
-            this.lblBalInv.AutoSize = true;
-            this.lblBalInv.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalInv.ForeColor = System.Drawing.Color.White;
-            this.lblBalInv.Location = new System.Drawing.Point(454, 555);
-            this.lblBalInv.Name = "lblBalInv";
-            this.lblBalInv.Size = new System.Drawing.Size(94, 31);
-            this.lblBalInv.TabIndex = 14;
-            this.lblBalInv.Text = "Balance:";
-            // 
             // lblOmni
             // 
+            this.lblOmni.AccessibleName = "";
             this.lblOmni.AutoSize = true;
             this.lblOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOmni.ForeColor = System.Drawing.Color.White;
-            this.lblOmni.Location = new System.Drawing.Point(871, 555);
+            this.lblOmni.Location = new System.Drawing.Point(166, 159);
             this.lblOmni.Name = "lblOmni";
             this.lblOmni.Size = new System.Drawing.Size(26, 31);
             this.lblOmni.TabIndex = 17;
@@ -217,10 +193,11 @@ namespace BankAccounts
             // 
             // lblBalOmni
             // 
+            this.lblBalOmni.AccessibleName = "";
             this.lblBalOmni.AutoSize = true;
             this.lblBalOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalOmni.ForeColor = System.Drawing.Color.White;
-            this.lblBalOmni.Location = new System.Drawing.Point(739, 555);
+            this.lblBalOmni.Location = new System.Drawing.Point(34, 159);
             this.lblBalOmni.Name = "lblBalOmni";
             this.lblBalOmni.Size = new System.Drawing.Size(94, 31);
             this.lblBalOmni.TabIndex = 16;
@@ -272,9 +249,10 @@ namespace BankAccounts
             // 
             // pictureBox3
             // 
+            this.pictureBox3.AccessibleName = "";
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(244, 545);
+            this.pictureBox3.Location = new System.Drawing.Point(125, 150);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(45, 43);
             this.pictureBox3.TabIndex = 30;
@@ -282,23 +260,14 @@ namespace BankAccounts
             // 
             // pictureBox4
             // 
+            this.pictureBox4.AccessibleName = "";
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(820, 544);
+            this.pictureBox4.Location = new System.Drawing.Point(115, 148);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(45, 44);
             this.pictureBox4.TabIndex = 31;
             this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(538, 544);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 44);
-            this.pictureBox5.TabIndex = 32;
-            this.pictureBox5.TabStop = false;
             // 
             // aFooter
             // 
@@ -317,27 +286,119 @@ namespace BankAccounts
             this.aFooter.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.aFooter.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aFooter_LinkClicked);
             // 
+            // btnAddAccounts
+            // 
+            this.btnAddAccounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddAccounts.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAccounts.ForeColor = System.Drawing.Color.White;
+            this.btnAddAccounts.Location = new System.Drawing.Point(918, 260);
+            this.btnAddAccounts.Name = "btnAddAccounts";
+            this.btnAddAccounts.Size = new System.Drawing.Size(187, 57);
+            this.btnAddAccounts.TabIndex = 49;
+            this.btnAddAccounts.Text = "Add account";
+            this.btnAddAccounts.UseVisualStyleBackColor = false;
+            this.btnAddAccounts.Visible = false;
+            this.btnAddAccounts.Click += new System.EventHandler(this.btnAddAccounts_Click);
+            // 
+            // btnInvestment
+            // 
+            this.btnInvestment.AccessibleName = "";
+            this.btnInvestment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInvestment.ForeColor = System.Drawing.Color.White;
+            this.btnInvestment.Location = new System.Drawing.Point(40, 40);
+            this.btnInvestment.Name = "btnInvestment";
+            this.btnInvestment.Size = new System.Drawing.Size(190, 98);
+            this.btnInvestment.TabIndex = 10;
+            this.btnInvestment.Text = "Investment";
+            this.btnInvestment.UseVisualStyleBackColor = false;
+            this.btnInvestment.Click += new System.EventHandler(this.btnInvestment_Click);
+            // 
+            // lblBalInv
+            // 
+            this.lblBalInv.AccessibleName = "";
+            this.lblBalInv.AutoSize = true;
+            this.lblBalInv.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalInv.ForeColor = System.Drawing.Color.White;
+            this.lblBalInv.Location = new System.Drawing.Point(34, 160);
+            this.lblBalInv.Name = "lblBalInv";
+            this.lblBalInv.Size = new System.Drawing.Size(94, 31);
+            this.lblBalInv.TabIndex = 14;
+            this.lblBalInv.Text = "Balance:";
+            // 
+            // lblInvestment
+            // 
+            this.lblInvestment.AccessibleName = "";
+            this.lblInvestment.AutoSize = true;
+            this.lblInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvestment.ForeColor = System.Drawing.Color.White;
+            this.lblInvestment.Location = new System.Drawing.Point(169, 160);
+            this.lblInvestment.Name = "lblInvestment";
+            this.lblInvestment.Size = new System.Drawing.Size(26, 31);
+            this.lblInvestment.TabIndex = 15;
+            this.lblInvestment.Text = "0";
+            this.lblInvestment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.AccessibleName = "";
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Location = new System.Drawing.Point(118, 149);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(45, 44);
+            this.pictureBox5.TabIndex = 32;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pnlInvestment
+            // 
+            this.pnlInvestment.Controls.Add(this.pictureBox5);
+            this.pnlInvestment.Controls.Add(this.lblInvestment);
+            this.pnlInvestment.Controls.Add(this.lblBalInv);
+            this.pnlInvestment.Controls.Add(this.btnInvestment);
+            this.pnlInvestment.Location = new System.Drawing.Point(440, 405);
+            this.pnlInvestment.Name = "pnlInvestment";
+            this.pnlInvestment.Size = new System.Drawing.Size(267, 225);
+            this.pnlInvestment.TabIndex = 50;
+            this.pnlInvestment.Visible = false;
+            // 
+            // pnlEveryday
+            // 
+            this.pnlEveryday.Controls.Add(this.pictureBox3);
+            this.pnlEveryday.Controls.Add(this.lblEvery);
+            this.pnlEveryday.Controls.Add(this.lblBalEvery);
+            this.pnlEveryday.Controls.Add(this.btnEveryday);
+            this.pnlEveryday.Location = new System.Drawing.Point(118, 405);
+            this.pnlEveryday.Name = "pnlEveryday";
+            this.pnlEveryday.Size = new System.Drawing.Size(276, 224);
+            this.pnlEveryday.TabIndex = 51;
+            this.pnlEveryday.Visible = false;
+            // 
+            // pnlOmni
+            // 
+            this.pnlOmni.Controls.Add(this.pictureBox4);
+            this.pnlOmni.Controls.Add(this.lblOmni);
+            this.pnlOmni.Controls.Add(this.lblBalOmni);
+            this.pnlOmni.Controls.Add(this.btnOmni);
+            this.pnlOmni.Location = new System.Drawing.Point(751, 406);
+            this.pnlOmni.Name = "pnlOmni";
+            this.pnlOmni.Size = new System.Drawing.Size(277, 223);
+            this.pnlOmni.TabIndex = 52;
+            this.pnlOmni.Visible = false;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1120, 759);
+            this.Controls.Add(this.pnlOmni);
+            this.Controls.Add(this.pnlEveryday);
+            this.Controls.Add(this.pnlInvestment);
+            this.Controls.Add(this.btnAddAccounts);
             this.Controls.Add(this.aFooter);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pnlTop);
-            this.Controls.Add(this.lblOmni);
-            this.Controls.Add(this.lblBalOmni);
-            this.Controls.Add(this.lblInvestment);
-            this.Controls.Add(this.lblBalInv);
-            this.Controls.Add(this.lblEvery);
-            this.Controls.Add(this.lblBalEvery);
             this.Controls.Add(this.lblCheckAcc);
-            this.Controls.Add(this.btnInvestment);
-            this.Controls.Add(this.btnOmni);
-            this.Controls.Add(this.btnEveryday);
             this.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -354,6 +415,12 @@ namespace BankAccounts
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.pnlInvestment.ResumeLayout(false);
+            this.pnlInvestment.PerformLayout();
+            this.pnlEveryday.ResumeLayout(false);
+            this.pnlEveryday.PerformLayout();
+            this.pnlOmni.ResumeLayout(false);
+            this.pnlOmni.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,12 +434,9 @@ namespace BankAccounts
         private System.Windows.Forms.Label lblLogOut;
         private System.Windows.Forms.Button btnEveryday;
         private System.Windows.Forms.Button btnOmni;
-        private System.Windows.Forms.Button btnInvestment;
         private System.Windows.Forms.Label lblCheckAcc;
         private System.Windows.Forms.Label lblBalEvery;
         private System.Windows.Forms.Label lblEvery;
-        private System.Windows.Forms.Label lblInvestment;
-        private System.Windows.Forms.Label lblBalInv;
         private System.Windows.Forms.Label lblOmni;
         private System.Windows.Forms.Label lblBalOmni;
         private System.Windows.Forms.Label lblClock;
@@ -380,8 +444,15 @@ namespace BankAccounts
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.LinkLabel aFooter;
         private System.Windows.Forms.Label lblCustomerLogged;
+        private System.Windows.Forms.Button btnAddAccounts;
+        private System.Windows.Forms.Button btnInvestment;
+        private System.Windows.Forms.Label lblBalInv;
+        private System.Windows.Forms.Label lblInvestment;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel pnlInvestment;
+        private System.Windows.Forms.Panel pnlEveryday;
+        private System.Windows.Forms.Panel pnlOmni;
     }
 }

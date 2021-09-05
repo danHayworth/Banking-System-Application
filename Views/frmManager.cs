@@ -107,11 +107,20 @@ namespace BankAccounts.Views
                 if (idValue != "")
                 {
                     customer = Int32.Parse(idValue);
+                    frmAddNewAccount.custId = customer;
+                    frmAddNewAccount.customer = Convert.ToString(selectedRow.Cells["CName"].Value);
                 }               
             }
         }
 
         private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            frmDashboard x = new frmDashboard();
+            this.Close();
+            x.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             frmDashboard x = new frmDashboard();
             this.Close();

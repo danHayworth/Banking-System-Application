@@ -25,6 +25,7 @@ namespace BankAccounts
                 if (a.GetUsername() == user && a.GetPassword() == pass)
                 {
                     CustomerController.isClient.Add(a);
+                    CustomerController.userLogged = user;
                     isLogged = a.GetName();
                 }
             }

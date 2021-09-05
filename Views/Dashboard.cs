@@ -1,5 +1,6 @@
 ﻿using BankAccounts.Controllers;
 using BankAccounts.Models;
+using BankAccounts.Views;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,39 +9,25 @@ namespace BankAccounts
 {
     public partial class frmDashboard : Form
     {
-        AccountController AccController = new AccountController();
         public frmDashboard()
         {
             InitializeComponent();
             //start a timer that will display actual time
             timer1.Start();
-            AccController.AddAccounts();
+
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
             // on load add label with accounts balance
-            addAccountsBalances();
             lblCustomerLogged.Text += CustomerController.userLoggedIn;
-        }
-        private void addAccountsBalances()
-        {
-            foreach (Account a in AccountController.accounts)
+            if(CustomerController.userLogged == "admin")
             {
-                if (a is EverydayAccount)
-                {
-                    lblEvery.Text = a.GetBalance().ToString();
-                }
-                else if (a is InvestmentAccount)
-                {
-                    lblInvestment.Text = a.GetBalance().ToString();
-                }
-                else if (a is OmniAccount)
-                {
-                    lblOmni.Text = a.GetBalance().ToString();
-                }
+                btnAddAccounts.Visible = true;
             }
+            
         }
+       
 
 
 
@@ -61,10 +48,7 @@ namespace BankAccounts
         {
             this.Close();
             //clear the transactions and prepare the funds for next customer
-            AccountController.accounts.Clear();
-            AccountController.accounts.Clear();
-            AccountController a = new AccountController();
-            a.AddAccounts();
+ 
             frmLogin x = new frmLogin();
             x.Show();
         }
@@ -106,5 +90,11 @@ namespace BankAccounts
             System.Diagnostics.Process.Start("https://developit.co.nz");
         }
 
+        private void btnAddAccounts_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmAddNewAccount x = new frmAddNewAccount();
+            x.Show();
+        }
     }
 }

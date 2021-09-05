@@ -87,5 +87,12 @@ namespace BankAccounts.Views
                 a.Show();
             }
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmManager x = new frmManager();
+            x.Show();
+        }
     }
 }

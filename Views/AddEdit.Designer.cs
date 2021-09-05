@@ -44,8 +44,10 @@ namespace BankAccounts.Views
             this.lblStaff = new System.Windows.Forms.Label();
             this.cmbStaff = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -66,7 +68,7 @@ namespace BankAccounts.Views
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(204, 118);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(270, 53);
+            this.lblTitle.Size = new System.Drawing.Size(216, 42);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = " Customer";
             // 
@@ -192,12 +194,25 @@ namespace BankAccounts.Views
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(517, 12);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(45, 46);
+            this.pictureBox4.TabIndex = 48;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
             // frmAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(637, 875);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.cmbStaff);
             this.Controls.Add(this.lblStaff);
@@ -220,6 +235,7 @@ namespace BankAccounts.Views
             this.Text = "AddEdit";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +257,6 @@ namespace BankAccounts.Views
         private System.Windows.Forms.Label lblStaff;
         private System.Windows.Forms.ComboBox cmbStaff;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

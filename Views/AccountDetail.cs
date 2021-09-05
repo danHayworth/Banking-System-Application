@@ -1,6 +1,7 @@
 ﻿using BankAccounts.Controllers;
 using BankAccounts.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace BankAccounts
@@ -13,12 +14,13 @@ namespace BankAccounts
         public string overdraft;
         public string balance;
         public string accNumber;
+        public static List<Account> list = new List<Account>();
         readonly AccountController AccController = new AccountController();
         public AccountDetail()
         {
             InitializeComponent();
             timer2.Start();
-            AccController.AddAccounts();            
+         
         }
 
         // event for closing 
@@ -39,7 +41,7 @@ namespace BankAccounts
             if (accountName != "")
             {
                 // fetch all details about each type of account and add the values to the variables
-                foreach (Account a in AccountController.accounts)
+                foreach (Account a in list)
                 {
                     if (a is EverydayAccount && accountName == "Everyday Account:")
                     {
@@ -82,25 +84,7 @@ namespace BankAccounts
 
         private void btnDeposit_Click(object sender, EventArgs e)
         {
-            if(accountName != "")
-            {
-                //  deposit button event for making deposits 
-                foreach (Account a in AccountController.accounts)
-                {
-                    if(a is EverydayAccount && accountName == "Everyday Account:")
-                    {
-                        SetDeposit(a);
-                    }
-                    else if (a is InvestmentAccount && accountName == "Investment Account:")
-                    {
-                        SetDeposit(a);
-                    }
-                    else if (a is OmniAccount && accountName == "Omni Account:")
-                    {
-                        SetDeposit(a);
-                    }
-                }
-            }
+           
         }
         private void SetDeposit(Account x)
         {
@@ -112,25 +96,7 @@ namespace BankAccounts
 
         private void btnWithdraw_Click(object sender, EventArgs e)
         {
-            if (accountName != "")
-            {
-                // withdraw button event
-                foreach (Account a in AccountController.accounts)
-                {
-                    if (a is EverydayAccount && accountName == "Everyday Account:")
-                    {
-                        SetWithdraw(a);
-                    }
-                    else if (a is InvestmentAccount && accountName == "Investment Account:")
-                    {
-                        SetWithdraw(a);
-                    }
-                    else if (a is OmniAccount && accountName == "Omni Account:")
-                    {
-                        SetWithdraw(a);
-                    }
-                }
-            }
+
         }
         private void SetWithdraw(Account x)
         {
@@ -142,32 +108,7 @@ namespace BankAccounts
 
         private void btnAddinterest_Click(object sender, EventArgs e)
         {
-            if (accountName != "")
-            {
-                // add interest button event
-                foreach (Account a in AccountController.accounts)
-                {
-                    if (a is EverydayAccount && accountName == "Everyday Account:")
-                    {
-                        MessageBox.Show("This account does not have interest.");
-                    }
-                    else if (a is InvestmentAccount && accountName == "Investment Account:")
-                    {
-                        SetInterest(a);
-                    }
-                    else if (a is OmniAccount && accountName == "Omni Account:")
-                    {
-                        if(a.GetBalance() >= 1000) 
-                        {
-                            SetInterest(a);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Interest can be added only if balance is over 'B 1000'");
-                        }
-                    }
-                }
-            }
+
         }
         private void SetInterest(Account x)
         {
@@ -208,9 +149,6 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            AccountController.accounts.Clear();
-            AccountController a = new AccountController();
-            a.AddAccounts();
             frmLogin x = new frmLogin();
             x.Show();
         }

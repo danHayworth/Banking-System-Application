@@ -1,45 +1,66 @@
-﻿using BankAccounts.Models;
+﻿using BankAccounts.Data;
+using BankAccounts.Models;
+using Dapper;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SQLite;
+using System.Linq;
 
 namespace BankAccounts.Controllers
 {
     class AccountController
     {
-        //create a static list for accounts
-        public static  List<Account> accounts = new List<Account>();
+        //create a new connection to database
+        SqliteConnection conn = new SqliteConnection();
 
 
-        //create a method to add manually some accounts for each type 
-        public void AddAccounts()
+        /////////***** CRUD OPERATIONS *****\\\\\\\\
+
+        //add customer
+        public void AddAccount(int id, int customer, int accountType, double balance, double interest, double overdraft)
         {
-            if (accounts.Count.Equals(0))
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
-                Account everyday = new EverydayAccount(200.00);
-                Account investment = new InvestmentAccount(1000.00, 10);
-                Account omni = new OmniAccount(1500, 10, 500);
-                accounts.Add(everyday);
-                accounts.Add(investment);
-                accounts.Add(omni);
+                con.Execute("Insert into Account (Id, Customer, AccountType, Balance, Interest, Overdraft) values (@Id, @Customer, @AccountType, @Balance, @Interest, @Overdraft)", new {Id = id, Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
             }
         }
-        // add a method to check whether the client that is logged in is staff
-        //so we can apply the discount
-        public static bool IsStaff(string name)
+
+        //pull accounts and transform the IEnumerable into  a list to be able to save it localy
+        public List<Account> GetAccounts()
         {
-            bool correct = false;
-            foreach(Customer c in CustomerController.isClient)
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
-                if(name == c.GetName() && c.GetStaff() == 1)
-                {
-                    correct = true;
-                    break;
-                }
-                else
-                {
-                    correct = false;
-                }
+                var acc = con.Query<Account>("Select * from Account");
+                return acc.ToList();
             }
-            return correct;
+        }
+
+        // get accounts by customer
+        public Account GetAccountByCustomer(int id)
+        {
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                var clientAccount = con.QuerySingleOrDefault<Account>("Select * from Account Where Customer = @id", new { Customer = id });
+                return clientAccount;
+            }
+        }
+
+        // edit/ update account
+        public void UpdateAccount(int id, int customer, int accountType, double balance, double interest, double overdraft)
+        {
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                var x = con.Execute("Update Account SET Customer = @Customer, AccounType = @AccountType, Balance = @balance, Interest = @Interest, Overdraft = @Overdraft WHERE Id = @Id", new { Id = id, Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
+            }
+        }
+
+        //delete account
+        public void DeleteAccount(int id)
+        {
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                con.Execute("Delete from Account Where Id = @id", new { Id = id });
+            }
         }
 
     }
