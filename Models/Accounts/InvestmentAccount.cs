@@ -14,7 +14,7 @@ namespace BankAccounts.Models
         //add extra field and set up a fee 
         protected double _interestRate { get; set; }
         protected double _fee = 10;
-        public InvestmentAccount(double aBalance, double interestRate, Customer customer) : base(aBalance, customer)
+        public InvestmentAccount(double aBalance, double interestRate, int customer) : base(aBalance, customer)
         
         {
             _interestRate = interestRate;

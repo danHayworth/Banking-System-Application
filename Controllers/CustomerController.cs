@@ -17,6 +17,7 @@ namespace BankAccounts
         public static List<Customer> people = new List<Customer>();
         public static List<Customer> isClient = new List<Customer>();
         public static List<Customer> isStaff = new List<Customer>();
+        public static string userLogged = "";
         //save the loggedd client in astatic variable to parse it on other forms 
         public static string userLoggedIn;
 

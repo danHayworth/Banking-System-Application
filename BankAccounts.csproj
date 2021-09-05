@@ -72,6 +72,12 @@
     <Compile Include="Views\AddEdit.Designer.cs">
       <DependentUpon>AddEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddNewAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddNewAccount.Designer.cs">
+      <DependentUpon>AddNewAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AddEdit.resx">
       <DependentUpon>AddEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddNewAccount.resx">
+      <DependentUpon>AddNewAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

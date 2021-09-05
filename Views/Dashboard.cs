@@ -1,5 +1,6 @@
 ﻿using BankAccounts.Controllers;
 using BankAccounts.Models;
+using BankAccounts.Views;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -20,6 +21,11 @@ namespace BankAccounts
         {
             // on load add label with accounts balance
             lblCustomerLogged.Text += CustomerController.userLoggedIn;
+            if(CustomerController.userLogged == "admin")
+            {
+                btnAddAccounts.Visible = true;
+            }
+            
         }
        
 
@@ -84,5 +90,11 @@ namespace BankAccounts
             System.Diagnostics.Process.Start("https://developit.co.nz");
         }
 
+        private void btnAddAccounts_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmAddNewAccount x = new frmAddNewAccount();
+            x.Show();
+        }
     }
 }

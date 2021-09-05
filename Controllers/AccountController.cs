@@ -17,11 +17,11 @@ namespace BankAccounts.Controllers
         /////////***** CRUD OPERATIONS *****\\\\\\\\
 
         //add customer
-        public void AddAccount(Customer customer, int accountType, double balance, double interest, double overdraft)
+        public void AddAccount(int id, int customer, int accountType, double balance, double interest, double overdraft)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
-                con.Execute("Insert into Account (Customer, AccountType, Balance, Interest, Overdraft) values (@Customer, @AccountType, @Balance, @Interest, @Overdraft)", new { Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
+                con.Execute("Insert into Account (Id, Customer, AccountType, Balance, Interest, Overdraft) values (@Id, @Customer, @AccountType, @Balance, @Interest, @Overdraft)", new {Id = id, Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
             }
         }
 
@@ -46,7 +46,7 @@ namespace BankAccounts.Controllers
         }
 
         // edit/ update account
-        public void UpdateAccount(int id, Customer customer, int accountType, double balance, double interest, double overdraft)
+        public void UpdateAccount(int id, int customer, int accountType, double balance, double interest, double overdraft)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {

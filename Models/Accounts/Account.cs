@@ -16,9 +16,9 @@ namespace BankAccounts.Models
         private int _aId { get; set; }
 
         [ForeignKey("Id")]
-        private Customer _customer { get; set; }
+        private int _customer { get; set; }
         protected double _aBalance { get; set; }
-        public Account(double aBalance, Customer customer)
+        public Account(double aBalance, int customer)
         {
             // auto incrementing the id
             _aId = Interlocked.Increment(ref nextIdA);
@@ -30,7 +30,7 @@ namespace BankAccounts.Models
         {
             return _aId;
         }
-        public Customer GetCustomer() => _customer;
+        public int GetCustomer() => _customer;
         public double GetBalance()
         {
             return _aBalance;
