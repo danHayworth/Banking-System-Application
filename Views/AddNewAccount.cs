@@ -14,7 +14,7 @@ namespace BankAccounts.Views
         {
             InitializeComponent();
             txtCustomerName.Text = customer;
-
+            MessageBox.Show(accCont.GetAccounts().ToString());
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -45,8 +45,11 @@ namespace BankAccounts.Views
                 x = new OmniAccount(Convert.ToDouble(txtBalance.Text), Convert.ToDouble(txtInterest.Text), Convert.ToDouble(txtOverdraft.Text), custId);
             }
 
-            accCont.AddAccount(x.GetId(),x.GetCustomer(), cmbAccountType.SelectedIndex, x.GetBalance(), x.GetInterest(), x.GetOverdraft());
-            MessageBox.Show(accCont.GetAccounts().ToString());
+            accCont.AddAccount(x.GetCustomer(), cmbAccountType.SelectedIndex, x.GetBalance(), x.GetInterest(), x.GetOverdraft());
+            this.Close();
+            frmDashboard y = new frmDashboard();
+            y.Show();
+
         }
     }
 }

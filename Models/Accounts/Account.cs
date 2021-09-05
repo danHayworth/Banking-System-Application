@@ -14,8 +14,6 @@ namespace BankAccounts.Models
          */
         static int nextIdA;
         private int _aId { get; set; }
-
-        [ForeignKey("Id")]
         private int _customer { get; set; }
         protected double _aBalance { get; set; }
         public Account(double aBalance, int customer)
@@ -26,15 +24,10 @@ namespace BankAccounts.Models
             _customer = customer;
         }
 
-        public int GetId()
-        {
-            return _aId;
-        }
+        public int GetId() => _aId;
         public int GetCustomer() => _customer;
-        public double GetBalance()
-        {
-            return _aBalance;
-        }
+        public double GetBalance() => _aBalance;
+        
         //adding method for deposits based on amount called deposit
         public virtual void Deposit(double deposit)
         {

@@ -5,42 +5,46 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BankAccounts.Controllers
 {
-    class AccountController
+    public class AccountController
     {
         //create a new connection to database
         SqliteConnection conn = new SqliteConnection();
-
+        public static List<Account> accounts = new List<Account>();
 
         /////////***** CRUD OPERATIONS *****\\\\\\\\
 
         //add customer
-        public void AddAccount(int id, int customer, int accountType, double balance, double interest, double overdraft)
+        public void AddAccount(int customer, int accountType, double balance, double interest, double overdraft)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
-                con.Execute("Insert into Account (Id, Customer, AccountType, Balance, Interest, Overdraft) values (@Id, @Customer, @AccountType, @Balance, @Interest, @Overdraft)", new {Id = id, Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
+                con.Execute("Insert into Account ( Customer, AccountType, Balance, Interest, Overdraft) values ( @Customer, @AccountType, @Balance, @Interest, @Overdraft)", new {Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
             }
         }
 
-        //pull accounts and transform the IEnumerable into  a list to be able to save it localy
-        public List<Account> GetAccounts()
+        //not functional yet
+        public async Task<IEnumerable<Account>> GetAccounts()
         {
+            IEnumerable<Account> accounts;
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
-                var acc = con.Query<Account>("Select * from Account");
-                return acc.ToList();
+                accounts = await con.QueryAsync<Account>("Select * from Account");
+
+               
             }
+            return accounts;
         }
 
-        // get accounts by customer
-        public Account GetAccountByCustomer(int id)
+        //not functional
+        public async Task<IEnumerable<Account>> GetAccountByCustomer(int id)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
-                var clientAccount = con.QuerySingleOrDefault<Account>("Select * from Account Where Customer = @id", new { Customer = id });
+                var clientAccount = await con.Query<Account>("Select * from Account Where Customer = @id", new { Customer = id });
                 return clientAccount;
             }
         }
@@ -50,7 +54,7 @@ namespace BankAccounts.Controllers
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
-                var x = con.Execute("Update Account SET Customer = @Customer, AccounType = @AccountType, Balance = @balance, Interest = @Interest, Overdraft = @Overdraft WHERE Id = @Id", new { Id = id, Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
+                var x = con.Execute("Update Account SET Customer = @Customer, AccountType = @AccountType, Balance = @Balance, Interest = @Interest, Overdraft = @Overdraft WHERE Id = @Id", new { Id = id, Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
             }
         }
 

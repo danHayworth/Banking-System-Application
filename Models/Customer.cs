@@ -17,6 +17,7 @@ namespace BankAccounts.Models
         private string Contact { get; set; }
         private int Staff { get; set; }
 
+        public IList<Account> Accounts { get; set; }
 
 
         public Customer()
