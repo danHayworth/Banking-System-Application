@@ -36,12 +36,11 @@ namespace BankAccounts
             {
                 btnCheck.Visible = true;
             }
+           
             controller.GetAccounts();
             loadAccounts();
         }
        
-
-
         // creating an event for clock 
         private void timer_tick(object sender, EventArgs e)
         {
@@ -78,7 +77,14 @@ namespace BankAccounts
 
         private void loadAccounts()
         {
-            foreach(AccessClass c in controller.GetAccounts())
+            holdingAcc.Clear();
+            dataAccounts.Rows.Clear();
+            cmbAcc1.ResetText();
+            cmbAcc2.ResetText();
+            cmbAcc1.Items.Clear();
+            cmbAcc2.Items.Clear();
+            txtTransfer.Text = "";
+            foreach (AccessClass c in controller.GetAccounts())
             {
                 if(c.Customer == customerSelected)
                 {
@@ -103,12 +109,10 @@ namespace BankAccounts
             double bal = Convert.ToDouble(txtTransfer.Text);
             firstAcc = holdingAcc[cmbAcc1.SelectedIndex];
             secondAcc = holdingAcc[cmbAcc2.SelectedIndex];
-            MessageBox.Show(firstAcc.ToString() + " " + secondAcc.ToString());
             if(cmbAcc1.SelectedIndex != cmbAcc2.SelectedIndex)
             {
                 foreach (AccessClass x in AccountController.accounts)
-                {
-                    
+                {                   
                     if (x.Id == firstAcc)
                     {
                         controller.Withdraw(x.Id, x.AccountType, bal, contr.GetStaff(x.Customer), x.Overdraft);
@@ -123,21 +127,44 @@ namespace BankAccounts
                         break;
                     }
                 }
-
-                cmbAcc1.ResetText();
-                cmbAcc2.ResetText();
-                cmbAcc1.Items.Clear();
-                cmbAcc2.Items.Clear();
-                holdingAcc.Clear();
-                txtTransfer.Text = "";
-                dataAccounts.Rows.Clear();
+                MessageBox.Show("Transfer complete!");
+                
                 loadAccounts();
-
             }
             else
             {
                 MessageBox.Show("Same account selected twice for transfer. Please check yout selection!");
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            string funds = dataAccounts.SelectedRows[0].Cells["Balance"].Value.ToString();
+            if(funds != "0")
+            {
+                MessageBox.Show("Please transfer the funds before closing the account");
+            }
+            else
+            {
+                int id = Convert.ToInt32(dataAccounts.SelectedRows[0].Cells["Id"].Value.ToString());
+                controller.DeleteAccount(id);
+                MessageBox.Show("Account deleted");
+                loadAccounts();
+            }
+
+        }
+
+        private void dataAccounts_SelectionChanged(object sender, EventArgs e)
+        {
+            btnClose.Enabled = true;
+        }
+
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+            AccountDetail.accountId = Convert.ToInt32(dataAccounts.SelectedRows[0].Cells["Id"].Value.ToString());
+            AccountDetail x = new AccountDetail();
+            x.Show();
+            this.Close();
         }
     }
 }

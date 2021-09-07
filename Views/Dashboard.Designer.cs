@@ -31,8 +31,8 @@ namespace BankAccounts
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -46,11 +46,6 @@ namespace BankAccounts
             this.aFooter = new System.Windows.Forms.LinkLabel();
             this.btnAddAccounts = new System.Windows.Forms.Button();
             this.dataAccounts = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Interest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Overdraft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCheck = new System.Windows.Forms.Button();
             this.cmbAcc1 = new System.Windows.Forms.ComboBox();
             this.cmbAcc2 = new System.Windows.Forms.ComboBox();
@@ -60,6 +55,12 @@ namespace BankAccounts
             this.lblFrom = new System.Windows.Forms.Label();
             this.lblAmount = new System.Windows.Forms.Label();
             this.lblQuick = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Interest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Overdraft = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlTop.SuspendLayout();
@@ -203,9 +204,9 @@ namespace BankAccounts
             this.btnAddAccounts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAddAccounts.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAccounts.ForeColor = System.Drawing.Color.White;
-            this.btnAddAccounts.Location = new System.Drawing.Point(918, 260);
+            this.btnAddAccounts.Location = new System.Drawing.Point(916, 246);
             this.btnAddAccounts.Name = "btnAddAccounts";
-            this.btnAddAccounts.Size = new System.Drawing.Size(187, 57);
+            this.btnAddAccounts.Size = new System.Drawing.Size(172, 38);
             this.btnAddAccounts.TabIndex = 49;
             this.btnAddAccounts.Text = "Add account";
             this.btnAddAccounts.UseVisualStyleBackColor = false;
@@ -215,14 +216,14 @@ namespace BankAccounts
             // dataAccounts
             // 
             this.dataAccounts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -230,68 +231,35 @@ namespace BankAccounts
             this.Balance,
             this.Interest,
             this.Overdraft});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataAccounts.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataAccounts.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataAccounts.Location = new System.Drawing.Point(12, 445);
             this.dataAccounts.Name = "dataAccounts";
             this.dataAccounts.RowHeadersWidth = 51;
             this.dataAccounts.RowTemplate.Height = 24;
             this.dataAccounts.Size = new System.Drawing.Size(1093, 264);
             this.dataAccounts.TabIndex = 50;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Account number";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // AccountType
-            // 
-            this.AccountType.HeaderText = "Account type";
-            this.AccountType.MinimumWidth = 6;
-            this.AccountType.Name = "AccountType";
-            this.AccountType.ReadOnly = true;
-            // 
-            // Balance
-            // 
-            this.Balance.HeaderText = "Balance";
-            this.Balance.MinimumWidth = 6;
-            this.Balance.Name = "Balance";
-            this.Balance.ReadOnly = true;
-            // 
-            // Interest
-            // 
-            this.Interest.HeaderText = "Interest";
-            this.Interest.MinimumWidth = 6;
-            this.Interest.Name = "Interest";
-            this.Interest.ReadOnly = true;
-            // 
-            // Overdraft
-            // 
-            this.Overdraft.HeaderText = "Overdraft";
-            this.Overdraft.MinimumWidth = 6;
-            this.Overdraft.Name = "Overdraft";
-            this.Overdraft.ReadOnly = true;
+            this.dataAccounts.SelectionChanged += new System.EventHandler(this.dataAccounts_SelectionChanged);
             // 
             // btnCheck
             // 
             this.btnCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCheck.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheck.ForeColor = System.Drawing.Color.White;
-            this.btnCheck.Location = new System.Drawing.Point(918, 338);
+            this.btnCheck.Location = new System.Drawing.Point(916, 355);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(187, 57);
+            this.btnCheck.Size = new System.Drawing.Size(172, 38);
             this.btnCheck.TabIndex = 51;
             this.btnCheck.Text = "Check Account";
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Visible = false;
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // cmbAcc1
             // 
@@ -373,12 +341,67 @@ namespace BankAccounts
             this.lblQuick.TabIndex = 60;
             this.lblQuick.Text = "Quick Transfer:";
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClose.Enabled = false;
+            this.btnClose.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Location = new System.Drawing.Point(916, 300);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(172, 38);
+            this.btnClose.TabIndex = 61;
+            this.btnClose.Text = "Close Account";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // Id
+            // 
+            this.Id.FillWeight = 58F;
+            this.Id.HeaderText = "Account number";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // AccountType
+            // 
+            this.AccountType.FillWeight = 58.15508F;
+            this.AccountType.HeaderText = "Account type";
+            this.AccountType.MinimumWidth = 6;
+            this.AccountType.Name = "AccountType";
+            this.AccountType.ReadOnly = true;
+            // 
+            // Balance
+            // 
+            this.Balance.FillWeight = 58.15508F;
+            this.Balance.HeaderText = "Balance";
+            this.Balance.MinimumWidth = 6;
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            // 
+            // Interest
+            // 
+            this.Interest.FillWeight = 58.15508F;
+            this.Interest.HeaderText = "Interest";
+            this.Interest.MinimumWidth = 6;
+            this.Interest.Name = "Interest";
+            this.Interest.ReadOnly = true;
+            // 
+            // Overdraft
+            // 
+            this.Overdraft.FillWeight = 58.15508F;
+            this.Overdraft.HeaderText = "Overdraft";
+            this.Overdraft.MinimumWidth = 6;
+            this.Overdraft.Name = "Overdraft";
+            this.Overdraft.ReadOnly = true;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1120, 759);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblQuick);
             this.Controls.Add(this.lblAmount);
             this.Controls.Add(this.lblFrom);
@@ -427,11 +450,6 @@ namespace BankAccounts
         private System.Windows.Forms.Label lblCustomerLogged;
         private System.Windows.Forms.Button btnAddAccounts;
         private System.Windows.Forms.DataGridView dataAccounts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccountType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Interest;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Overdraft;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.ComboBox cmbAcc1;
@@ -442,5 +460,11 @@ namespace BankAccounts
         private System.Windows.Forms.Label lblFrom;
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.Label lblQuick;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Interest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Overdraft;
     }
 }

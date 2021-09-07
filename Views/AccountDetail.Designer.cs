@@ -68,7 +68,6 @@ namespace BankAccounts
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -149,9 +148,8 @@ namespace BankAccounts
             this.lblDetail.ForeColor = System.Drawing.Color.White;
             this.lblDetail.Location = new System.Drawing.Point(171, 128);
             this.lblDetail.Name = "lblDetail";
-            this.lblDetail.Size = new System.Drawing.Size(190, 42);
+            this.lblDetail.Size = new System.Drawing.Size(0, 53);
             this.lblDetail.TabIndex = 5;
-            this.lblDetail.Text = "BitBank ";
             // 
             // pictureBox1
             // 
@@ -479,11 +477,6 @@ namespace BankAccounts
             this.label1.TabIndex = 32;
             this.label1.Text = "%";
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // AccountDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -561,6 +554,5 @@ namespace BankAccounts
         private System.Windows.Forms.TextBox txtAccNum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

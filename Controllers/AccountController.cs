@@ -67,6 +67,15 @@ namespace BankAccounts.Controllers
             return accounts;
         }
 
+        public AccessClass GetAccountById(int id)
+        {
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                var x = con.QuerySingleOrDefault<AccessClass>("Select * from Account Where Id = @id", new { Id = id });
+                return x;
+            }
+        }
+
         public string getAccName(int id)
         {
             string name = "";

@@ -1,5 +1,6 @@
 ﻿using BankAccounts.Controllers;
 using BankAccounts.Models;
+using BankAccounts.Models.Accounts;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,14 +9,10 @@ namespace BankAccounts
 {
     public partial class AccountDetail : Form
     {
-        // set up variables for account details
-        public static string accountName;
-        public static string interest;
-        public string overdraft;
-        public string balance;
-        public string accNumber;
-        public static List<Account> list = new List<Account>();
-        readonly AccountController AccController = new AccountController();
+        public static int accountId;
+       
+        AccountController accAction = new AccountController();
+        CustomerController custom = new CustomerController();
         public AccountDetail()
         {
             InitializeComponent();
@@ -35,42 +32,10 @@ namespace BankAccounts
 
         private void AccountDetail_Load(object sender, EventArgs e)
         {
-            // add the account name
-            lblDetail.Text += accountName;
-            if (accountName != "")
-            {
-                // fetch all details about each type of account and add the values to the variables
-                foreach (Account a in list)
-                {
-                    if (a is EverydayAccount && accountName == "Everyday Account:")
-                    {
-                        SetAccDetails(a);
-                    }
-                    else if (a is InvestmentAccount && accountName == "Investment Account:")
-                    {
-                        SetAccDetails(a);
-                    }
-                    else if (a is OmniAccount && accountName == "Omni Account:")
-                    {
-                        SetAccDetails(a);
-                    }
-                }
-            }
-            // add the details of the account 
-            txtAccBal.Text = "B "+balance;
-            txtAccNum.Text = "06-0998-00"+accNumber;
-            txtAccInter.Text = interest+ " %";
-            txtInterest.Text = interest;
-            txtAccOver.Text = "B "+overdraft;
+            LoadAccount();
             addTransactions();
         }
-        void SetAccDetails(Account x)
-        {
-            interest = x.GetInterest().ToString();
-            overdraft = x.GetOverdraft().ToString();
-            accNumber = x.GetId().ToString();
-            balance = x.GetBalance().ToString();
-        }
+
         // go back method 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
@@ -83,38 +48,37 @@ namespace BankAccounts
 
         private void btnDeposit_Click(object sender, EventArgs e)
         {
-           
-        }
-        private void SetDeposit(Account x)
-        {
-            //x.Deposit(Double.Parse(txtDeposit.Text));
-            dataStatement.Rows.Clear();
-            addTransactions();
+            accAction.Deposit(accountId, Convert.ToDouble(txtDeposit.Text.ToString()));
+            LoadAccount();
             txtDeposit.Text = "0.00";
         }
 
+
         private void btnWithdraw_Click(object sender, EventArgs e)
         {
-
-        }
-        private void SetWithdraw(Account x)
-        {
-            //x.Withdraw(Double.Parse(txtWithdraw.Text));
-            dataStatement.Rows.Clear();
-            addTransactions();
+            AccessClass y = accAction.GetAccountById(accountId);
+            accAction.Withdraw(y.Id, y.AccountType, Convert.ToDouble(txtWithdraw.Text.ToString()), custom.GetStaff(y.Customer), y.Overdraft);
+            LoadAccount();
             txtWithdraw.Text = "0.00";
         }
+
 
         private void btnAddinterest_Click(object sender, EventArgs e)
         {
 
         }
-        private void SetInterest(Account x)
+
+        private void LoadAccount()
         {
-            x.CalculateInterest(Double.Parse(txtInterest.Text));
-            MessageBox.Show("Acrued interest has been added. \nYour new balance is " + x.GetBalance());
-            dataStatement.Rows.Clear();
-            addTransactions();
+            AccessClass x = accAction.GetAccountById(accountId);
+            // add the account name
+            lblDetail.Text = "BitBank "+ accAction.getAccName(x.AccountType);
+            // add the details of the account 
+            txtAccBal.Text = "B " + x.Balance.ToString();
+            txtAccNum.Text = x.Id.ToString();
+            txtAccInter.Text = x.Interest.ToString() + " %";
+            txtInterest.Text = x.Interest.ToString();
+            txtAccOver.Text = "B " + x.Overdraft.ToString();
         }
 
         private void addTransactions()
