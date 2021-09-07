@@ -10,11 +10,11 @@ namespace BankAccounts.Models.Accounts
     //generated class for all types of accounts 
     public class AccessClass
     {
-        public int Id { get; private set; }
-        public int Customer { get; private set;}
-        public int AccountType { get; private set;  }
-        public double Balance { get; private set; }
-        public double Interest { get; private set; }
-        public double Overdraft { get; private set; }
+        public int Id { get; set; }
+        public int Customer { get; set;}
+        public int AccountType { get; set;  }
+        public double Balance { get; set; }
+        public double Interest { get; set; }
+        public double Overdraft { get; set; }
     }
 }

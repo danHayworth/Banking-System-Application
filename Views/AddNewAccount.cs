@@ -16,9 +16,7 @@ namespace BankAccounts.Views
         {
             InitializeComponent();
             txtCustomerName.Text = customer;
-            accCont.GetAccounts();
-
-            
+            accCont.GetAccounts();           
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

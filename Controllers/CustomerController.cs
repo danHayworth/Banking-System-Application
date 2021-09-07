@@ -69,5 +69,14 @@ namespace BankAccounts
                 con.Execute("Delete from Customer Where Id = @id", new { Id = id });
             }
         }
+
+        public int GetStaff(int id)
+        {
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                var staff = con.QuerySingleOrDefault<int>("Select Staff from Customer Where Id = @id", new { Id = id });
+                return staff;
+            }
+        }
     }
 }

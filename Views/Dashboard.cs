@@ -11,8 +11,11 @@ namespace BankAccounts
     public partial class frmDashboard : Form
     {
         AccountController controller = new AccountController();
+        CustomerController contr = new CustomerController();
         public static int customerSelected;
         List<int> holdingAcc = new List<int>();
+        int firstAcc;
+        int secondAcc;
         public frmDashboard()
         {
             InitializeComponent();
@@ -61,15 +64,6 @@ namespace BankAccounts
             x.Show();
         }
 
-      
-
-        private void newDetailForm()
-        {
-            this.Close();
-            AccountDetail y = new AccountDetail();
-            y.Show();
-        }
-
         private void aFooter_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://developit.co.nz");
@@ -88,8 +82,8 @@ namespace BankAccounts
             {
                 if(c.Customer == customerSelected)
                 {
-                    cmbAcc1.Items.Add(c.AccountType.ToString() + " " + c.Balance.ToString());
-                    cmbAcc2.Items.Add(c.AccountType.ToString() + " " + c.Balance.ToString()) ;
+                    cmbAcc1.Items.Add(controller.getAccName(c.AccountType) + " " + c.Balance.ToString());
+                    cmbAcc2.Items.Add(controller.getAccName(c.AccountType) + " " + c.Balance.ToString()) ;
                     holdingAcc.Add(c.Id); 
                     dataAccounts.Rows.Add(c.Id.ToString(), controller.getAccName(c.AccountType), c.Balance.ToString(), c.Interest.ToString(), c.Overdraft.ToString());
                 }
@@ -106,7 +100,44 @@ namespace BankAccounts
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
+            double bal = Convert.ToDouble(txtTransfer.Text);
+            firstAcc = holdingAcc[cmbAcc1.SelectedIndex];
+            secondAcc = holdingAcc[cmbAcc2.SelectedIndex];
+            MessageBox.Show(firstAcc.ToString() + " " + secondAcc.ToString());
+            if(cmbAcc1.SelectedIndex != cmbAcc2.SelectedIndex)
+            {
+                foreach (AccessClass x in AccountController.accounts)
+                {
+                    
+                    if (x.Id == firstAcc)
+                    {
+                        controller.Withdraw(x.Id, x.AccountType, bal, contr.GetStaff(x.Customer), x.Overdraft);
+                        break;
+                    }
+                }
+                foreach (AccessClass x in AccountController.accounts)
+                {
+                    if (x.Id == secondAcc)
+                    {
+                        controller.Deposit(x.Id, bal);
+                        break;
+                    }
+                }
 
+                cmbAcc1.ResetText();
+                cmbAcc2.ResetText();
+                cmbAcc1.Items.Clear();
+                cmbAcc2.Items.Clear();
+                holdingAcc.Clear();
+                txtTransfer.Text = "";
+                dataAccounts.Rows.Clear();
+                loadAccounts();
+
+            }
+            else
+            {
+                MessageBox.Show("Same account selected twice for transfer. Please check yout selection!");
+            }
         }
     }
 }

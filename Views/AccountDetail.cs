@@ -87,7 +87,7 @@ namespace BankAccounts
         }
         private void SetDeposit(Account x)
         {
-            x.Deposit(Double.Parse(txtDeposit.Text));
+            //x.Deposit(Double.Parse(txtDeposit.Text));
             dataStatement.Rows.Clear();
             addTransactions();
             txtDeposit.Text = "0.00";
@@ -99,7 +99,7 @@ namespace BankAccounts
         }
         private void SetWithdraw(Account x)
         {
-            x.Withdraw(Double.Parse(txtWithdraw.Text));
+            //x.Withdraw(Double.Parse(txtWithdraw.Text));
             dataStatement.Rows.Clear();
             addTransactions();
             txtWithdraw.Text = "0.00";

@@ -85,5 +85,82 @@ namespace BankAccounts.Controllers
                 con.Execute("Update Account SET Balance = @Balance Where Id = @id", new { Id = id, Balance = balance });
             }
         }
+
+        public double getAccBalance(int id)
+        {
+            double balance;
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                
+                var c = con.QueryFirstOrDefault<double>("Select Balance from Account Where Id=@id", new { Id = id });
+                balance = c;
+            }
+            return balance;
+        }
+
+        public void Deposit(int id, double deposit)
+        {
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                double balance = getAccBalance(id);
+                balance += deposit;
+                updateBalance(id, balance);
+            }
+        }
+
+        public void Withdraw(int id, int type, double withdraw, int staff, double overdraft)
+        {
+            double fee = 10;
+            double balance = getAccBalance(id);
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                if(type == 3)
+                {
+                    if ((balance + overdraft) < withdraw || balance <= (0 - overdraft))
+                    {
+                        if(staff == 1)
+                        {
+                            balance -= (fee / 2);
+                      
+                        }
+                        else
+                        {
+                            balance -= fee;
+                            
+                        }
+                        updateBalance(id, balance);
+
+                    }
+                    else
+                    {
+                        balance -= withdraw;
+                        updateBalance(id, balance);
+                    }
+                }
+                else
+                {
+                    if (balance < withdraw)
+                    {
+                        if (staff == 1)
+                        {
+                            balance = balance - withdraw - (fee / 2);
+                          
+                        }
+                        else
+                        {
+                            balance = balance - withdraw - fee;
+                        }
+                        updateBalance(id, balance);
+                    }
+                    else
+                    {
+                        balance -= withdraw;
+                        updateBalance(id, balance);
+                    }
+                }
+                
+            }
+                
+        }
     }
 }

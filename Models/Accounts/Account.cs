@@ -27,21 +27,6 @@ namespace BankAccounts.Models
         public int GetCustomer() => _customer;
         public double GetBalance() => _aBalance;
         
-        //adding method for deposits based on amount called deposit
-        public virtual void Deposit(double deposit)
-        {
-            _aBalance += deposit;
-            //if the deposit is greater than 0 then perform calculations and show  notification
-            if(deposit > 0)
-            {
-                MessageBox.Show("Transfer complete. Your new balance is " + GetBalance());
-                var dep = new Transactions(DateTime.Now, "Deposit", deposit, GetBalance());
-                TransactionController.statement.Add(dep);
-            }
-                   
-        }
-        // setting an abstract method for withdrawals 
-        public abstract void Withdraw( double withdraw);
 
         // since not all have interest but they may have in future we set up a virtual interest, fee and overdraft
         public virtual double GetInterest() 
