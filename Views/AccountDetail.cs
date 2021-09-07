@@ -65,7 +65,9 @@ namespace BankAccounts
 
         private void btnAddinterest_Click(object sender, EventArgs e)
         {
-
+            AccessClass z = accAction.GetAccountById(accountId);
+            accAction.Deposit(z.Id, Convert.ToDouble((accAction.getAccBalance(z.Id) * z.Interest) / 100));
+            LoadAccount();
         }
 
         private void LoadAccount()
