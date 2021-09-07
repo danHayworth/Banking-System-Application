@@ -32,7 +32,7 @@ namespace BankAccounts
             }
         }
 
-        //pull customers and transform the IEnumerable into  a list to be able to save it in the abopve lists
+        //pull customers and transform the IEnumerable into  a list to be able to save it in the above lists
         public List<Customer> GetCustomers()
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))

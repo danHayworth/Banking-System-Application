@@ -14,7 +14,6 @@ namespace BankAccounts
         {
             InitializeComponent();
             
-
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {          
@@ -28,6 +27,7 @@ namespace BankAccounts
                     CustomerController.isClient.Add(a);
                     CustomerController.userLogged = user;
                     isLogged = a.GetName();
+                    frmDashboard.customerSelected = a.GetId();
                 }
             }
             if (CustomerController.isClient.Exists(x => x.GetUsername() == user) && ValidateForm())

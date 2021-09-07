@@ -107,6 +107,7 @@ namespace BankAccounts.Views
                 if (idValue != "")
                 {
                     customer = Int32.Parse(idValue);
+                    frmDashboard.customerSelected = customer;
                     frmAddNewAccount.custId = customer;
                     frmAddNewAccount.customer = Convert.ToString(selectedRow.Cells["CName"].Value);
                 }               

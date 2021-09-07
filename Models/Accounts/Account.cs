@@ -23,7 +23,6 @@ namespace BankAccounts.Models
             _aBalance = aBalance;
             _customer = customer;
         }
-
         public int GetId() => _aId;
         public int GetCustomer() => _customer;
         public double GetBalance() => _aBalance;

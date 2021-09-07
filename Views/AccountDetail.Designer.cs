@@ -68,6 +68,7 @@ namespace BankAccounts
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -478,6 +479,11 @@ namespace BankAccounts
             this.label1.TabIndex = 32;
             this.label1.Text = "%";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // AccountDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -555,5 +561,6 @@ namespace BankAccounts
         private System.Windows.Forms.TextBox txtAccNum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

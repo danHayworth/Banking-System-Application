@@ -31,41 +31,40 @@ namespace BankAccounts
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblLogOut = new System.Windows.Forms.Label();
-            this.btnEveryday = new System.Windows.Forms.Button();
-            this.btnOmni = new System.Windows.Forms.Button();
             this.lblCheckAcc = new System.Windows.Forms.Label();
-            this.lblBalEvery = new System.Windows.Forms.Label();
-            this.lblEvery = new System.Windows.Forms.Label();
-            this.lblOmni = new System.Windows.Forms.Label();
-            this.lblBalOmni = new System.Windows.Forms.Label();
             this.lblClock = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.lblCustomerLogged = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblCustomerLogged = new System.Windows.Forms.Label();
             this.aFooter = new System.Windows.Forms.LinkLabel();
             this.btnAddAccounts = new System.Windows.Forms.Button();
-            this.btnInvestment = new System.Windows.Forms.Button();
-            this.lblBalInv = new System.Windows.Forms.Label();
-            this.lblInvestment = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pnlInvestment = new System.Windows.Forms.Panel();
-            this.pnlEveryday = new System.Windows.Forms.Panel();
-            this.pnlOmni = new System.Windows.Forms.Panel();
+            this.dataAccounts = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccountType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Interest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Overdraft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCheck = new System.Windows.Forms.Button();
+            this.cmbAcc1 = new System.Windows.Forms.ComboBox();
+            this.cmbAcc2 = new System.Windows.Forms.ComboBox();
+            this.txtTransfer = new System.Windows.Forms.TextBox();
+            this.btnTransfer = new System.Windows.Forms.Button();
+            this.lblTo = new System.Windows.Forms.Label();
+            this.lblFrom = new System.Windows.Forms.Label();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblQuick = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.pnlInvestment.SuspendLayout();
-            this.pnlEveryday.SuspendLayout();
-            this.pnlOmni.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -114,94 +113,16 @@ namespace BankAccounts
             this.lblLogOut.Text = "Logout!";
             this.lblLogOut.Click += new System.EventHandler(this.lblLogOut_Click);
             // 
-            // btnEveryday
-            // 
-            this.btnEveryday.AccessibleName = "";
-            this.btnEveryday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnEveryday.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEveryday.ForeColor = System.Drawing.Color.White;
-            this.btnEveryday.Location = new System.Drawing.Point(48, 40);
-            this.btnEveryday.Name = "btnEveryday";
-            this.btnEveryday.Size = new System.Drawing.Size(190, 98);
-            this.btnEveryday.TabIndex = 8;
-            this.btnEveryday.Text = "Everyday";
-            this.btnEveryday.UseVisualStyleBackColor = false;
-            this.btnEveryday.Click += new System.EventHandler(this.btnEveryday_Click);
-            // 
-            // btnOmni
-            // 
-            this.btnOmni.AccessibleName = "";
-            this.btnOmni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOmni.ForeColor = System.Drawing.Color.White;
-            this.btnOmni.Location = new System.Drawing.Point(40, 39);
-            this.btnOmni.Name = "btnOmni";
-            this.btnOmni.Size = new System.Drawing.Size(190, 98);
-            this.btnOmni.TabIndex = 9;
-            this.btnOmni.Text = "Omni";
-            this.btnOmni.UseVisualStyleBackColor = false;
-            this.btnOmni.Click += new System.EventHandler(this.btnOmni_Click);
-            // 
             // lblCheckAcc
             // 
             this.lblCheckAcc.AutoSize = true;
             this.lblCheckAcc.Font = new System.Drawing.Font("Adobe Garamond Pro", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCheckAcc.ForeColor = System.Drawing.Color.White;
-            this.lblCheckAcc.Location = new System.Drawing.Point(159, 351);
+            this.lblCheckAcc.Location = new System.Drawing.Point(5, 400);
             this.lblCheckAcc.Name = "lblCheckAcc";
-            this.lblCheckAcc.Size = new System.Drawing.Size(318, 42);
+            this.lblCheckAcc.Size = new System.Drawing.Size(144, 42);
             this.lblCheckAcc.TabIndex = 11;
-            this.lblCheckAcc.Text = "Here are your accounts:";
-            // 
-            // lblBalEvery
-            // 
-            this.lblBalEvery.AccessibleName = "";
-            this.lblBalEvery.AutoSize = true;
-            this.lblBalEvery.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalEvery.ForeColor = System.Drawing.Color.White;
-            this.lblBalEvery.Location = new System.Drawing.Point(42, 160);
-            this.lblBalEvery.Name = "lblBalEvery";
-            this.lblBalEvery.Size = new System.Drawing.Size(94, 31);
-            this.lblBalEvery.TabIndex = 12;
-            this.lblBalEvery.Text = "Balance:";
-            // 
-            // lblEvery
-            // 
-            this.lblEvery.AccessibleName = "";
-            this.lblEvery.AutoSize = true;
-            this.lblEvery.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEvery.ForeColor = System.Drawing.Color.White;
-            this.lblEvery.Location = new System.Drawing.Point(176, 160);
-            this.lblEvery.Name = "lblEvery";
-            this.lblEvery.Size = new System.Drawing.Size(26, 31);
-            this.lblEvery.TabIndex = 13;
-            this.lblEvery.Text = "0";
-            this.lblEvery.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblOmni
-            // 
-            this.lblOmni.AccessibleName = "";
-            this.lblOmni.AutoSize = true;
-            this.lblOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOmni.ForeColor = System.Drawing.Color.White;
-            this.lblOmni.Location = new System.Drawing.Point(166, 159);
-            this.lblOmni.Name = "lblOmni";
-            this.lblOmni.Size = new System.Drawing.Size(26, 31);
-            this.lblOmni.TabIndex = 17;
-            this.lblOmni.Text = "0";
-            this.lblOmni.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblBalOmni
-            // 
-            this.lblBalOmni.AccessibleName = "";
-            this.lblBalOmni.AutoSize = true;
-            this.lblBalOmni.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalOmni.ForeColor = System.Drawing.Color.White;
-            this.lblBalOmni.Location = new System.Drawing.Point(34, 159);
-            this.lblBalOmni.Name = "lblBalOmni";
-            this.lblBalOmni.Size = new System.Drawing.Size(94, 31);
-            this.lblBalOmni.TabIndex = 16;
-            this.lblBalOmni.Text = "Balance:";
+            this.lblCheckAcc.Text = "Accounts:";
             // 
             // lblClock
             // 
@@ -224,6 +145,7 @@ namespace BankAccounts
             // 
             this.pnlTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pnlTop.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlTop.Controls.Add(this.pictureBox4);
             this.pnlTop.Controls.Add(this.lblCustomerLogged);
             this.pnlTop.Controls.Add(this.lblClock);
             this.pnlTop.Controls.Add(this.pictureBox2);
@@ -234,6 +156,18 @@ namespace BankAccounts
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(1128, 223);
             this.pnlTop.TabIndex = 19;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Location = new System.Drawing.Point(1013, 8);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(45, 46);
+            this.pictureBox4.TabIndex = 49;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // lblCustomerLogged
             // 
@@ -246,28 +180,6 @@ namespace BankAccounts
             this.lblCustomerLogged.Size = new System.Drawing.Size(152, 42);
             this.lblCustomerLogged.TabIndex = 19;
             this.lblCustomerLogged.Text = "Hello  ";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.AccessibleName = "";
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(125, 150);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(45, 43);
-            this.pictureBox3.TabIndex = 30;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.AccessibleName = "";
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(115, 148);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(45, 44);
-            this.pictureBox4.TabIndex = 31;
-            this.pictureBox4.TabStop = false;
             // 
             // aFooter
             // 
@@ -300,91 +212,167 @@ namespace BankAccounts
             this.btnAddAccounts.Visible = false;
             this.btnAddAccounts.Click += new System.EventHandler(this.btnAddAccounts_Click);
             // 
-            // btnInvestment
+            // dataAccounts
             // 
-            this.btnInvestment.AccessibleName = "";
-            this.btnInvestment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInvestment.ForeColor = System.Drawing.Color.White;
-            this.btnInvestment.Location = new System.Drawing.Point(40, 40);
-            this.btnInvestment.Name = "btnInvestment";
-            this.btnInvestment.Size = new System.Drawing.Size(190, 98);
-            this.btnInvestment.TabIndex = 10;
-            this.btnInvestment.Text = "Investment";
-            this.btnInvestment.UseVisualStyleBackColor = false;
-            this.btnInvestment.Click += new System.EventHandler(this.btnInvestment_Click);
+            this.dataAccounts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataAccounts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.AccountType,
+            this.Balance,
+            this.Interest,
+            this.Overdraft});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataAccounts.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataAccounts.Location = new System.Drawing.Point(12, 445);
+            this.dataAccounts.Name = "dataAccounts";
+            this.dataAccounts.RowHeadersWidth = 51;
+            this.dataAccounts.RowTemplate.Height = 24;
+            this.dataAccounts.Size = new System.Drawing.Size(1093, 264);
+            this.dataAccounts.TabIndex = 50;
             // 
-            // lblBalInv
+            // Id
             // 
-            this.lblBalInv.AccessibleName = "";
-            this.lblBalInv.AutoSize = true;
-            this.lblBalInv.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBalInv.ForeColor = System.Drawing.Color.White;
-            this.lblBalInv.Location = new System.Drawing.Point(34, 160);
-            this.lblBalInv.Name = "lblBalInv";
-            this.lblBalInv.Size = new System.Drawing.Size(94, 31);
-            this.lblBalInv.TabIndex = 14;
-            this.lblBalInv.Text = "Balance:";
+            this.Id.HeaderText = "Account number";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
-            // lblInvestment
+            // AccountType
             // 
-            this.lblInvestment.AccessibleName = "";
-            this.lblInvestment.AutoSize = true;
-            this.lblInvestment.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInvestment.ForeColor = System.Drawing.Color.White;
-            this.lblInvestment.Location = new System.Drawing.Point(169, 160);
-            this.lblInvestment.Name = "lblInvestment";
-            this.lblInvestment.Size = new System.Drawing.Size(26, 31);
-            this.lblInvestment.TabIndex = 15;
-            this.lblInvestment.Text = "0";
-            this.lblInvestment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AccountType.HeaderText = "Account type";
+            this.AccountType.MinimumWidth = 6;
+            this.AccountType.Name = "AccountType";
+            this.AccountType.ReadOnly = true;
             // 
-            // pictureBox5
+            // Balance
             // 
-            this.pictureBox5.AccessibleName = "";
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(118, 149);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 44);
-            this.pictureBox5.TabIndex = 32;
-            this.pictureBox5.TabStop = false;
+            this.Balance.HeaderText = "Balance";
+            this.Balance.MinimumWidth = 6;
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
             // 
-            // pnlInvestment
+            // Interest
             // 
-            this.pnlInvestment.Controls.Add(this.pictureBox5);
-            this.pnlInvestment.Controls.Add(this.lblInvestment);
-            this.pnlInvestment.Controls.Add(this.lblBalInv);
-            this.pnlInvestment.Controls.Add(this.btnInvestment);
-            this.pnlInvestment.Location = new System.Drawing.Point(440, 405);
-            this.pnlInvestment.Name = "pnlInvestment";
-            this.pnlInvestment.Size = new System.Drawing.Size(267, 225);
-            this.pnlInvestment.TabIndex = 50;
-            this.pnlInvestment.Visible = false;
+            this.Interest.HeaderText = "Interest";
+            this.Interest.MinimumWidth = 6;
+            this.Interest.Name = "Interest";
+            this.Interest.ReadOnly = true;
             // 
-            // pnlEveryday
+            // Overdraft
             // 
-            this.pnlEveryday.Controls.Add(this.pictureBox3);
-            this.pnlEveryday.Controls.Add(this.lblEvery);
-            this.pnlEveryday.Controls.Add(this.lblBalEvery);
-            this.pnlEveryday.Controls.Add(this.btnEveryday);
-            this.pnlEveryday.Location = new System.Drawing.Point(118, 405);
-            this.pnlEveryday.Name = "pnlEveryday";
-            this.pnlEveryday.Size = new System.Drawing.Size(276, 224);
-            this.pnlEveryday.TabIndex = 51;
-            this.pnlEveryday.Visible = false;
+            this.Overdraft.HeaderText = "Overdraft";
+            this.Overdraft.MinimumWidth = 6;
+            this.Overdraft.Name = "Overdraft";
+            this.Overdraft.ReadOnly = true;
             // 
-            // pnlOmni
+            // btnCheck
             // 
-            this.pnlOmni.Controls.Add(this.pictureBox4);
-            this.pnlOmni.Controls.Add(this.lblOmni);
-            this.pnlOmni.Controls.Add(this.lblBalOmni);
-            this.pnlOmni.Controls.Add(this.btnOmni);
-            this.pnlOmni.Location = new System.Drawing.Point(751, 406);
-            this.pnlOmni.Name = "pnlOmni";
-            this.pnlOmni.Size = new System.Drawing.Size(277, 223);
-            this.pnlOmni.TabIndex = 52;
-            this.pnlOmni.Visible = false;
+            this.btnCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCheck.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheck.ForeColor = System.Drawing.Color.White;
+            this.btnCheck.Location = new System.Drawing.Point(918, 338);
+            this.btnCheck.Name = "btnCheck";
+            this.btnCheck.Size = new System.Drawing.Size(187, 57);
+            this.btnCheck.TabIndex = 51;
+            this.btnCheck.Text = "Check Account";
+            this.btnCheck.UseVisualStyleBackColor = false;
+            this.btnCheck.Visible = false;
+            // 
+            // cmbAcc1
+            // 
+            this.cmbAcc1.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAcc1.FormattingEnabled = true;
+            this.cmbAcc1.Location = new System.Drawing.Point(182, 284);
+            this.cmbAcc1.Name = "cmbAcc1";
+            this.cmbAcc1.Size = new System.Drawing.Size(250, 32);
+            this.cmbAcc1.TabIndex = 52;
+            // 
+            // cmbAcc2
+            // 
+            this.cmbAcc2.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAcc2.FormattingEnabled = true;
+            this.cmbAcc2.Location = new System.Drawing.Point(516, 284);
+            this.cmbAcc2.Name = "cmbAcc2";
+            this.cmbAcc2.Size = new System.Drawing.Size(250, 32);
+            this.cmbAcc2.TabIndex = 53;
+            // 
+            // txtTransfer
+            // 
+            this.txtTransfer.Font = new System.Drawing.Font("Adobe Garamond Pro Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTransfer.Location = new System.Drawing.Point(181, 338);
+            this.txtTransfer.Name = "txtTransfer";
+            this.txtTransfer.Size = new System.Drawing.Size(251, 31);
+            this.txtTransfer.TabIndex = 55;
+            // 
+            // btnTransfer
+            // 
+            this.btnTransfer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnTransfer.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransfer.ForeColor = System.Drawing.Color.White;
+            this.btnTransfer.Location = new System.Drawing.Point(516, 334);
+            this.btnTransfer.Name = "btnTransfer";
+            this.btnTransfer.Size = new System.Drawing.Size(130, 36);
+            this.btnTransfer.TabIndex = 56;
+            this.btnTransfer.Text = "Transfer";
+            this.btnTransfer.UseVisualStyleBackColor = false;
+            this.btnTransfer.Visible = false;
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
+            // 
+            // lblTo
+            // 
+            this.lblTo.AutoSize = true;
+            this.lblTo.ForeColor = System.Drawing.Color.White;
+            this.lblTo.Location = new System.Drawing.Point(447, 289);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(61, 25);
+            this.lblTo.TabIndex = 57;
+            this.lblTo.Text = "- TO -";
+            // 
+            // lblFrom
+            // 
+            this.lblFrom.AutoSize = true;
+            this.lblFrom.ForeColor = System.Drawing.Color.White;
+            this.lblFrom.Location = new System.Drawing.Point(96, 287);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(80, 25);
+            this.lblFrom.TabIndex = 58;
+            this.lblFrom.Text = "FROM -";
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.ForeColor = System.Drawing.Color.White;
+            this.lblAmount.Location = new System.Drawing.Point(65, 338);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(105, 25);
+            this.lblAmount.TabIndex = 59;
+            this.lblAmount.Text = "AMOUNT:";
+            // 
+            // lblQuick
+            // 
+            this.lblQuick.AutoSize = true;
+            this.lblQuick.Font = new System.Drawing.Font("Adobe Garamond Pro", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuick.ForeColor = System.Drawing.Color.White;
+            this.lblQuick.Location = new System.Drawing.Point(5, 222);
+            this.lblQuick.Name = "lblQuick";
+            this.lblQuick.Size = new System.Drawing.Size(217, 42);
+            this.lblQuick.TabIndex = 60;
+            this.lblQuick.Text = "Quick Transfer:";
             // 
             // frmDashboard
             // 
@@ -392,9 +380,16 @@ namespace BankAccounts
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(52)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1120, 759);
-            this.Controls.Add(this.pnlOmni);
-            this.Controls.Add(this.pnlEveryday);
-            this.Controls.Add(this.pnlInvestment);
+            this.Controls.Add(this.lblQuick);
+            this.Controls.Add(this.lblAmount);
+            this.Controls.Add(this.lblFrom);
+            this.Controls.Add(this.lblTo);
+            this.Controls.Add(this.btnTransfer);
+            this.Controls.Add(this.txtTransfer);
+            this.Controls.Add(this.cmbAcc2);
+            this.Controls.Add(this.cmbAcc1);
+            this.Controls.Add(this.btnCheck);
+            this.Controls.Add(this.dataAccounts);
             this.Controls.Add(this.btnAddAccounts);
             this.Controls.Add(this.aFooter);
             this.Controls.Add(this.pnlTop);
@@ -412,15 +407,8 @@ namespace BankAccounts
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.pnlInvestment.ResumeLayout(false);
-            this.pnlInvestment.PerformLayout();
-            this.pnlEveryday.ResumeLayout(false);
-            this.pnlEveryday.PerformLayout();
-            this.pnlOmni.ResumeLayout(false);
-            this.pnlOmni.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataAccounts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,27 +420,28 @@ namespace BankAccounts
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblLogOut;
-        private System.Windows.Forms.Button btnEveryday;
-        private System.Windows.Forms.Button btnOmni;
         private System.Windows.Forms.Label lblCheckAcc;
-        private System.Windows.Forms.Label lblBalEvery;
-        private System.Windows.Forms.Label lblEvery;
-        private System.Windows.Forms.Label lblOmni;
-        private System.Windows.Forms.Label lblBalOmni;
         private System.Windows.Forms.Label lblClock;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.LinkLabel aFooter;
         private System.Windows.Forms.Label lblCustomerLogged;
         private System.Windows.Forms.Button btnAddAccounts;
-        private System.Windows.Forms.Button btnInvestment;
-        private System.Windows.Forms.Label lblBalInv;
-        private System.Windows.Forms.Label lblInvestment;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Panel pnlInvestment;
-        private System.Windows.Forms.Panel pnlEveryday;
-        private System.Windows.Forms.Panel pnlOmni;
+        private System.Windows.Forms.DataGridView dataAccounts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccountType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Interest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Overdraft;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.ComboBox cmbAcc1;
+        private System.Windows.Forms.ComboBox cmbAcc2;
+        private System.Windows.Forms.TextBox txtTransfer;
+        private System.Windows.Forms.Button btnTransfer;
+        private System.Windows.Forms.Label lblTo;
+        private System.Windows.Forms.Label lblFrom;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblQuick;
     }
 }

@@ -1,19 +1,23 @@
 ﻿using BankAccounts.Data;
 using BankAccounts.Models;
+using BankAccounts.Models.Accounts;
 using Dapper;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BankAccounts.Controllers
 {
-    public class AccountController
+    public class AccountController 
     {
         //create a new connection to database
         SqliteConnection conn = new SqliteConnection();
-        public static List<Account> accounts = new List<Account>();
+        public static List<AccessClass> accounts = new List<AccessClass>();
+
 
         /////////***** CRUD OPERATIONS *****\\\\\\\\
 
@@ -23,29 +27,6 @@ namespace BankAccounts.Controllers
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
                 con.Execute("Insert into Account ( Customer, AccountType, Balance, Interest, Overdraft) values ( @Customer, @AccountType, @Balance, @Interest, @Overdraft)", new {Customer = customer, AccountType = accountType, Balance = balance, Interest = interest, Overdraft = overdraft });
-            }
-        }
-
-        //not functional yet
-        public async Task<IEnumerable<Account>> GetAccounts()
-        {
-            IEnumerable<Account> accounts;
-            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
-            {
-                accounts = await con.QueryAsync<Account>("Select * from Account");
-
-               
-            }
-            return accounts;
-        }
-
-        //not functional
-        public async Task<IEnumerable<Account>> GetAccountByCustomer(int id)
-        {
-            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
-            {
-                var clientAccount = await con.Query<Account>("Select * from Account Where Customer = @id", new { Customer = id });
-                return clientAccount;
             }
         }
 
@@ -67,5 +48,42 @@ namespace BankAccounts.Controllers
             }
         }
 
+        //get list of all accounts
+        public  List<AccessClass> GetAccounts()
+        {
+            using(IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                try
+                {
+                    var acc = con.Query<AccessClass>("Select * from Account", new DynamicParameters()).ToList();
+                    accounts.Clear();
+                    accounts.AddRange(acc);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }               
+            }
+            return accounts;
+        }
+
+        public string getAccName(int id)
+        {
+            string name = "";
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                var c = con.QueryFirstOrDefault<string>("Select TypeName from AccountTypes Where Id=@id", new { Id = id });
+                name = c;
+            }
+            return name;
+        }
+
+        public void updateBalance(int id, double balance)
+        {
+            using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
+            {
+                con.Execute("Update Account SET Balance = @Balance Where Id = @id", new { Id = id, Balance = balance });
+            }
+        }
     }
 }

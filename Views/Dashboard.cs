@@ -1,5 +1,6 @@
 ﻿using BankAccounts.Controllers;
 using BankAccounts.Models;
+using BankAccounts.Models.Accounts;
 using BankAccounts.Views;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,9 @@ namespace BankAccounts
 {
     public partial class frmDashboard : Form
     {
+        AccountController controller = new AccountController();
+        public static int customerSelected;
+        List<int> holdingAcc = new List<int>();
         public frmDashboard()
         {
             InitializeComponent();
@@ -25,10 +29,14 @@ namespace BankAccounts
             {
                 btnAddAccounts.Visible = true;
             }
-            
+            else
+            {
+                btnCheck.Visible = true;
+            }
+            controller.GetAccounts();
+            loadAccounts();
         }
        
-
 
 
         // creating an event for clock 
@@ -53,30 +61,7 @@ namespace BankAccounts
             x.Show();
         }
 
-        // add event to open the detailed form with everyday account details
-        private void btnEveryday_Click(object sender, EventArgs e)
-        {
-            
-            AccountDetail.accountName = "Everyday Account:";
-            newDetailForm();
-        }
-
-        // add event that will open the investment account detail
-
-        private void btnInvestment_Click(object sender, EventArgs e)
-        {
-          
-            AccountDetail.accountName = "Investment Account:";
-            newDetailForm();
-        }
-
-        // omni detailed form
-        private void btnOmni_Click(object sender, EventArgs e)
-        {
-         
-            AccountDetail.accountName = "Omni Account:";
-            newDetailForm();
-        }
+      
 
         private void newDetailForm()
         {
@@ -95,6 +80,33 @@ namespace BankAccounts
             this.Close();
             frmAddNewAccount x = new frmAddNewAccount();
             x.Show();
+        }
+
+        private void loadAccounts()
+        {
+            foreach(AccessClass c in controller.GetAccounts())
+            {
+                if(c.Customer == customerSelected)
+                {
+                    cmbAcc1.Items.Add(c.AccountType.ToString() + " " + c.Balance.ToString());
+                    cmbAcc2.Items.Add(c.AccountType.ToString() + " " + c.Balance.ToString()) ;
+                    holdingAcc.Add(c.Id); 
+                    dataAccounts.Rows.Add(c.Id.ToString(), controller.getAccName(c.AccountType), c.Balance.ToString(), c.Interest.ToString(), c.Overdraft.ToString());
+                }
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            dataAccounts.Rows.Clear();
+            frmManager a = new frmManager();
+            a.Show();
+        }
+
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

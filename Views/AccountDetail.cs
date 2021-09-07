@@ -19,8 +19,7 @@ namespace BankAccounts
         public AccountDetail()
         {
             InitializeComponent();
-            timer2.Start();
-         
+            timer2.Start();        
         }
 
         // event for closing 

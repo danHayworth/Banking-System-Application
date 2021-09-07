@@ -1,7 +1,9 @@
 ﻿using BankAccounts.Controllers;
 using BankAccounts.Models;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+
 
 namespace BankAccounts.Views
 {
@@ -14,7 +16,9 @@ namespace BankAccounts.Views
         {
             InitializeComponent();
             txtCustomerName.Text = customer;
-            MessageBox.Show(accCont.GetAccounts().ToString());
+            accCont.GetAccounts();
+
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -44,8 +48,7 @@ namespace BankAccounts.Views
             {
                 x = new OmniAccount(Convert.ToDouble(txtBalance.Text), Convert.ToDouble(txtInterest.Text), Convert.ToDouble(txtOverdraft.Text), custId);
             }
-
-            accCont.AddAccount(x.GetCustomer(), cmbAccountType.SelectedIndex, x.GetBalance(), x.GetInterest(), x.GetOverdraft());
+            accCont.AddAccount(x.GetCustomer(), cmbAccountType.SelectedIndex+1, x.GetBalance(), x.GetInterest(), x.GetOverdraft());
             this.Close();
             frmDashboard y = new frmDashboard();
             y.Show();
