@@ -41,14 +41,6 @@ namespace BankAccounts.Models
         {
             return 0;
         }
-        //perform calculation for interest based on a percentage interest
-        public virtual void CalculateInterest( double interest)
-        {
-           double a = interest * GetBalance() / 100;
-            _aBalance += a;
-            var inter = new Transactions(DateTime.Now, "Interest", a, GetBalance());
-            TransactionController.statement.Add(inter);
-        }
 
         
     }

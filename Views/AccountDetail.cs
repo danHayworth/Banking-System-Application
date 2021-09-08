@@ -13,9 +13,11 @@ namespace BankAccounts
        
         AccountController accAction = new AccountController();
         CustomerController custom = new CustomerController();
+        TransactionController transaction = new TransactionController();
         public AccountDetail()
         {
             InitializeComponent();
+
             timer2.Start();        
         }
 
@@ -49,7 +51,9 @@ namespace BankAccounts
         private void btnDeposit_Click(object sender, EventArgs e)
         {
             accAction.Deposit(accountId, Convert.ToDouble(txtDeposit.Text.ToString()));
-            LoadAccount();
+            LoadAccount();          
+            transaction.Addtransaction(accountId, DateTime.Now, "Deposit", Convert.ToDouble(txtDeposit.Text.ToString()), accAction.getAccBalance(accountId));
+            addTransactions();
             txtDeposit.Text = "0.00";
         }
 
@@ -59,15 +63,19 @@ namespace BankAccounts
             AccessClass y = accAction.GetAccountById(accountId);
             accAction.Withdraw(y.Id, y.AccountType, Convert.ToDouble(txtWithdraw.Text.ToString()), custom.GetStaff(y.Customer), y.Overdraft);
             LoadAccount();
+            transaction.Addtransaction(accountId, DateTime.Now, "Withdraw", Convert.ToDouble(txtWithdraw.Text.ToString()), accAction.getAccBalance(accountId));
+            addTransactions();
             txtWithdraw.Text = "0.00";
         }
 
 
         private void btnAddinterest_Click(object sender, EventArgs e)
         {
-            AccessClass z = accAction.GetAccountById(accountId);
+            AccessClass z = accAction.GetAccountById(accountId);          
             accAction.Deposit(z.Id, Convert.ToDouble((accAction.getAccBalance(z.Id) * z.Interest) / 100));
             LoadAccount();
+            transaction.Addtransaction(accountId, DateTime.Now, "Add Interest", Convert.ToDouble((accAction.getAccBalance(accountId) * z.Interest) / 100), accAction.getAccBalance(accountId));
+            addTransactions();
         }
 
         private void LoadAccount()
@@ -85,11 +93,12 @@ namespace BankAccounts
 
         private void addTransactions()
         {
+            transaction.GetTransactions(accountId);
+            dataStatement.Rows.Clear();
             //setting a loop for every transactions in list of transactions
             foreach (Transactions b in TransactionController.statement)
             {             
-                dataStatement.Rows.Add(b.Id().ToString(), b.Date().ToString(), b.Type(), b.Amount().ToString(), b.Balance().ToString());
-                txtAccBal.Text ="B "+ b.Balance().ToString();
+                dataStatement.Rows.Add(b.GetId().ToString(),b.GetAcc().ToString(), b.GetDate(), b.GetTType(), b.GetAmount().ToString(), b.GetBalance().ToString());
             }
         }
 

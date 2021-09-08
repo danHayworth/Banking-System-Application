@@ -39,7 +39,7 @@ namespace BankAccounts.Views
             {
                 txtName.Text = name;
                 txtContact.Text = contact;
-                txtPass.Text = pass;
+                txtPass.Text = "";
                 txtUser.Text = user;
                 cmbStaff.SelectedIndex = staff;
                 btnAdd.Text = "Save";

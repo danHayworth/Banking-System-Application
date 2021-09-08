@@ -1,5 +1,4 @@
 ﻿using BankAccounts.Data;
-using BankAccounts.Models;
 using BankAccounts.Models.Accounts;
 using Dapper;
 using System;
@@ -7,7 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BankAccounts.Controllers
