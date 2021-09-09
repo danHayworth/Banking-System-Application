@@ -34,7 +34,6 @@ namespace BankAccounts.Views
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.btnEveryday = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
             this.aFooter = new System.Windows.Forms.LinkLabel();
@@ -92,30 +91,17 @@ namespace BankAccounts.Views
             this.lblWelcome.TabIndex = 5;
             this.lblWelcome.Text = "Welcome to BitBank!";
             // 
-            // btnEveryday
-            // 
-            this.btnEveryday.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnEveryday.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEveryday.ForeColor = System.Drawing.Color.White;
-            this.btnEveryday.Location = new System.Drawing.Point(233, 524);
-            this.btnEveryday.Name = "btnEveryday";
-            this.btnEveryday.Size = new System.Drawing.Size(190, 98);
-            this.btnEveryday.TabIndex = 21;
-            this.btnEveryday.Text = "Manager  Access";
-            this.btnEveryday.UseVisualStyleBackColor = false;
-            this.btnEveryday.Click += new System.EventHandler(this.btnEveryday_Click);
-            // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.button1.Font = new System.Drawing.Font("Adobe Garamond Pro", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(689, 524);
+            this.button1.Location = new System.Drawing.Point(493, 526);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(190, 98);
+            this.button1.Size = new System.Drawing.Size(145, 58);
             this.button1.TabIndex = 22;
-            this.button1.Text = "Customer Access";
+            this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -126,7 +112,7 @@ namespace BankAccounts.Views
             this.lblMessage.ForeColor = System.Drawing.Color.White;
             this.lblMessage.Location = new System.Drawing.Point(402, 419);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(399, 34);
+            this.lblMessage.Size = new System.Drawing.Size(405, 36);
             this.lblMessage.TabIndex = 23;
             this.lblMessage.Text = "Please log in to access the dashboard";
             // 
@@ -156,7 +142,6 @@ namespace BankAccounts.Views
             this.Controls.Add(this.aFooter);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnEveryday);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pnlTop);
             this.Font = new System.Drawing.Font("Adobe Garamond Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,7 +151,6 @@ namespace BankAccounts.Views
             this.MinimumSize = new System.Drawing.Size(1120, 759);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Main";
             this.Text = "Main";
             this.pnlTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -182,7 +166,6 @@ namespace BankAccounts.Views
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnEveryday;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.LinkLabel aFooter;

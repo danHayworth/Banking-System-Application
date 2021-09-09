@@ -65,7 +65,7 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
-            //clear the transactions and prepare the funds for next customer
+            CustomerController.userLogged = "";
  
             frmLogin x = new frmLogin();
             x.Show();
@@ -111,10 +111,19 @@ namespace BankAccounts
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
             dataAccounts.Rows.Clear();
-            frmManager a = new frmManager();
-            a.Show();
+            if (CustomerController.userLogged == "admin")
+            {
+                frmManager x = new frmManager();
+                x.Show();
+            }
+            else
+            {
+                frmLogin a = new frmLogin();
+                a.Show();
+            }
+            this.Close();
         }
 
         private void btnTransfer_Click(object sender, EventArgs e)
@@ -175,10 +184,26 @@ namespace BankAccounts
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            AccountDetail.accountId = Convert.ToInt32(dataAccounts.SelectedRows[0].Cells["Id"].Value.ToString());
-            AccountDetail x = new AccountDetail();
-            x.Show();
-            this.Close();
+            try
+            {
+                AccountDetail.accountId = Convert.ToInt32(dataAccounts.SelectedRows[0].Cells["Id"].Value.ToString());
+                AccountDetail x = new AccountDetail();
+                x.Show();
+                this.Close();
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("There is no account to be displayed, please open an account or select one if available.");
+            }
+            
+        }
+
+        private void txtTransfer_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && (e.KeyChar != 8 && e.KeyChar != 46))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

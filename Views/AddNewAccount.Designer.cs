@@ -101,6 +101,7 @@ namespace BankAccounts.Views
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.Size = new System.Drawing.Size(278, 31);
             this.txtBalance.TabIndex = 38;
+            this.txtBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBalance_KeyPress);
             // 
             // txtInterest
             // 
@@ -120,6 +121,7 @@ namespace BankAccounts.Views
             this.txtOverdraft.Name = "txtOverdraft";
             this.txtOverdraft.Size = new System.Drawing.Size(278, 31);
             this.txtOverdraft.TabIndex = 40;
+            this.txtOverdraft.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOverdraft_KeyPress);
             // 
             // cmbAccountType
             // 
@@ -133,6 +135,7 @@ namespace BankAccounts.Views
             this.cmbAccountType.Name = "cmbAccountType";
             this.cmbAccountType.Size = new System.Drawing.Size(278, 32);
             this.cmbAccountType.TabIndex = 41;
+            this.cmbAccountType.SelectedIndexChanged += new System.EventHandler(this.cmbAccountType_SelectedIndexChanged);
             // 
             // btnAddAccount
             // 

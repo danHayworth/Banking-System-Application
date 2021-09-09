@@ -340,6 +340,7 @@ namespace BankAccounts
             this.txtTransfer.Name = "txtTransfer";
             this.txtTransfer.Size = new System.Drawing.Size(251, 31);
             this.txtTransfer.TabIndex = 55;
+            this.txtTransfer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransfer_KeyPress);
             // 
             // btnTransfer
             // 

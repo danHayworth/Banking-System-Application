@@ -8,23 +8,23 @@ using System.Linq;
 
 namespace BankAccounts
 {
+    /// <summary>
+    /// Customer controller class fro CRUD operations
+    /// </summary>
     public class CustomerController
     {
-        /// <summary>
-        /// Creating the customer controller for CRUD operations
-        /// </summary>
+
         SqliteConnection conn = new SqliteConnection();
-        
+
         //add some lists that will hold data from database 
         public static List<Customer> people = new List<Customer>();
         public static List<Customer> isClient = new List<Customer>();
-        public static List<Customer> isStaff = new List<Customer>();
         public static string userLogged = "";
         //save the loggedd client in astatic variable to parse it on other forms 
         public static string userLoggedIn;
 
         /////////***** CRUD OPERATIONS *****\\\\\\\\
-        
+
         /// <summary>
         /// Method to add customers
         /// </summary>
@@ -50,7 +50,7 @@ namespace BankAccounts
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
             {
                 var pep = con.Query<Customer>("Select * from Customer");
-                return pep.ToList();               
+                return pep.ToList();
             }
         }
 

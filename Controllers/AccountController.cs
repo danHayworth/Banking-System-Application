@@ -10,12 +10,15 @@ using System.Windows.Forms;
 
 namespace BankAccounts.Controllers
 {
+    /// <summary>
+    /// Account controller for performing CRUD operations
+    /// </summary>
     public class AccountController 
-    {
-        /// <summary>
-        /// Account controller for performing CRUD operations
-        /// </summary>
+    {       
         SqliteConnection conn = new SqliteConnection();
+        /// <summary>
+        /// Public List accounts that will hold the accounts from db while running
+        /// </summary>
         public static List<AccessClass> accounts = new List<AccessClass>();
 
 

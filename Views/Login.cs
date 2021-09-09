@@ -17,26 +17,26 @@ namespace BankAccounts
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {          
-            var user = txtUsername.Text;
+            var username = txtUsername.Text;
             var pass = txtPassword.Text;
-            var isLogged = "";
+            var name = "";
             foreach(Customer a in CustomerController.people)
             {
-                if (a.GetUsername() == user && a.GetPassword() == pass)
+                if (a.GetUsername() == username && a.GetPassword() == pass)
                 {
                     CustomerController.isClient.Add(a);
-                    CustomerController.userLogged = user;
-                    isLogged = a.GetName();
+                    name = a.GetName();
                     frmDashboard.customerSelected = a.GetId();
                 }
             }
-            if (CustomerController.isClient.Exists(x => x.GetUsername() == user) && ValidateForm())
+            if (CustomerController.isClient.Exists(x => x.GetUsername() == username) && ValidateForm())
             {
-                if (user == "admin")
+                if (username == "admin")
                 {
                     //on login hide this form and open a new dashboard form
                     this.Hide();
-                    CustomerController.userLoggedIn = isLogged;
+                    CustomerController.userLoggedIn = name;
+                    CustomerController.userLogged = username;
                     frmManager y = new frmManager();
                     y.Show();
                 }
@@ -44,7 +44,7 @@ namespace BankAccounts
                 {
                     //on login hide this form and open a new dashboard form
                     this.Hide();
-                    CustomerController.userLoggedIn = isLogged;
+                    CustomerController.userLoggedIn = name;
                     frmDashboard y = new frmDashboard();
                     y.Show();
                     //clear the fields

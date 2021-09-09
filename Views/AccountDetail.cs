@@ -45,8 +45,18 @@ namespace BankAccounts
         {
             this.Close();
             TransactionController.statement.Clear();
-            frmDashboard x = new frmDashboard();
-            x.Show();
+            if(CustomerController.userLogged == "admin")
+            {
+                frmDashboard x = new frmDashboard();
+                x.Show();
+            }
+            else
+            {
+                frmLogin a = new frmLogin();
+                a.Show();
+            }
+            
+
         }
 
 
@@ -130,6 +140,7 @@ namespace BankAccounts
         private void lblLogOut_Click(object sender, EventArgs e)
         {
             this.Close();
+            CustomerController.userLogged = "";
             frmLogin x = new frmLogin();
             x.Show();
         }
