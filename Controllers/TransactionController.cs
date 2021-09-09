@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace BankAccounts.Controllers
 {
+    /// <summary>
+    /// This is the Transaction Controller for MVC pattern
+    /// This creates a list and builds the methods 
+    /// for adding transaction and retrieving all transactions.
+    /// </summary>
     public class TransactionController
     {
         //add a list for transactions 
@@ -17,7 +22,14 @@ namespace BankAccounts.Controllers
         //create a new connection to database
         SqliteConnection conn = new SqliteConnection();
 
-        //add transaction
+        /// <summary>
+        /// Creating a method to add the transactions to database
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="date"></param>
+        /// <param name="type"></param>
+        /// <param name="amount"></param>
+        /// <param name="balance"></param>
         public void Addtransaction(int account, DateTime date, string type, double amount, double balance)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -26,7 +38,13 @@ namespace BankAccounts.Controllers
             }
         }
 
-        //get list of all transactions
+        /// <summary>
+        /// Build method to retrieve from database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// List of model Transactions
+        /// </returns>
         public List<Transactions> GetTransactions( int id)
         {
             using (IDbConnection connection = new SQLiteConnection(conn.ConnSqlite()))

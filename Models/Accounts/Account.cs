@@ -12,6 +12,9 @@ namespace BankAccounts.Models
          * Name: Dan Hayworth
          * Date: 17-06-2021
          */
+        /// <summary>
+        /// Account abstract model
+        /// </summary>
         static int nextIdA;
         private int _aId { get; set; }
         private int _customer { get; set; }

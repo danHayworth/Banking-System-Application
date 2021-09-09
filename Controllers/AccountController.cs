@@ -12,14 +12,23 @@ namespace BankAccounts.Controllers
 {
     public class AccountController 
     {
-        //create a new connection to database
+        /// <summary>
+        /// Account controller for performing CRUD operations
+        /// </summary>
         SqliteConnection conn = new SqliteConnection();
         public static List<AccessClass> accounts = new List<AccessClass>();
 
 
         /////////***** CRUD OPERATIONS *****\\\\\\\\
 
-        //add customer
+        /// <summary>
+        /// Creating an account
+        /// </summary>
+        /// <param name="customer"></param>
+        /// <param name="accountType"></param>
+        /// <param name="balance"></param>
+        /// <param name="interest"></param>
+        /// <param name="overdraft"></param>
         public void AddAccount(int customer, int accountType, double balance, double interest, double overdraft)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -28,7 +37,15 @@ namespace BankAccounts.Controllers
             }
         }
 
-        // edit/ update account
+        /// <summary>
+        /// Updating account
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="customer"></param>
+        /// <param name="accountType"></param>
+        /// <param name="balance"></param>
+        /// <param name="interest"></param>
+        /// <param name="overdraft"></param>
         public void UpdateAccount(int id, int customer, int accountType, double balance, double interest, double overdraft)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -37,7 +54,10 @@ namespace BankAccounts.Controllers
             }
         }
 
-        //delete account
+        /// <summary>
+        /// Delete account
+        /// </summary>
+        /// <param name="id"></param>
         public void DeleteAccount(int id)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -46,7 +66,10 @@ namespace BankAccounts.Controllers
             }
         }
 
-        //get list of all accounts
+        /// <summary>
+        /// Accessing all accounts in database
+        /// </summary>
+        /// <returns>List of accounts model based</returns>
         public  List<AccessClass> GetAccounts()
         {
             using(IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -65,6 +88,11 @@ namespace BankAccounts.Controllers
             return accounts;
         }
 
+        /// <summary>
+        /// Accessing individual account
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> Account model </returns>
         public AccessClass GetAccountById(int id)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -74,6 +102,11 @@ namespace BankAccounts.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieve an account by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> the name of the account </returns>
         public string getAccName(int id)
         {
             string name = "";
@@ -84,7 +117,11 @@ namespace BankAccounts.Controllers
             }
             return name;
         }
-
+        /// <summary>
+        /// Updates the account balance based in the id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="balance"></param>
         public void updateBalance(int id, double balance)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -92,7 +129,11 @@ namespace BankAccounts.Controllers
                 con.Execute("Update Account SET Balance = @Balance Where Id = @id", new { Id = id, Balance = balance });
             }
         }
-
+        /// <summary>
+        /// Get the account balance based on its id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public double getAccBalance(int id)
         {
             double balance;
@@ -104,7 +145,11 @@ namespace BankAccounts.Controllers
             }
             return balance;
         }
-
+        /// <summary>
+        /// Method to deposit funds
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="deposit"></param>
         public void Deposit(int id, double deposit)
         {
             using (IDbConnection con = new SQLiteConnection(conn.ConnSqlite()))
@@ -114,7 +159,18 @@ namespace BankAccounts.Controllers
                 updateBalance(id, balance);
             }
         }
-
+        /// <summary>
+        /// Method to withdraw funds
+        /// </summary>
+        /// <remarks>
+        /// The calculations are performed as per the account type
+        /// since some accounts have overdraft as well
+        /// </remarks>
+        /// <param name="id"></param>
+        /// <param name="type"></param>
+        /// <param name="withdraw"></param>
+        /// <param name="staff"></param>
+        /// <param name="overdraft"></param>
         public void Withdraw(int id, int type, double withdraw, int staff, double overdraft)
         {
             double fee = 10;

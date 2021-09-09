@@ -10,6 +10,9 @@ namespace BankAccounts.Models
     */
     public class Transactions
     {
+        /// <summary>
+        /// Transaction model
+        /// </summary>
         private int Id { get; set; }
         private int Account { get; set; }
         private DateTime Date { get; set; }

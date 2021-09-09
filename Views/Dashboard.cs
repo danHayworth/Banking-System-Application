@@ -10,9 +10,17 @@ namespace BankAccounts
 {
     public partial class frmDashboard : Form
     {
+        /// <summary>
+        /// A form that will be accessed only by admin
+        /// and will be able to Add, Delete, Edit Customer and 
+        /// add new accounts to customers
+        /// </summary>
         AccountController controller = new AccountController();
         CustomerController contr = new CustomerController();
         public static int customerSelected;
+        /// <summary>
+        /// setting a list that will hold the index of database for accounts
+        /// </summary>
         List<int> holdingAcc = new List<int>();
         int firstAcc;
         int secondAcc;
@@ -74,7 +82,12 @@ namespace BankAccounts
             frmAddNewAccount x = new frmAddNewAccount();
             x.Show();
         }
-
+        /// <summary>
+        /// creating a method that can be called anytime to avoid 
+        /// repetitive code
+        /// This will clear the list, clear the table, reset the selected values
+        /// and then will insert the updated values
+        /// </summary>
         private void loadAccounts()
         {
             holdingAcc.Clear();
@@ -106,11 +119,12 @@ namespace BankAccounts
 
         private void btnTransfer_Click(object sender, EventArgs e)
         {
-            double bal = Convert.ToDouble(txtTransfer.Text);
-            firstAcc = holdingAcc[cmbAcc1.SelectedIndex];
-            secondAcc = holdingAcc[cmbAcc2.SelectedIndex];
-            if(cmbAcc1.SelectedIndex != cmbAcc2.SelectedIndex)
+            
+            if(cmbAcc1.SelectedIndex != cmbAcc2.SelectedIndex && txtTransfer.Text != "")
             {
+                double bal = Convert.ToDouble(txtTransfer.Text);
+                firstAcc = holdingAcc[cmbAcc1.SelectedIndex];
+                secondAcc = holdingAcc[cmbAcc2.SelectedIndex];
                 foreach (AccessClass x in AccountController.accounts)
                 {                   
                     if (x.Id == firstAcc)
@@ -133,7 +147,7 @@ namespace BankAccounts
             }
             else
             {
-                MessageBox.Show("Same account selected twice for transfer. Please check yout selection!");
+                MessageBox.Show("Same account selected twice for transfer, and or no value for transfer. Please check yout selection!");
             }
         }
 

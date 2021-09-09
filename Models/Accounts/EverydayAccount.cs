@@ -8,7 +8,9 @@ namespace BankAccounts.Models
     * Name: Dan Hayworth
     * Date: 17-06-2021
     */
-    //inherit account for everyday
+    /// <summary>
+    /// Everyday account inherits account
+    /// </summary>
     public class EverydayAccount : Account
     {
         public EverydayAccount(double aBalance, int customer) : base(aBalance, customer)

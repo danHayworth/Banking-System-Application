@@ -10,6 +10,9 @@ namespace BankAccounts.Models
 
     public class Customer
     {
+        /// <summary>
+        /// Customer model
+        /// </summary>
         private int Id { get; set; }
         private string Name { get; set; }
         private string Username { get; set; }

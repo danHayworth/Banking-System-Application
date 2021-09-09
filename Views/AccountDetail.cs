@@ -10,7 +10,9 @@ namespace BankAccounts
     public partial class AccountDetail : Form
     {
         public static int accountId;
-       
+       /// <summary>
+       /// This the view for details of individual accounts
+       /// </summary>
         AccountController accAction = new AccountController();
         CustomerController custom = new CustomerController();
         TransactionController transaction = new TransactionController();
@@ -50,6 +52,7 @@ namespace BankAccounts
 
         private void btnDeposit_Click(object sender, EventArgs e)
         {
+            
             accAction.Deposit(accountId, Convert.ToDouble(txtDeposit.Text.ToString()));
             LoadAccount();          
             transaction.Addtransaction(accountId, DateTime.Now, "Deposit", Convert.ToDouble(txtDeposit.Text.ToString()), accAction.getAccBalance(accountId));
@@ -77,7 +80,9 @@ namespace BankAccounts
             transaction.Addtransaction(accountId, DateTime.Now, "Add Interest", Convert.ToDouble((accAction.getAccBalance(accountId) * z.Interest) / 100), accAction.getAccBalance(accountId));
             addTransactions();
         }
-
+        /// <summary>
+        /// Created a method that will call at loading and when necessary to refresh the accounts
+        /// </summary>
         private void LoadAccount()
         {
             AccessClass x = accAction.GetAccountById(accountId);
@@ -90,7 +95,9 @@ namespace BankAccounts
             txtInterest.Text = x.Interest.ToString();
             txtAccOver.Text = "B " + x.Overdraft.ToString();
         }
-
+        /// <summary>
+        /// A method to pull the transactions from the database
+        /// </summary>
         private void addTransactions()
         {
             transaction.GetTransactions(accountId);

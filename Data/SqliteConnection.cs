@@ -4,7 +4,11 @@ namespace BankAccounts.Data
 {
     class SqliteConnection
     {
-        // create a public string connection to connect to the database
+        /// <summary>
+        /// Creating the SQLite connection string
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> a connection string </returns>
         public string ConnSqlite(string id = "BitBank")
         {
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;

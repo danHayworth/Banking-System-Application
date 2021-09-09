@@ -12,6 +12,9 @@ namespace BankAccounts.Views
 {
     public partial class frmAddEdit : Form
     {
+        /// <summary>
+        /// A form to add a new customer
+        /// </summary>
         CustomerController cust = new CustomerController();
         frmManager a = new frmManager();
         public static string title;
@@ -31,7 +34,10 @@ namespace BankAccounts.Views
             a.Show();
             this.Close();
         }
-
+        /// <summary>
+        /// A method to pull and set the details of the customer
+        /// from the database if the user chose to edit details
+        /// </summary>
         private void SetUp()
         {
             lblTitle.Text = title + lblTitle.Text;
@@ -65,6 +71,9 @@ namespace BankAccounts.Views
             txtUser.Clear();
             cmbStaff.ResetText();
         }
+        /// <summary>
+        /// A method to change the text value of the button Save or Add
+        /// </summary>
         public void DisplayData()
         {
             if (btnAdd.Text == "Add")

@@ -8,7 +8,9 @@ namespace BankAccounts.Models
     * Name: Dan Hayworth
     * Date: 17-06-2021
     */
-    //inherit account 
+   /// <summary>
+   /// Investment account model
+   /// </summary>
     public class InvestmentAccount : Account
     {
         //add extra field and set up a fee 

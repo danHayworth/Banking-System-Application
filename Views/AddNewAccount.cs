@@ -9,6 +9,9 @@ namespace BankAccounts.Views
 {
     public partial class frmAddNewAccount : Form
     {
+        /// <summary>
+        /// A form to add a new account for customers
+        /// </summary>
         public static string customer = "";
         public static int custId;
         AccountController accCont = new AccountController();

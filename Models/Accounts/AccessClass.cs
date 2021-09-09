@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace BankAccounts.Models.Accounts
 {
 
-    //generated class for all types of accounts 
-    public class AccessClass
+     /// <summary>
+     /// Generate a struct for all the accounts 
+     /// </summary>
+    public struct AccessClass
     {
         public int Id { get; set; }
         public int Customer { get; set;}

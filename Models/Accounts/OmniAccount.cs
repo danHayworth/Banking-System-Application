@@ -8,7 +8,9 @@ namespace BankAccounts.Models
     * Name: Dan Hayworth
     * Date: 17-06-2021
     */
-    //inherit account 
+    /// <summary>
+    /// Omni account model
+    /// </summary>
     public class OmniAccount : Account
     {
         //set up relevant fields to the account
